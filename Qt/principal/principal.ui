@@ -82,44 +82,6 @@ border-top-left-radius: 50px;
       <string>Organic</string>
      </property>
     </widget>
-    <widget class="QScrollArea" name="scrollArea">
-     <property name="geometry">
-      <rect>
-       <x>79</x>
-       <y>119</y>
-       <width>391</width>
-       <height>301</height>
-      </rect>
-     </property>
-     <property name="widgetResizable">
-      <bool>true</bool>
-     </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>389</width>
-        <height>299</height>
-       </rect>
-      </property>
-      <widget class="QWidget" name="gridLayoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>19</x>
-         <y>19</y>
-         <width>361</width>
-         <height>271</height>
-        </rect>
-       </property>
-       <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0">
-         <widget class="QGraphicsView" name="graphicsView"/>
-        </item>
-       </layout>
-      </widget>
-     </widget>
-    </widget>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

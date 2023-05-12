@@ -1,14 +1,16 @@
 import sys
 from principal import *
+from PyQt5 import QtWidgets
 
-class MiFormulario(QtGui):
+class MiFormulario(QtWidgets.QMainWindow):
     def __init__(self,parent=None):
-        QtGui.QWidget.__init__(self,parent)
+        QtWidgets.QWidget.__init__(self,parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         
 if __name__=='__main__':
-    app=QtGui.QGuiApplication(sys.argv)
+    app=QtWidgets.QApplication(sys.argv)
     myapp=MiFormulario()
     myapp.show()
     sys.exit(app.exec)
+    
