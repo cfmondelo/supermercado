@@ -14,8 +14,8 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(625, 565)
         ############  Modificado por Kenia -> Para esconder el marco principal 
-        MainWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-        MainWindow.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        # MainWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        # MainWindow.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         #######################################
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
