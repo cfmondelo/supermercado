@@ -15,6 +15,7 @@
     <file>z_desayuno3.jpg</file>
   </qresource>
   <qresource prefix="iconos">
+    <file>x.svg</file>
     <file>z_cerrar.png</file>
   </qresource>
 </RCC>
