@@ -10,13 +10,16 @@ create table public.producto (
 );
 
 create table public.usuarios (
-	nombreusu 	varchar(50) not null,
+	correo 		varchar(50) unique not null,
+	nombre	 	varchar(50) not null,
 	contrasena 	varchar(50) not null,
-	correo 		varchar(50) not null,
 	preg_seg 	varchar(50) not null,
 	resp_seg	varchar(50) not null,
 	direccion 	varchar(50) null,
-    primary key (nombreusu)
+	cp 			int 		null,
+	ciudad 		varchar(50) null,
+	municipio 	varchar(50) null,
+    primary key (correo)
 );
 
 create table public.descuentos (
@@ -37,7 +40,7 @@ create table public.tickets (
 	fecha	 	date 		not null,
     primary key (tick_id, usuario, prod_id),
     foreign key (usuario)
-    	references usuarios (nombreusu),
+    	references usuarios (correo),
     foreign key (prod_id)
     	references producto (prod_id),
     foreign key (desc_id)
