@@ -1,13 +1,4 @@
-def addLineasProductos():
-    with open("factura.html", "a") as f:
-        f.write("<p>prueba</p>")
-        f.write("</body>")
-        f.write("</html>")
-        
-listaProductos= [["Bebida Energética",2, 2.3, 4.6],
-                 ["Bebida Diurética",1, 4.3, 4.3]]
-print(len(listaProductos))
-factura='''
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -55,4 +46,21 @@ factura='''
                 <th scope="col">Precio Total</th>
               </tr>
             </thead>
-            <tbody>'''
+            <tbody>
+                    
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Bebida Energética</td>
+                    <td>2</td>
+                    <td>2.3</td>
+                    <td>4.6</td>
+                    
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Bebida Diurética</td>
+                    <td>1</td>
+                    <td>4.3</td>
+                    <td>4.3</td>
+                    
+                </tr></tbody></table></div></body></html>
