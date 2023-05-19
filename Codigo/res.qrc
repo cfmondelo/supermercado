@@ -1,0 +1,20 @@
+<RCC>
+  <qresource prefix="images">
+    <file>z_logo_organic.png</file>
+    <file>z_6.png</file>
+    <file>z_5.png</file>
+    <file>z_1.png</file>
+    <file>z_2.png</file>
+    <file>z_3.png</file>
+    <file>z_4.png</file>
+    <file>z_background-login.jpg</file>
+  </qresource>
+  <qresource prefix="images_desayuno">
+    <file>z_desayuno1.jpg</file>
+    <file>z_desayuno2.jpg</file>
+    <file>z_desayuno3.jpg</file>
+  </qresource>
+  <qresource prefix="iconos">
+    <file>z_cerrar.png</file>
+  </qresource>
+</RCC>
