@@ -5,6 +5,22 @@
 # si trabajáis con anaconda, creo que ya están todas instaladas
 import jinja2
 import pdfkit
+import os
+def addLineasProductos(numeroProd):
+    with open("factura.html", "a") as f:
+        f.write("<p>prueba</p>")
+        f.write("</body>")
+        f.write("</html>")
+        
+def rutaPdf():
+    ruta_absoluta=os.getcwd()
+    ruta_salida=ruta_absoluta+"/exportadas/factura.pdf"
+    return ruta_salida
+
+def rutaHtml():
+    ruta_absoluta=os.getcwd()
+    ruta_salida=ruta_absoluta+"/factura.html"
+    return ruta_salida
 
 def crea_pdf(ruta_plantilla,info,rutacss=''):
     nombre_plantilla = ruta_plantilla.split('/')[-1] #obtiene el nombre de la plantilla sin la ruta completa
@@ -19,15 +35,14 @@ def crea_pdf(ruta_plantilla,info,rutacss=''):
         'encoding' : 'UTF-8'
     }
     config=pdfkit.configuration()
-    ruta_salida="/Users/carolinaf.mondelo/Documents/GitHub/supermercado/factura/exportadas/factura.pdf"
-    pdfkit.from_string(html,ruta_salida, configuration=config)
+    pdfkit.from_string(html,rutaPdf(), configuration=config)
+    
     
 if __name__=="__main__":
-    ruta_template='/Users/carolinaf.mondelo/Documents/GitHub/supermercado/factura/plantilla-factura.html'
     info={
         "NombreCliente"    : "Carolina Fernández",
         "DniCliente"       : "12345678L",
         "DireccionCliente" : "C/Maravillas, 123, 2ºA",
-        "ProvinciaCliente" :"MADRID"
+        "ProvinciaCliente" : "MADRID"
     }
-    crea_pdf(ruta_template,info)
+    crea_pdf(rutaHtml(),info)
