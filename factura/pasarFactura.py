@@ -6,11 +6,11 @@
 import jinja2
 import pdfkit
 import os
-import prueba
 
-listaProductos= [["Bebida Energética",2, 2.3, 4.6],
-                 ["Bebida Diurética",1, 4.3, 4.3]]
-def addLineasProductos(listaProductos):
+listaProductos= [["Bebida Energética",2, 2.3],
+                 ["Bebida Diurética",1, 4.3]]
+def addLineasProductos(listaProductos, descuento=0):
+    total=0
     with open("facturaGenerada.html", "w") as f:
         #escribe cabecera
         f.write('''
@@ -29,20 +29,20 @@ def addLineasProductos(listaProductos):
 </head>
 <body>
     <div id="todo" class="container-fluid">
-        <div id="cabecera" class="row d-flex flex-wrap align-items-center">
-            <div id="logo" class="col-2">
+        <table id="cabecera" class="d-flex flex-wrap align-items-center borderless-total">
+            <td id="logo" class="col-3 borderless-total">
                 <img class="img-thumbnail img-fluid" src="https://carolmondesign.com/pdf_plantilla/img/logo.png" alt="">
-            </div>
-            <div id="datosEmpresa" class="col-6">
+            </td>
+            <td id="datosEmpresa" class="borderless-total">
                 <p>Orgánic S.L</p>
                 <p>C/General Ricardos, 177</p>
                 <p>28025 Madrid</p>
                 <p>B-53241998</p>
                 <p>914 62 86 00</p>
                 <p>ayuda@organic.com</p>
-            </div>
-        </div>
-        <div id="datosPersona" class="mt-5 p-5">
+            </td>
+        </table>
+        <div id="datosPersona" class="mt-5 p-3">
             <p><strong>Nombre:</strong> {{NombreCliente}}</p>
             <p><strong>DNI:</strong> {{DniCliente}}</p>
             <p><strong>Dirección:</strong> {{DireccionCliente}}</p>
@@ -66,15 +66,50 @@ def addLineasProductos(listaProductos):
         
         #escribe los productos
         for x in range(len(listaProductos)):
+            total+=(listaProductos[x][1]*listaProductos[x][2])
             f.write('''
                 <tr>
                     <th scope="row">'''+str(x+1)+'''</th>
                     <td>'''+listaProductos[x][0]+'''</td>
                     <td>'''+str(listaProductos[x][1])+'''</td>
                     <td>'''+str(listaProductos[x][2])+'''</td>
-                    <td>'''+str(listaProductos[x][3])+'''</td>
+                    <td>'''+str(f"{listaProductos[x][1]*listaProductos[x][2]:.2f}")+'''</td>
                     
                 </tr>''')
+        #escribe descuentos
+        total-=descuento
+        precioSinIva=total-(total*0.21)
+        iva=total-precioSinIva
+        f.write('''
+                <tr>
+                    <th scope="row" class="borderless-ultima"></th>
+                    <td class="borderless-ultima"> </td>
+                    <td class="borderless-ultima"> </td>
+                    <td>Descuentos aplicados</td>
+                    <td>'''+"-"+str(descuento)+'''</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="borderless"></th>
+                    <td class="borderless"></td>
+                    <td class="borderless"></td>
+                    <td>PRECIO SIN IVA</td>
+                    <td>'''+str(f"{precioSinIva:.2f}")+'''</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="borderless"></th>
+                    <td class="borderless"></td>
+                    <td class="borderless"></td>
+                    <td>IVA</td>
+                    <td>'''+str(f"{iva:.2f}")+'''</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="borderless"></th>
+                    <td class="borderless"></td>
+                    <td class="borderless"></td>
+                    <td>PRECIO TOTAL</td>
+                    <td>'''+str(f"{total:.2f}")+'''</td>
+                </tr>         
+                ''')            
         #escribe el final
         f.write("</tbody>")
         f.write("</table>")

@@ -18,13 +18,37 @@
 
 #logo img{
     border: 0px !important; 
-    float:left!important; 
+}
+#datosEmpresa{
+    padding-left:5%;
+
+}
+.borderless{
+    border-top-style:hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+}
+.borderless-total{
+    border-top-style:hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    border-right-style: hidden;
+}
+.borderless-ultima{
+    border-left-style: hidden;
+    border-bottom-style: hidden;
 }
 #datosEmpresa p{
-    margin:0px;
+    margin:2px;
 }
 #datosPersona{
     background-color: #efe8e0;
     border-radius: 10px;
+}
+#datosPersona p{
+    margin:2px;
+}
+.sin-borde{
+    border:none!important;
 }
 
