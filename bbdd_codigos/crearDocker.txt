@@ -1,0 +1,14 @@
+
+1. Crear directorio
+mkdir organic-data
+
+2. Crear docker
+docker run --name organic-posgre -p 5432:5432 -v "$PWD/organic-data":/var/lib/postgresql/data/pgdata -e POSTGRES_DB=organic -e POSTGRES_PASSWORD=vistaalegre -e POSTGRES_USER=admin -e PGDATA=/var/lib/postgresql/data/pgdata -d postgres:13.0
+3. Conectarse a la bbdd con DBeaver
+Host: localhost
+Port: 5432
+Database: organic
+Nombre de usuario: admin
+Contraseña: vistaalegre
+
+4. Si no funciona la conexión: Poner en Driver Settings-librerías el conector de postgres que esté en esta misma carpeta y borrar todo lo que haya
