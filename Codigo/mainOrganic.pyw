@@ -7,6 +7,7 @@ from v2_2_registrarse import Ui_MainWindow as CrearCuentaUi
 from res import *
 from PyQt5.QtWidgets import QMessageBox
 import psycopg2
+import hashlib
 import bcrypt
 import re
 
@@ -43,7 +44,8 @@ def crearUsuario(conn, datos):
 
 def comprobarUsuario(conn, mail, contra):
   # Comprobar que el mail y contraseña son correctos para iniciar sesion
-  query = f"SELECT * FROM usuarios WHERE correo = '{mail}' AND contrasena = '{contra}';"
+  contraCif = cifrarContra(contra)
+  query = f"SELECT * FROM usuarios WHERE correo = '{mail}' AND contrasena = '{contraCif}';"
   try:
     cur = conn.cursor()
     cur.execute(query)
@@ -62,6 +64,13 @@ def existeUsu(conn, mail):
   except (Exception, psycopg2.DatabaseError) as error:
     print(error)
   return datosUsu
+
+def cifrarContra(contra):
+   # Creamos el objeto de clase hash y le pasamos la contraseña en byte string a cifrar
+  h = hashlib.new("sha265", contra.encode())
+  # Convertimos la contraseña cifrada en hexadecimal
+  contraCif = str(h.hexdigest()) 
+  return contraCif
 
 def camposVacios(campos):
   # Recorre una tupla para que ningun campo sea nulo
@@ -130,10 +139,10 @@ class CrearCuenta(QtWidgets.QMainWindow):
       usuario = self.ui.txtr_usuario.text()
       contra  = self.ui.txtr_password.text()
       email   = self.ui.txtr_email.text().lower()
-      preseg  = self.ui.txtr_preguntaSeguridad.text()
-      resseg  = self.ui.txtr_respuestaSeguridad.text()
+      preSeg  = self.ui.txtr_preguntaSeguridad.text()
+      resSeg  = self.ui.txtr_respuestaSeguridad.text()
 
-      datos = (usuario, contra, email, preseg, resseg)
+      datos = (email, usuario, contra, preSeg, resSeg)
       vacio = camposVacios(datos)
       
       if vacio:
@@ -147,9 +156,10 @@ class CrearCuenta(QtWidgets.QMainWindow):
         if existeUsu(conexion, email):
           showDialog("La cuenta ya existe")
         else:
-          # salt = bcrypt.gensalt()
-          # hashed = bcrypt.hashpw(password, salt)
-          # datos = (usuario, contra, email, preseg, resseg)
+          contraCif = cifrarContra(contra)
+          resSegCif = cifrarContra(resSeg)
+
+          datos = (email, usuario, contraCif, preSeg, resSegCif)
           crearUsuario(conexion, datos)
           stacked_widget.setCurrentIndex(0)  # Cambiar a la ventana de Login
         desconectar(conexion)
