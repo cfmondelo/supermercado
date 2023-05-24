@@ -67,7 +67,7 @@ def existeUsu(conn, mail):
 
 def cifrarContra(contra):
    # Creamos el objeto de clase hash y le pasamos la contraseña en byte string a cifrar
-  h = hashlib.new("sha265", contra.encode())
+  h = hashlib.new("sha256", contra.encode())
   # Convertimos la contraseña cifrada en hexadecimal
   contraCif = str(h.hexdigest()) 
   return contraCif
