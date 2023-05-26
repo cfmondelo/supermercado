@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="images">
+    <file>z_logo.png</file>
     <file>z_logo_organic.png</file>
     <file>z_6.png</file>
     <file>z_5.png</file>
@@ -9,13 +10,79 @@
     <file>z_4.png</file>
     <file>z_background-login.jpg</file>
   </qresource>
+  <qresource prefix="imagenes_shots">
+    <file>z_shot1.jpg</file>
+    <file>z_shot5.jpg</file>
+    <file>z_shot4.jpg</file>
+    <file>z_shot3.jpg</file>
+    <file>z_shot2.jpg</file>
+  </qresource>
+  <qresource prefix="imagenes_tea">
+    <file>z_tea4.png</file>
+    <file>z_tea3.jpg</file>
+    <file>z_tea2.jpg</file>
+    <file>z_tea1.jpg</file>
+  </qresource>
+  <qresource prefix="imagenes_barritas">
+    <file>z_bar5.jpg</file>
+    <file>z_bar4.jpg</file>
+    <file>z_bar3.jpg</file>
+    <file>z_bar2.jpg</file>
+    <file>z_bars1.jpg</file>
+  </qresource>
+  <qresource prefix="imagenes_gummies">
+    <file>z_gummies4.jpg</file>
+    <file>z_gummies3.jpg</file>
+    <file>z_gummies2.jpg</file>
+    <file>z_gummies1.jpg</file>
+  </qresource>
+  <qresource prefix="imagenes_cremas">
+    <file>z_cremas7.jpg</file>
+    <file>z_cremas6.jpg</file>
+    <file>z_cremas5.jpg</file>
+    <file>z_cremas4.jpg</file>
+    <file>z_cremas3.jpg</file>
+    <file>z_cremas2.jpg</file>
+    <file>z_cremas1.jpg</file>
+  </qresource>
+  <qresource prefix="imagenes_platos">
+    <file>z_platos7.jpg</file>
+    <file>z_platos6.jpg</file>
+    <file>z_platos5.jpg</file>
+    <file>z_platos4.jpg</file>
+    <file>z_platos3.jpg</file>
+    <file>z_platos2.jpg</file>
+    <file>z_platos1.jpg</file>
+  </qresource>
+  <qresource prefix="imagenes_zumos">
+    <file>z_zumos8.jpg</file>
+    <file>z_zumos7.jpg</file>
+    <file>z_zumos6.jpg</file>
+    <file>z_zumos5.jpg</file>
+    <file>z_zumos4.jpg</file>
+    <file>z_zumos3.jpg</file>
+    <file>z_zumos2.jpg</file>
+    <file>z_zumos1.jpg</file>
+  </qresource>
+  <qresource prefix="imagenes_waters">
+    <file>z_water1.jpeg</file>
+    <file>water4.jpg</file>
+    <file>z_water2.jpg</file>
+    <file>z_water3.jpg</file>
+  </qresource>
   <qresource prefix="images_desayuno">
     <file>z_desayuno1.jpg</file>
     <file>z_desayuno2.jpg</file>
     <file>z_desayuno3.jpg</file>
   </qresource>
   <qresource prefix="iconos">
-    <file>x.svg</file>
     <file>z_cerrar.png</file>
+  </qresource>
+  <qresource prefix="imagenes_kombucha">
+    <file>z_kombucha5.png</file>
+    <file>z_kombucha4.jpg</file>
+    <file>z_kombucha3.jpg</file>
+    <file>z_kombucha2.jpg</file>
+    <file>z_kombucha1.jpg</file>
   </qresource>
 </RCC>
