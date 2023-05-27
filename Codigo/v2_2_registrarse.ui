@@ -311,8 +311,8 @@ padding-bottom:7px;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../Iconos/x.svg</normaloff>../Iconos/x.svg</iconset>
+      <iconset resource="res.qrc">
+       <normaloff>:/iconos/z_cerrar.png</normaloff>:/iconos/z_cerrar.png</iconset>
      </property>
     </widget>
    </widget>

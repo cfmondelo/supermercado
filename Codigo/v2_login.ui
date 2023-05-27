@@ -252,8 +252,8 @@ border-color:  rgba(46,82,101,200);</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../Iconos/cerrar.png</normaloff>../Iconos/cerrar.png</iconset>
+      <iconset resource="res.qrc">
+       <normaloff>:/iconos/z_cerrar.png</normaloff>:/iconos/z_cerrar.png</iconset>
      </property>
     </widget>
    </widget>

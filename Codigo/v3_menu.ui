@@ -128,8 +128,8 @@ color:rgb(0,0,0);
            <string/>
           </property>
           <property name="icon">
-           <iconset>
-            <normaloff>../Iconos/menu.png</normaloff>../Iconos/menu.png</iconset>
+           <iconset resource="res.qrc">
+            <normaloff>:/iconos/menu.png</normaloff>:/iconos/menu.png</iconset>
           </property>
          </widget>
          <widget class="QPushButton" name="botonm_cerrar">
@@ -154,8 +154,8 @@ color:rgb(0,0,0);
            <string/>
           </property>
           <property name="icon">
-           <iconset>
-            <normaloff>../Iconos/x.svg</normaloff>../Iconos/x.svg</iconset>
+           <iconset resource="res.qrc">
+            <normaloff>:/iconos/z_cerrar.png</normaloff>:/iconos/z_cerrar.png</iconset>
           </property>
          </widget>
          <widget class="QLabel" name="label_logo">
@@ -457,8 +457,8 @@ color:rgb(0,0,0);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>792</width>
-                       <height>1253</height>
+                       <width>624</width>
+                       <height>1248</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -558,8 +558,8 @@ border-image: url(:/images/z_5.png);</string>
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>818</width>
-                       <height>497</height>
+                       <width>624</width>
+                       <height>352</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -968,9 +968,9 @@ color:rgb(0,0,0);
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>-209</y>
-                       <width>792</width>
-                       <height>706</height>
+                       <y>0</y>
+                       <width>676</width>
+                       <height>709</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -1274,9 +1274,9 @@ color:rgb(0,0,0);
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>-328</y>
-                       <width>792</width>
-                       <height>854</height>
+                       <y>0</y>
+                       <width>816</width>
+                       <height>866</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout">
@@ -2145,9 +2145,9 @@ color:rgb(0,0,0);
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>-357</y>
-                       <width>792</width>
-                       <height>854</height>
+                       <y>0</y>
+                       <width>746</width>
+                       <height>866</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_2">
@@ -2873,9 +2873,9 @@ color:rgb(0,0,0);
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>-357</y>
-                       <width>792</width>
-                       <height>854</height>
+                       <y>0</y>
+                       <width>746</width>
+                       <height>866</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_3">
@@ -3598,9 +3598,9 @@ color:rgb(0,0,0);
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>-78</y>
-                       <width>792</width>
-                       <height>575</height>
+                       <y>0</y>
+                       <width>746</width>
+                       <height>580</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_6">
@@ -4027,9 +4027,9 @@ color:rgb(0,0,0);
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>-78</y>
-                       <width>792</width>
-                       <height>575</height>
+                       <y>0</y>
+                       <width>746</width>
+                       <height>580</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_4">
@@ -4546,9 +4546,9 @@ color:rgb(0,0,0);
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>-79</y>
-                       <width>792</width>
-                       <height>576</height>
+                       <y>0</y>
+                       <width>676</width>
+                       <height>579</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_17">
@@ -4854,9 +4854,9 @@ color:rgb(0,0,0);
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>-259</y>
-                       <width>792</width>
-                       <height>756</height>
+                       <y>0</y>
+                       <width>462</width>
+                       <height>767</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -5234,9 +5234,9 @@ color:rgb(0,0,0);
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>-78</y>
-                       <width>792</width>
-                       <height>575</height>
+                       <y>0</y>
+                       <width>746</width>
+                       <height>580</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_5">
@@ -5765,8 +5765,8 @@ color:rgb(0,0,0);
            <string/>
           </property>
           <property name="icon">
-           <iconset>
-            <normaloff>../Iconos/user.svg</normaloff>../Iconos/user.svg</iconset>
+           <iconset resource="res.qrc">
+            <normaloff>:/iconos/user.png</normaloff>:/iconos/user.png</iconset>
           </property>
          </widget>
          <widget class="QPushButton" name="botonm_carrito">
@@ -5791,8 +5791,8 @@ color:rgb(0,0,0);
            <string/>
           </property>
           <property name="icon">
-           <iconset>
-            <normaloff>../Iconos/shopping-cart.svg</normaloff>../Iconos/shopping-cart.svg</iconset>
+           <iconset resource="res.qrc">
+            <normaloff>:/iconos/carrito.png</normaloff>:/iconos/carrito.png</iconset>
           </property>
          </widget>
          <widget class="QPushButton" name="botonm_lupa">
@@ -5817,8 +5817,8 @@ color:rgb(0,0,0);
            <string/>
           </property>
           <property name="icon">
-           <iconset>
-            <normaloff>../Iconos/search.svg</normaloff>../Iconos/search.svg</iconset>
+           <iconset resource="res.qrc">
+            <normaloff>:/iconos/lupa.png</normaloff>:/iconos/lupa.png</iconset>
           </property>
          </widget>
         </widget>
