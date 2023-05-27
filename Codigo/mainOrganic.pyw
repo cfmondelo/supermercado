@@ -6,6 +6,7 @@ from v2_login import Ui_MainWindow as LoginUi
 from v2_2_registrarse import Ui_MainWindow as CrearCuentaUi
 from v3_menu import Ui_MainWindow as MenuPrincipalUi
 from res import *
+from metodosSupermercado import *
 
 
 
@@ -21,10 +22,20 @@ class Login(QtWidgets.QMainWindow):
         
 
 
-    # def funcionLogin(self):
-    #     email=self.ui.txtl_usuario.text()
-    #     password=self.ui.txtl_password.text()
-    #     print("Ha iniciado correctamente: ", email, password)
+    def funcionLogin(self):
+        email = self.ui.txtl_usuario.text().lower()
+        password = self.ui.txtl_password.text()
+
+        conexion = conectar()   
+        usuarioOK = comprobarUsuario(conexion, email, password)
+        if usuarioOK:
+            showDialog("Login ok")
+        else:
+            showDialog("Datos incorrectos")
+        desconectar(conexion)
+
+        self.ui.txtl_usuario.clear()
+        self.ui.txtl_password.clear()
         
 
     def cambiarDePantalla(self):
@@ -47,16 +58,42 @@ class CrearCuenta(QtWidgets.QMainWindow):
         QtWidgets.QWidget.__init__(self,parent)
         self.ui = CrearCuentaUi()
         self.ui.setupUi(self)
-        # self.ui.botonr_entrar.clicked.connect(self.funcionRegistro)
-        # self.ui.botonrCerrar.clicked.connect(app.quit)
+        self.ui.botonr_entrar.clicked.connect(self.funcionRegistro)
+        self.ui.botonrCerrar.clicked.connect(app.quit)
 
 
     def funcionRegistro(self):
-        email=self.ui.txtr_email.text()
-        if self.ui.txtr_password.text()==self.ui.txtr_confirmarPassword.text():
-            contraseña=self.ui.txtr_password.text()
-            print(email,contraseña)
-            stacked_widget.setCurrentIndex(0)  # Cambiar a la ventana de Login
+        if self.ui.txtr_password.text() == self.ui.txtr_confirmarPassword.text():
+            usuario = self.ui.txtr_usuario.text()
+            contra  = self.ui.txtr_password.text()
+            email   = self.ui.txtr_email.text().lower()
+            preSeg  = self.ui.txtr_preguntaSeguridad.text()
+            resSeg  = self.ui.txtr_respuestaSeguridad.text()
+
+            datos = (email, usuario, contra, preSeg, resSeg)
+            vacio = camposVacios(datos)
+            
+            if vacio:
+                showDialog("Debe rellenar todos los datos")
+            elif len(contra) < 8:
+                showDialog("La contraseña debe tener al menos 8 caracteres")
+            elif not comprobarMail(email):
+                showDialog("El mail no es valido")
+            else:
+                conexion = conectar()
+            if existeUsu(conexion, email):
+                showDialog("La cuenta ya existe")
+            else:
+                contraCif = cifrarContra(contra)
+                resSegCif = cifrarContra(resSeg)
+                datos = (email, usuario, contraCif, preSeg, resSegCif)
+                crearUsuario(conexion, datos)
+                stacked_widget.setCurrentIndex(0)  # Cambiar a la ventana de Login
+                desconectar(conexion)
+
+                self.ui.txtr_password.clear()
+                self.ui.txtr_confirmarPassword.clear()
+                self.ui.txtr_respuestaSeguridad.clear()
 
 
 ###########################################################################################
