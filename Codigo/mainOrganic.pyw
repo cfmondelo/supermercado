@@ -16,6 +16,7 @@ class Login(QtWidgets.QMainWindow):
         QtWidgets.QWidget.__init__(self,parent)
         self.ui = LoginUi()
         self.ui.setupUi(self)
+        # self.ui.boton_entrar.clicked.connect(self.funcionLogin)
         self.ui.boton_entrar.clicked.connect(self.cambiarAVentanaPrincipal)
         self.ui.botonl_crearCuentaNueva.clicked.connect(self.cambiarDePantalla)
         self.ui.botonlCerrar.clicked.connect(app.quit)
@@ -30,6 +31,7 @@ class Login(QtWidgets.QMainWindow):
         usuarioOK = comprobarUsuario(conexion, email, password)
         if usuarioOK:
             showDialog("Login ok")
+            self.cambiarAVentanaPrincipal
         else:
             showDialog("Datos incorrectos")
         desconectar(conexion)
