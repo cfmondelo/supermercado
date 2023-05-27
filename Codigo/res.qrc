@@ -76,6 +76,12 @@
     <file>z_desayuno3.jpg</file>
   </qresource>
   <qresource prefix="iconos">
+    <file>user.png</file>
+    <file>menu.png</file>
+    <file>lupa.png</file>
+    <file>home.png</file>
+    <file>cartera.png</file>
+    <file>carrito.png</file>
     <file>z_cerrar.png</file>
   </qresource>
   <qresource prefix="Kombucha">
