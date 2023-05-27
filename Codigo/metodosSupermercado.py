@@ -23,7 +23,7 @@ def conectar():
 def desconectar(conn):
   if conn is not None:
     conn.close()
-
+    
 def crearUsuario(conn, datos):
   query = f"INSERT INTO usuarios(correo, nombre, contrasena, preg_seg, resp_seg) VALUES {datos};"
   try:

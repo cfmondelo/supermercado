@@ -46,3 +46,5 @@ create table public.tickets (
     foreign key (desc_id)
     	references descuentos (desc_id)
 );
+ALTER TABLE public.usuarios ALTER COLUMN contrasena TYPE varchar(70) USING contrasena::varchar;
+ALTER TABLE public.usuarios ALTER COLUMN resp_seg TYPE varchar(70) USING resp_seg::varchar;
