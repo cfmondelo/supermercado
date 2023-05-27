@@ -10,33 +10,33 @@
     <file>z_4.png</file>
     <file>z_background-login.jpg</file>
   </qresource>
-  <qresource prefix="imagenes_shots">
+  <qresource prefix="Shots funcionales">
     <file>z_shot1.jpg</file>
     <file>z_shot5.jpg</file>
     <file>z_shot4.jpg</file>
     <file>z_shot3.jpg</file>
     <file>z_shot2.jpg</file>
   </qresource>
-  <qresource prefix="imagenes_tea">
+  <qresource prefix="TeaTox">
     <file>z_tea4.png</file>
     <file>z_tea3.jpg</file>
     <file>z_tea2.jpg</file>
     <file>z_tea1.jpg</file>
   </qresource>
-  <qresource prefix="imagenes_barritas">
+  <qresource prefix="Functional Bars">
     <file>z_bar5.jpg</file>
     <file>z_bar4.jpg</file>
     <file>z_bar3.jpg</file>
     <file>z_bar2.jpg</file>
     <file>z_bars1.jpg</file>
   </qresource>
-  <qresource prefix="imagenes_gummies">
+  <qresource prefix="Gummies">
     <file>z_gummies4.jpg</file>
     <file>z_gummies3.jpg</file>
     <file>z_gummies2.jpg</file>
     <file>z_gummies1.jpg</file>
   </qresource>
-  <qresource prefix="imagenes_cremas">
+  <qresource prefix="Cremas">
     <file>z_cremas7.jpg</file>
     <file>z_cremas6.jpg</file>
     <file>z_cremas5.jpg</file>
@@ -45,7 +45,7 @@
     <file>z_cremas2.jpg</file>
     <file>z_cremas1.jpg</file>
   </qresource>
-  <qresource prefix="imagenes_platos">
+  <qresource prefix="Platos preparados">
     <file>z_platos7.jpg</file>
     <file>z_platos6.jpg</file>
     <file>z_platos5.jpg</file>
@@ -54,7 +54,7 @@
     <file>z_platos2.jpg</file>
     <file>z_platos1.jpg</file>
   </qresource>
-  <qresource prefix="imagenes_zumos">
+  <qresource prefix="Zumos de frutas y verduras">
     <file>z_zumos8.jpg</file>
     <file>z_zumos7.jpg</file>
     <file>z_zumos6.jpg</file>
@@ -64,27 +64,21 @@
     <file>z_zumos2.jpg</file>
     <file>z_zumos1.jpg</file>
   </qresource>
-  <qresource prefix="imagenes_waters">
+  <qresource prefix="Power Waters">
     <file>z_water1.jpeg</file>
     <file>water4.jpg</file>
     <file>z_water2.jpg</file>
     <file>z_water3.jpg</file>
   </qresource>
-  <qresource prefix="images_desayuno">
+  <qresource prefix="Desayunos">
     <file>z_desayuno1.jpg</file>
     <file>z_desayuno2.jpg</file>
     <file>z_desayuno3.jpg</file>
   </qresource>
   <qresource prefix="iconos">
-    <file>carrito.png</file>
-    <file>cartera.png</file>
-    <file>home.png</file>
-    <file>lupa.png</file>
-    <file>menu.png</file>
-    <file>user.png</file>
     <file>z_cerrar.png</file>
   </qresource>
-  <qresource prefix="imagenes_kombucha">
+  <qresource prefix="Kombucha">
     <file>z_kombucha5.png</file>
     <file>z_kombucha4.jpg</file>
     <file>z_kombucha3.jpg</file>

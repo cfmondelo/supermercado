@@ -97,7 +97,6 @@ class CrearCuenta(QtWidgets.QMainWindow):
 
 
 ###########################################################################################
-# 21/05/23
 
 class VentanaPrincipal(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
@@ -107,12 +106,12 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
         self.ui.botonI_menu.clicked.connect(self.mover_menu1)  # Conecta la señal del botón a la función mover_menu1()
         self.ui.botonm_cerrar.clicked.connect(app.quit)
 
-
-
-        # # Conectar los botones de compra a la función mostrarEtiquetas ???? PRUEB>
-        # for boton in self.findChildren(QPushButton, "botonComprar_*"):
-        #     boton.clicked.connect(self.mostrarEtiquetas)
-
+        # Agrego eventFilters a las etiquetas correspondientes
+        self.ui.label_logo.installEventFilter(self)
+        self.ui.labelm_imagenZumos_2.installEventFilter(self)
+        self.ui.labelm_imagenShots.installEventFilter(self)
+        self.ui.labelm_imagenTe.installEventFilter(self)
+        self.ui.labelm_imagenBars.installEventFilter(self)
 
 
         # Crear un diccionario para mapear los botones con las páginas 
@@ -134,11 +133,30 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
         for boton, pagina in self.page_mapping.items():
             boton.clicked.connect(lambda _, p=pagina: self.mostrarPage(p))
 
+
+    # Cambio de pagina segun la label que pulse
+    def eventFilter(self, obj, event):
+        if event.type() == QtCore.QEvent.MouseButtonPress:
+            if obj == self.ui.label_logo:
+                self.mostrarPage(self.ui.page_inicio)
+            elif obj == self.ui.labelm_imagenZumos_2:
+                self.mostrarPage(self.ui.page_zumos)
+            elif obj == self.ui.labelm_imagenShots:
+                self.mostrarPage(self.ui.page_shots)
+            elif obj == self.ui.labelm_imagenTe:
+                self.mostrarPage(self.ui.page_teatox)
+            elif obj == self.ui.labelm_imagenBars:
+                self.mostrarPage(self.ui.page_bars)
+            return True
+        return super().eventFilter(obj, event)
+
+
+    # Mostrar pagina
     def mostrarPage(self, pagina):
         index = self.ui.frame_paginas.layout().itemAt(0).widget().indexOf(pagina)
         self.ui.frame_paginas.layout().itemAt(0).widget().setCurrentIndex(index)
 
-
+    # Mover menu 
     def mover_menu1(self):
         width = self.ui.frame_controlMenu.width()  # Obtener el ancho actual del frame_controlMenu
         normal = 0
@@ -156,28 +174,12 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
 
 
 
-################################################################################################
-# 21/05/2023
-
-    # def mostrarEtiquetas(self):
-    #     boton_pulsado = self.sender()  # Obtener el botón que emitió la señal
-    #     nombre_boton = boton_pulsado.objectName()  # Obtener el nombre del botón
-
-    #     # Extraer el número del botón pulsado
-    #     numero = int(nombre_boton.split("_")[1])
-
-    #     frame_name = f"frame_{numero}"  # Construir el nombre del frame basado en el número del botón
-    #     frame = getattr(self.ui, frame_name, None)  # Obtener el frame utilizando getattr() y asignar None si no se encuentra
-
-    #     if frame is not None:
-    #         etiquetas = frame.findChildren(QLabel)  # Encontrar todas las etiquetas dentro del frame
-    #         etiquetas_nombres = [etiqueta.text() for etiqueta in etiquetas]  # Obtener los nombres de las etiquetas
-    #         print(etiquetas_nombres)
-    #     else:
-    #         print(f"No se encontró el frame {frame_name}")
 
 
-################################################################################################
+
+
+
+###########################################################################################
 
 
 

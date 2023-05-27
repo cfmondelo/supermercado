@@ -128,8 +128,8 @@ color:rgb(0,0,0);
            <string/>
           </property>
           <property name="icon">
-           <iconset resource="res.qrc">
-            <normaloff>:/iconos/menu.png</normaloff>:/iconos/menu.png</iconset>
+           <iconset>
+            <normaloff>../../../../Desktop/TFG/Organic/Iconos/menu.png</normaloff>../../../../Desktop/TFG/Organic/Iconos/menu.png</iconset>
           </property>
          </widget>
          <widget class="QPushButton" name="botonm_cerrar">
@@ -154,8 +154,8 @@ color:rgb(0,0,0);
            <string/>
           </property>
           <property name="icon">
-           <iconset resource="res.qrc">
-            <normaloff>:/iconos/z_cerrar.png</normaloff>:/iconos/z_cerrar.png</iconset>
+           <iconset>
+            <normaloff>../../../../Desktop/TFG/Organic/Iconos/x.svg</normaloff>../../../../Desktop/TFG/Organic/Iconos/x.svg</iconset>
           </property>
          </widget>
          <widget class="QLabel" name="label_logo">
@@ -443,7 +443,7 @@ color:rgb(0,0,0);
                  <string notr="true"/>
                 </property>
                 <property name="currentIndex">
-                 <number>3</number>
+                 <number>7</number>
                 </property>
                 <widget class="QWidget" name="page_inicio">
                  <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -456,9 +456,9 @@ color:rgb(0,0,0);
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>0</y>
-                       <width>624</width>
-                       <height>1248</height>
+                       <y>-674</y>
+                       <width>792</width>
+                       <height>1253</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -510,7 +510,8 @@ border-image: url(:/images/z_4.png);</string>
                          </size>
                         </property>
                         <property name="styleSheet">
-                         <string notr="true">border-image: url(:/imagenes_tea/z_tea4.png);</string>
+                         <string notr="true">border-image: url(:/TeaTox/z_tea4.png);
+</string>
                         </property>
                         <property name="text">
                          <string/>
@@ -558,8 +559,8 @@ border-image: url(:/images/z_5.png);</string>
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>624</width>
-                       <height>352</height>
+                       <width>818</width>
+                       <height>497</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -682,7 +683,7 @@ color:rgb(0,0,0);
                              </size>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">border-image: url(:/images_desayuno/z_desayuno1.jpg);</string>
+                             <string notr="true">border-image: url(:/Desayunos/z_desayuno1.jpg);</string>
                             </property>
                             <property name="text">
                              <string/>
@@ -790,7 +791,7 @@ color:rgb(0,0,0);
                              </size>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">border-image: url(:/images_desayuno/z_desayuno2.jpg);</string>
+                             <string notr="true">border-image: url(:/Desayunos/z_desayuno2.jpg);</string>
                             </property>
                             <property name="text">
                              <string/>
@@ -894,7 +895,7 @@ color:rgb(0,0,0);
                              </size>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">border-image: url(:/images_desayuno/z_desayuno3.jpg);</string>
+                             <string notr="true">border-image: url(:/Desayunos/z_desayuno3.jpg);</string>
                             </property>
                             <property name="text">
                              <string/>
@@ -968,9 +969,9 @@ color:rgb(0,0,0);
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>0</y>
-                       <width>676</width>
-                       <height>709</height>
+                       <y>-201</y>
+                       <width>792</width>
+                       <height>698</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -983,7 +984,7 @@ color:rgb(0,0,0);
                          </size>
                         </property>
                         <property name="styleSheet">
-                         <string notr="true">border-image: url(:/imagenes_waters/z_water1.jpeg);</string>
+                         <string notr="true">border-image: url(:/Power Waters/z_water1.jpeg);</string>
                         </property>
                         <property name="frameShape">
                          <enum>QFrame::StyledPanel</enum>
@@ -1033,7 +1034,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_waters/z_water2.jpg);</string>
+                            <string notr="true">border-image: url(:/Power Waters/z_water2.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -1055,7 +1056,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_waters/z_water3.jpg);</string>
+                            <string notr="true">border-image: url(:/Power Waters/z_water3.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -1077,7 +1078,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_waters/water4.jpg);</string>
+                            <string notr="true">border-image: url(:/Power Waters/water4.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -1275,8 +1276,8 @@ color:rgb(0,0,0);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>816</width>
-                       <height>866</height>
+                       <width>792</width>
+                       <height>854</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout">
@@ -1316,7 +1317,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_zumos/z_zumos1.jpg);</string>
+                            <string notr="true">border-image: url(:/Zumos de frutas y verduras/z_zumos1.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -1424,7 +1425,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_zumos/z_zumos2.jpg);</string>
+                            <string notr="true">border-image: url(:/Zumos de frutas y verduras/z_zumos2.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -1528,7 +1529,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_zumos/z_zumos3.jpg);</string>
+                            <string notr="true">border-image: url(:/Zumos de frutas y verduras/z_zumos3.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -1626,7 +1627,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_zumos/z_zumos4.jpg);</string>
+                            <string notr="true">border-image: url(:/Zumos de frutas y verduras/z_zumos4.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -1734,7 +1735,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_zumos/z_zumos5.jpg);</string>
+                            <string notr="true">border-image: url(:/Zumos de frutas y verduras/z_zumos5.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -1838,7 +1839,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_zumos/z_zumos6.jpg);</string>
+                            <string notr="true">border-image: url(:/Zumos de frutas y verduras/z_zumos6.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -1936,7 +1937,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_zumos/z_zumos7.jpg);</string>
+                            <string notr="true">border-image: url(:/Zumos de frutas y verduras/z_zumos7.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -2044,7 +2045,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_zumos/z_zumos8.jpg);</string>
+                            <string notr="true">border-image: url(:/Zumos de frutas y verduras/z_zumos8.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -2145,9 +2146,9 @@ color:rgb(0,0,0);
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>0</y>
-                       <width>746</width>
-                       <height>866</height>
+                       <y>-357</y>
+                       <width>792</width>
+                       <height>854</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_2">
@@ -2187,7 +2188,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_platos/z_platos1.jpg);</string>
+                            <string notr="true">border-image: url(:/Platos preparados/z_platos1.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -2290,7 +2291,7 @@ Preparados (x6)</string>
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_platos/z_platos2.jpg);</string>
+                            <string notr="true">border-image: url(:/Platos preparados/z_platos2.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -2388,7 +2389,7 @@ Preparados (x6)</string>
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_platos/z_platos3.jpg);</string>
+                            <string notr="true">border-image: url(:/Platos preparados/z_platos3.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -2480,7 +2481,7 @@ Preparados (x6)</string>
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_platos/z_platos4.jpg);</string>
+                            <string notr="true">border-image: url(:/Platos preparados/z_platos4.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -2583,7 +2584,7 @@ secos</string>
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_platos/z_platos5.jpg);</string>
+                            <string notr="true">border-image: url(:/Platos preparados/z_platos5.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -2682,7 +2683,7 @@ garbanzos</string>
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_platos/z_platos6.jpg);</string>
+                            <string notr="true">border-image: url(:/Platos preparados/z_platos6.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -2774,7 +2775,7 @@ garbanzos</string>
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_platos/z_platos7.jpg);</string>
+                            <string notr="true">border-image: url(:/Platos preparados/z_platos7.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -2874,8 +2875,8 @@ color:rgb(0,0,0);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>746</width>
-                       <height>866</height>
+                       <width>792</width>
+                       <height>854</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_3">
@@ -2915,7 +2916,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_cremas/z_cremas1.jpg);</string>
+                            <string notr="true">border-image: url(:/Cremas/z_cremas1.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -3017,7 +3018,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_cremas/z_cremas2.jpg);</string>
+                            <string notr="true">border-image: url(:/Cremas/z_cremas2.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -3115,7 +3116,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_cremas/z_cremas3.jpg);</string>
+                            <string notr="true">border-image: url(:/Cremas/z_cremas3.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -3207,7 +3208,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_cremas/z_cremas4.jpg);</string>
+                            <string notr="true">border-image: url(:/Cremas/z_cremas4.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -3309,7 +3310,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_cremas/z_cremas5.jpg);</string>
+                            <string notr="true">border-image: url(:/Cremas/z_cremas5.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -3407,7 +3408,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_cremas/z_cremas6.jpg);</string>
+                            <string notr="true">border-image: url(:/Cremas/z_cremas6.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -3499,7 +3500,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_cremas/z_cremas7.jpg);</string>
+                            <string notr="true">border-image: url(:/Cremas/z_cremas7.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -3599,8 +3600,8 @@ color:rgb(0,0,0);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>746</width>
-                       <height>580</height>
+                       <width>792</width>
+                       <height>575</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_6">
@@ -3640,7 +3641,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_gummies/z_gummies4.jpg);</string>
+                            <string notr="true">border-image: url(:/Gummies/z_gummies4.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -3742,7 +3743,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_gummies/z_gummies2.jpg);</string>
+                            <string notr="true">border-image: url(:/Gummies/z_gummies2.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -3834,7 +3835,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_gummies/z_gummies1.jpg);</string>
+                            <string notr="true">border-image: url(:/Gummies/z_gummies1.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -3936,7 +3937,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_gummies/z_gummies3.jpg);</string>
+                            <string notr="true">border-image: url(:/Gummies/z_gummies3.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -4027,9 +4028,9 @@ color:rgb(0,0,0);
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>0</y>
-                       <width>746</width>
-                       <height>580</height>
+                       <y>-78</y>
+                       <width>792</width>
+                       <height>575</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_4">
@@ -4069,7 +4070,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_barritas/z_bars1.jpg);</string>
+                            <string notr="true">border-image: url(:/Functional Bars/z_bars1.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -4171,7 +4172,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_barritas/z_bar2.jpg);</string>
+                            <string notr="true">border-image: url(:/Functional Bars/z_bar2.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -4269,7 +4270,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_barritas/z_bar3.jpg);</string>
+                            <string notr="true">border-image: url(:/Functional Bars/z_bar3.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -4361,7 +4362,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_barritas/z_bar4.jpg);</string>
+                            <string notr="true">border-image: url(:/Functional Bars/z_bar4.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -4463,7 +4464,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_barritas/z_bar5.jpg);</string>
+                            <string notr="true">border-image: url(:/Functional Bars/z_bar5.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -4546,9 +4547,9 @@ color:rgb(0,0,0);
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>0</y>
-                       <width>676</width>
-                       <height>579</height>
+                       <y>-71</y>
+                       <width>792</width>
+                       <height>568</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_17">
@@ -4561,7 +4562,7 @@ color:rgb(0,0,0);
                          </size>
                         </property>
                         <property name="styleSheet">
-                         <string notr="true">border-image: url(:/imagenes_tea/z_tea4.png);</string>
+                         <string notr="true">border-image: url(:/TeaTox/z_tea4.png);</string>
                         </property>
                         <property name="frameShape">
                          <enum>QFrame::StyledPanel</enum>
@@ -4630,7 +4631,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_tea/z_tea1.jpg);</string>
+                            <string notr="true">border-image: url(:/TeaTox/z_tea1.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -4734,7 +4735,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_tea/z_tea2.jpg);</string>
+                            <string notr="true">border-image: url(:/TeaTox/z_tea2.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -4756,7 +4757,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_tea/z_tea3.jpg);</string>
+                            <string notr="true">border-image: url(:/TeaTox/z_tea3.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -4855,8 +4856,8 @@ color:rgb(0,0,0);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>462</width>
-                       <height>767</height>
+                       <width>792</width>
+                       <height>744</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -4875,7 +4876,7 @@ color:rgb(0,0,0);
                          </size>
                         </property>
                         <property name="styleSheet">
-                         <string notr="true">border-image: url(:/imagenes_kombucha/z_kombucha5.png);</string>
+                         <string notr="true">border-image: url(:/Kombucha/z_kombucha5.png);</string>
                         </property>
                         <property name="frameShape">
                          <enum>QFrame::StyledPanel</enum>
@@ -4925,7 +4926,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_kombucha/z_kombucha1.jpg);</string>
+                            <string notr="true">border-image: url(:/Kombucha/z_kombucha1.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -4947,7 +4948,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_kombucha/z_kombucha2.jpg);</string>
+                            <string notr="true">border-image: url(:/Kombucha/z_kombucha2.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -4970,7 +4971,7 @@ color:rgb(0,0,0);
                             </font>
                            </property>
                            <property name="text">
-                            <string>DAY TEA - Activate &amp; Burn</string>
+                            <string>Caja Kombucha Jengibre</string>
                            </property>
                           </widget>
                          </item>
@@ -4990,7 +4991,7 @@ color:rgb(0,0,0);
                             </font>
                            </property>
                            <property name="text">
-                            <string>NIGHT TEA - Rest &amp; Sleep</string>
+                            <string>Caja Kombucha Limón</string>
                            </property>
                           </widget>
                          </item>
@@ -5010,7 +5011,7 @@ color:rgb(0,0,0);
                             </font>
                            </property>
                            <property name="text">
-                            <string>18,00€</string>
+                            <string>27,00€</string>
                            </property>
                            <property name="scaledContents">
                             <bool>false</bool>
@@ -5032,7 +5033,7 @@ color:rgb(0,0,0);
                             </font>
                            </property>
                            <property name="text">
-                            <string>18,00€</string>
+                            <string>27,00€</string>
                            </property>
                           </widget>
                          </item>
@@ -5077,7 +5078,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_kombucha/z_kombucha3.jpg);</string>
+                            <string notr="true">border-image: url(:/Kombucha/z_kombucha3.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -5099,7 +5100,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_kombucha/z_kombucha4.jpg);</string>
+                            <string notr="true">border-image: url(:/Kombucha/z_kombucha4.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -5122,7 +5123,7 @@ color:rgb(0,0,0);
                             </font>
                            </property>
                            <property name="text">
-                            <string>IMMUNITY TEA</string>
+                            <string>Caja Kombucha Frutas del bosque</string>
                            </property>
                           </widget>
                          </item>
@@ -5142,7 +5143,7 @@ color:rgb(0,0,0);
                             </font>
                            </property>
                            <property name="text">
-                            <string>IMMUNITY TEA</string>
+                            <string>MIX Kombucha (x6)</string>
                            </property>
                           </widget>
                          </item>
@@ -5155,7 +5156,7 @@ color:rgb(0,0,0);
                             </font>
                            </property>
                            <property name="text">
-                            <string>18,00€</string>
+                            <string>27,00€</string>
                            </property>
                           </widget>
                          </item>
@@ -5168,7 +5169,7 @@ color:rgb(0,0,0);
                             </font>
                            </property>
                            <property name="text">
-                            <string>18,00€</string>
+                            <string>22,00€</string>
                            </property>
                           </widget>
                          </item>
@@ -5234,9 +5235,9 @@ color:rgb(0,0,0);
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>0</y>
-                       <width>746</width>
-                       <height>580</height>
+                       <y>-61</y>
+                       <width>792</width>
+                       <height>575</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_5">
@@ -5276,7 +5277,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_shots/z_shot1.jpg);</string>
+                            <string notr="true">border-image: url(:/Shots funcionales/z_shot1.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -5299,7 +5300,7 @@ color:rgb(0,0,0);
                             </font>
                            </property>
                            <property name="text">
-                            <string>Caja Strawberry Bars</string>
+                            <string>Caja Green Shot</string>
                            </property>
                           </widget>
                          </item>
@@ -5378,7 +5379,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_shots/z_shot2.jpg);</string>
+                            <string notr="true">border-image: url(:/Shots funcionales/z_shot2.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -5401,7 +5402,7 @@ color:rgb(0,0,0);
                             </font>
                            </property>
                            <property name="text">
-                            <string>Caja Cocoa Bars</string>
+                            <string>Caja shot Energy</string>
                            </property>
                           </widget>
                          </item>
@@ -5476,7 +5477,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_shots/z_shot4.jpg);</string>
+                            <string notr="true">border-image: url(:/Shots funcionales/z_shot4.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -5499,7 +5500,7 @@ color:rgb(0,0,0);
                             </font>
                            </property>
                            <property name="text">
-                            <string>Caja Apple Bars</string>
+                            <string>Caja shot Cold Care</string>
                            </property>
                           </widget>
                          </item>
@@ -5512,7 +5513,7 @@ color:rgb(0,0,0);
                             </font>
                            </property>
                            <property name="text">
-                            <string>33,00€</string>
+                            <string>41,00€</string>
                            </property>
                           </widget>
                          </item>
@@ -5568,7 +5569,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_shots/z_shot3.jpg);</string>
+                            <string notr="true">border-image: url(:/Shots funcionales/z_shot3.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -5591,7 +5592,7 @@ color:rgb(0,0,0);
                             </font>
                            </property>
                            <property name="text">
-                            <string>12 Mix Bars</string>
+                            <string>Caja shot Antiox</string>
                            </property>
                           </widget>
                          </item>
@@ -5611,7 +5612,7 @@ color:rgb(0,0,0);
                             </font>
                            </property>
                            <property name="text">
-                            <string>33,00€</string>
+                            <string>41,00€</string>
                            </property>
                            <property name="scaledContents">
                             <bool>false</bool>
@@ -5664,7 +5665,7 @@ color:rgb(0,0,0);
                             </size>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border-image: url(:/imagenes_shots/z_shot5.jpg);</string>
+                            <string notr="true">border-image: url(:/Shots funcionales/z_shot5.jpg);</string>
                            </property>
                            <property name="text">
                             <string/>
@@ -5687,7 +5688,7 @@ color:rgb(0,0,0);
                             </font>
                            </property>
                            <property name="text">
-                            <string>Mix Bars (x3)</string>
+                            <string>Caja Shot Mix 4</string>
                            </property>
                           </widget>
                          </item>
@@ -5707,7 +5708,7 @@ color:rgb(0,0,0);
                             </font>
                            </property>
                            <property name="text">
-                            <string>8,95€</string>
+                            <string>41,00€</string>
                            </property>
                            <property name="scaledContents">
                             <bool>false</bool>
@@ -5765,8 +5766,8 @@ color:rgb(0,0,0);
            <string/>
           </property>
           <property name="icon">
-           <iconset resource="res.qrc">
-            <normaloff>:/iconos/user.png</normaloff>:/iconos/user.png</iconset>
+           <iconset>
+            <normaloff>../../../../Desktop/TFG/Organic/Iconos/user.svg</normaloff>../../../../Desktop/TFG/Organic/Iconos/user.svg</iconset>
           </property>
          </widget>
          <widget class="QPushButton" name="botonm_carrito">
@@ -5791,8 +5792,8 @@ color:rgb(0,0,0);
            <string/>
           </property>
           <property name="icon">
-           <iconset resource="res.qrc">
-            <normaloff>:/iconos/carrito.png</normaloff>:/iconos/carrito.png</iconset>
+           <iconset>
+            <normaloff>../../../../Desktop/TFG/Organic/Iconos/shopping-cart.svg</normaloff>../../../../Desktop/TFG/Organic/Iconos/shopping-cart.svg</iconset>
           </property>
          </widget>
          <widget class="QPushButton" name="botonm_lupa">
@@ -5817,8 +5818,8 @@ color:rgb(0,0,0);
            <string/>
           </property>
           <property name="icon">
-           <iconset resource="res.qrc">
-            <normaloff>:/iconos/lupa.png</normaloff>:/iconos/lupa.png</iconset>
+           <iconset>
+            <normaloff>../../../../Desktop/TFG/Organic/Iconos/search.svg</normaloff>../../../../Desktop/TFG/Organic/Iconos/search.svg</iconset>
           </property>
          </widget>
         </widget>
@@ -5830,7 +5831,7 @@ color:rgb(0,0,0);
   </widget>
  </widget>
  <resources>
-  <include location="res.qrc"/>
+  <include location="../../../../Desktop/TFG/Organic/Codigo/res.qrc"/>
  </resources>
  <connections/>
 </ui>
