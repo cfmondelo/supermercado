@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import QMessageBox
+from PyQt5 import QtWidgets
 import psycopg2
 import hashlib
 import bcrypt

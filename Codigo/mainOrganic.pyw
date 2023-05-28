@@ -2,6 +2,7 @@ import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import QPropertyAnimation, QEasingCurve 
 from PyQt5.QtWidgets import QApplication, QLabel, QVBoxLayout, QWidget, QPushButton 
+from unidecode import unidecode
 from v2_login import Ui_MainWindow as LoginUi
 from v2_2_registrarse import Ui_MainWindow as CrearCuentaUi
 from v3_menu import Ui_MainWindow as MenuPrincipalUi
@@ -105,6 +106,7 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.ui.botonI_menu.clicked.connect(self.mover_menu1)  # Conecta la señal del botón a la función mover_menu1()
         self.ui.botonm_cerrar.clicked.connect(app.quit)
+        self.ui.botonm_lupa.clicked.connect(self.txtm_buscar)  # Boton pulsar
 
         # Agrego eventFilters a las etiquetas correspondientes
         self.ui.label_logo.installEventFilter(self)
@@ -173,9 +175,40 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
 
 
 
+    def obtener_nombres_etiquetas(self, paginas):
+        nombres_etiquetas = []
+        for pagina in paginas:
+            etiquetas = pagina.findChildren(QtWidgets.QLabel)
+            nombres_etiquetas.extend([etiqueta.objectName() for etiqueta in etiquetas])
+        return nombres_etiquetas
 
+    #Al pulsar sobre el boton buscar 
+    def txtm_buscar(self):
+        texto_busqueda = self.ui.txtm_buscar.text().lower()
+        paginas = [
+            self.ui.page_desayunos,
+            self.ui.page_waters,
+            self.ui.page_zumos,
+            self.ui.page_platos,
+            self.ui.page_cremas,
+            self.ui.page_gummies,
+            self.ui.page_bars,
+            self.ui.page_teatox,
+            self.ui.page_kombucha,
+            self.ui.page_shots
+        ]
+        
+        for pagina in paginas:
+            for widget in pagina.findChildren(QtWidgets.QLabel):
+                # texto_label = widget.text().lower()
+                texto_label = unidecode(widget.text().lower())
+                if texto_busqueda in texto_label:
+                    self.mostrarPage(pagina)
+                    return
 
+        print("No se encontraron coincidencias")
 
+        self.ui.txtm_buscar.clear()
 
 
 
@@ -206,4 +239,6 @@ if __name__ == "__main__":
 
     stacked_widget.show()
     # login.show()
+
+
     sys.exit(app.exec_())
