@@ -9,9 +9,70 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from metodosSupermercado import *
+
+
 
 
 class Ui_MainWindow(object):
+    
+    def insertarZumos(self):
+      conexion = conectar()
+      productos = mostrarProductos(conexion)
+      i = 0
+      
+      for producto in productos:
+        self.frame_2 = QtWidgets.QFrame(self.scrollAreaWidgetContents_4)
+        self.frame_2.setMinimumSize(QtCore.QSize(230, 270))
+        self.frame_2.setMaximumSize(QtCore.QSize(230, 270))
+        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_2.setObjectName("frame_2")
+
+        self.verticalLayout_22 = QtWidgets.QVBoxLayout(self.frame_2)
+        self.verticalLayout_22.setObjectName("verticalLayout_22")
+
+        self.labelm_zumo_2 = QtWidgets.QLabel(self.frame_2)
+        self.labelm_zumo_2.setMinimumSize(QtCore.QSize(200, 150))
+        self.labelm_zumo_2.setMaximumSize(QtCore.QSize(200, 150))
+        self.labelm_zumo_2.setStyleSheet("border-image: url(:"+ producto[6] +");")
+        self.labelm_zumo_2.setText("")
+        self.labelm_zumo_2.setObjectName("labelm_zumo_2")
+        self.verticalLayout_22.addWidget(self.labelm_zumo_2)
+
+        self.label_20 = QtWidgets.QLabel(self.frame_2)
+        self.label_20.setMaximumSize(QtCore.QSize(16777215, 15))
+
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        font.setStyleStrategy(QtGui.QFont.PreferDefault)
+        self.label_20.setFont(font)
+        self.label_20.setObjectName("label_20")
+        self.verticalLayout_22.addWidget(self.label_20)
+
+        self.label_22 = QtWidgets.QLabel(self.frame_2)
+        self.label_22.setMaximumSize(QtCore.QSize(16777215, 15))
+
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_22.setFont(font)
+        self.label_22.setObjectName("label_22")
+        self.verticalLayout_22.addWidget(self.label_22)
+
+        self.botonComprar_8 = QtWidgets.QPushButton(self.frame_2)
+        self.botonComprar_8.setMinimumSize(QtCore.QSize(200, 34))
+        self.botonComprar_8.setMaximumSize(QtCore.QSize(200, 34))
+        self.botonComprar_8.setObjectName("botonComprar_8")
+        self.verticalLayout_22.addWidget(self.botonComprar_8)
+        self.gridLayout.addWidget(self.frame_2, 0, 1, 1, 1)
+
+        _translate = QtCore.QCoreApplication.translate
+        self.label_20.setText(_translate("MainWindow", producto[1]))
+        self.label_22.setText(_translate("MainWindow", str(producto[4]) +"€"))
+        self.botonComprar_8.setText(_translate("MainWindow", "Comprar"))
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1097, 687)
@@ -525,110 +586,86 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidget(self.scrollAreaWidgetContents_3)
         self.verticalLayout_10.addWidget(self.scrollArea_3)
         self.stackedWidget.addWidget(self.page_waters)
+
+
+
+
+
+
+
+
+
+
+
         self.page_zumos = QtWidgets.QWidget()
         self.page_zumos.setObjectName("page_zumos")
         self.verticalLayout_12 = QtWidgets.QVBoxLayout(self.page_zumos)
         self.verticalLayout_12.setObjectName("verticalLayout_12")
         self.scrollArea_4 = QtWidgets.QScrollArea(self.page_zumos)
-        self.scrollArea_4.setStyleSheet("QPushButton{\n"
-"background-color:   rgba(233,233,232,200);\n"
-"border-style:solid;\n"
-"border-width: 1px;\n"
-"border-color:  rgba(46,82,101,200);\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"background-color:   rgb(239, 232, 224);\n"
-"border-top-left-radius: 20px;\n"
-"border-bottom-left-radius:20px;\n"
-"color:rgb(0,0,0);\n"
-"}")
+        self.scrollArea_4.setStyleSheet("QPushButton{\n" "background-color:   rgba(233,233,232,200);\n" "border-style:solid;\n" "border-width: 1px;\n" "border-color:  rgba(46,82,101,200);\n" "\n" "}\n" "\n" "QPushButton:hover{\n" "background-color:   rgb(239, 232, 224);\n" "border-top-left-radius: 20px;\n" "border-bottom-left-radius:20px;\n" "color:rgb(0,0,0);\n" "}")
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollArea_4.setObjectName("scrollArea_4")
+
         self.scrollAreaWidgetContents_4 = QtWidgets.QWidget()
         self.scrollAreaWidgetContents_4.setGeometry(QtCore.QRect(0, 0, 746, 866))
         self.scrollAreaWidgetContents_4.setObjectName("scrollAreaWidgetContents_4")
+
         self.gridLayout = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_4)
         self.gridLayout.setObjectName("gridLayout")
-        self.frame_3 = QtWidgets.QFrame(self.scrollAreaWidgetContents_4)
-        self.frame_3.setMinimumSize(QtCore.QSize(230, 270))
-        self.frame_3.setMaximumSize(QtCore.QSize(230, 270))
-        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_3.setObjectName("frame_3")
-        self.verticalLayout_23 = QtWidgets.QVBoxLayout(self.frame_3)
-        self.verticalLayout_23.setObjectName("verticalLayout_23")
-        self.labelm_zumo = QtWidgets.QLabel(self.frame_3)
-        self.labelm_zumo.setMinimumSize(QtCore.QSize(200, 150))
-        self.labelm_zumo.setMaximumSize(QtCore.QSize(200, 150))
-        self.labelm_zumo.setStyleSheet("border-image: url(:/Zumos de frutas y verduras/z_zumos1.jpg);")
-        self.labelm_zumo.setText("")
-        self.labelm_zumo.setObjectName("labelm_zumo")
-        self.verticalLayout_23.addWidget(self.labelm_zumo)
-        self.label_19 = QtWidgets.QLabel(self.frame_3)
-        self.label_19.setMaximumSize(QtCore.QSize(16777215, 15))
-        font = QtGui.QFont()
-        font.setBold(True)
-        font.setWeight(75)
-        font.setStyleStrategy(QtGui.QFont.PreferDefault)
-        self.label_19.setFont(font)
-        self.label_19.setObjectName("label_19")
-        self.verticalLayout_23.addWidget(self.label_19)
-        self.precioAvenaHinchada_3 = QtWidgets.QLabel(self.frame_3)
-        self.precioAvenaHinchada_3.setMaximumSize(QtCore.QSize(16777215, 15))
-        font = QtGui.QFont()
-        font.setBold(True)
-        font.setWeight(75)
-        font.setStyleStrategy(QtGui.QFont.PreferDefault)
-        self.precioAvenaHinchada_3.setFont(font)
-        self.precioAvenaHinchada_3.setScaledContents(False)
-        self.precioAvenaHinchada_3.setObjectName("precioAvenaHinchada_3")
-        self.verticalLayout_23.addWidget(self.precioAvenaHinchada_3)
-        self.botonComprar_9 = QtWidgets.QPushButton(self.frame_3)
-        self.botonComprar_9.setMinimumSize(QtCore.QSize(200, 34))
-        self.botonComprar_9.setMaximumSize(QtCore.QSize(200, 34))
-        self.botonComprar_9.setObjectName("botonComprar_9")
-        self.verticalLayout_23.addWidget(self.botonComprar_9)
-        self.gridLayout.addWidget(self.frame_3, 0, 0, 1, 1)
-        self.frame_2 = QtWidgets.QFrame(self.scrollAreaWidgetContents_4)
-        self.frame_2.setMinimumSize(QtCore.QSize(230, 270))
-        self.frame_2.setMaximumSize(QtCore.QSize(230, 270))
-        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_2.setObjectName("frame_2")
-        self.verticalLayout_22 = QtWidgets.QVBoxLayout(self.frame_2)
-        self.verticalLayout_22.setObjectName("verticalLayout_22")
-        self.labelm_zumo_2 = QtWidgets.QLabel(self.frame_2)
-        self.labelm_zumo_2.setMinimumSize(QtCore.QSize(200, 150))
-        self.labelm_zumo_2.setMaximumSize(QtCore.QSize(200, 150))
-        self.labelm_zumo_2.setStyleSheet("border-image: url(:/Zumos de frutas y verduras/z_zumos2.jpg);")
-        self.labelm_zumo_2.setText("")
-        self.labelm_zumo_2.setObjectName("labelm_zumo_2")
-        self.verticalLayout_22.addWidget(self.labelm_zumo_2)
-        self.label_20 = QtWidgets.QLabel(self.frame_2)
-        self.label_20.setMaximumSize(QtCore.QSize(16777215, 15))
-        font = QtGui.QFont()
-        font.setBold(True)
-        font.setWeight(75)
-        font.setStyleStrategy(QtGui.QFont.PreferDefault)
-        self.label_20.setFont(font)
-        self.label_20.setObjectName("label_20")
-        self.verticalLayout_22.addWidget(self.label_20)
-        self.label_22 = QtWidgets.QLabel(self.frame_2)
-        self.label_22.setMaximumSize(QtCore.QSize(16777215, 15))
-        font = QtGui.QFont()
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_22.setFont(font)
-        self.label_22.setObjectName("label_22")
-        self.verticalLayout_22.addWidget(self.label_22)
-        self.botonComprar_8 = QtWidgets.QPushButton(self.frame_2)
-        self.botonComprar_8.setMinimumSize(QtCore.QSize(200, 34))
-        self.botonComprar_8.setMaximumSize(QtCore.QSize(200, 34))
-        self.botonComprar_8.setObjectName("botonComprar_8")
-        self.verticalLayout_22.addWidget(self.botonComprar_8)
-        self.gridLayout.addWidget(self.frame_2, 0, 1, 1, 1)
+
+
+
+        # self.frame_3 = QtWidgets.QFrame(self.scrollAreaWidgetContents_4)
+        # self.frame_3.setMinimumSize(QtCore.QSize(230, 270))
+        # self.frame_3.setMaximumSize(QtCore.QSize(230, 270))
+        # self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        # self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        # self.frame_3.setObjectName("frame_3")
+
+        # self.verticalLayout_23 = QtWidgets.QVBoxLayout(self.frame_3)
+        # self.verticalLayout_23.setObjectName("verticalLayout_23")
+
+        # self.labelm_zumo = QtWidgets.QLabel(self.frame_3)
+        # self.labelm_zumo.setMinimumSize(QtCore.QSize(200, 150))
+        # self.labelm_zumo.setMaximumSize(QtCore.QSize(200, 150))
+        # self.labelm_zumo.setStyleSheet("border-image: url(:/Zumos de frutas y verduras/z_zumos1.jpg);")
+        # self.labelm_zumo.setText("")
+        # self.labelm_zumo.setObjectName("labelm_zumo")
+        # self.verticalLayout_23.addWidget(self.labelm_zumo)
+
+        # self.label_19 = QtWidgets.QLabel(self.frame_3)
+        # self.label_19.setMaximumSize(QtCore.QSize(16777215, 15))
+
+        # font = QtGui.QFont()
+        # font.setBold(True)
+        # font.setWeight(75)
+        # font.setStyleStrategy(QtGui.QFont.PreferDefault)
+        # self.label_19.setFont(font)
+        # self.label_19.setObjectName("label_19")
+        # self.verticalLayout_23.addWidget(self.label_19)
+
+        # self.precioAvenaHinchada_3 = QtWidgets.QLabel(self.frame_3)
+        # self.precioAvenaHinchada_3.setMaximumSize(QtCore.QSize(16777215, 15))
+        # font = QtGui.QFont()
+        # font.setBold(True)
+        # font.setWeight(75)
+        # font.setStyleStrategy(QtGui.QFont.PreferDefault)
+        # self.precioAvenaHinchada_3.setFont(font)
+        # self.precioAvenaHinchada_3.setScaledContents(False)
+        # self.precioAvenaHinchada_3.setObjectName("precioAvenaHinchada_3")
+        # self.verticalLayout_23.addWidget(self.precioAvenaHinchada_3)
+
+        # self.botonComprar_9 = QtWidgets.QPushButton(self.frame_3)
+        # self.botonComprar_9.setMinimumSize(QtCore.QSize(200, 34))
+        # self.botonComprar_9.setMaximumSize(QtCore.QSize(200, 34))
+        # self.botonComprar_9.setObjectName("botonComprar_9")
+        # self.verticalLayout_23.addWidget(self.botonComprar_9)
+        # self.gridLayout.addWidget(self.frame_3, 0, 0, 1, 1)
+
+
+        self.insertarZumos()
+
+
         self.frame = QtWidgets.QFrame(self.scrollAreaWidgetContents_4)
         self.frame.setMinimumSize(QtCore.QSize(230, 270))
         self.frame.setMaximumSize(QtCore.QSize(230, 270))
@@ -862,6 +899,17 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidget(self.scrollAreaWidgetContents_4)
         self.verticalLayout_12.addWidget(self.scrollArea_4)
         self.stackedWidget.addWidget(self.page_zumos)
+
+
+
+
+
+
+
+
+
+
+
         self.page_platos = QtWidgets.QWidget()
         self.page_platos.setObjectName("page_platos")
         self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.page_platos)
@@ -2419,9 +2467,15 @@ class Ui_MainWindow(object):
         self.botonComprar_6.setText(_translate("MainWindow", "Comprar"))
         self.botonComprar_5.setText(_translate("MainWindow", "Comprar"))
         self.botonComprar_4.setText(_translate("MainWindow", "Comprar"))
-        self.label_19.setText(_translate("MainWindow", "Aguacate y Espinacas (x6)"))
-        self.precioAvenaHinchada_3.setText(_translate("MainWindow", "26,00€"))
-        self.botonComprar_9.setText(_translate("MainWindow", "Comprar"))
+
+
+
+        # self.label_19.setText(_translate("MainWindow", "Aguacate y Espinacas (x6)"))
+        # self.precioAvenaHinchada_3.setText(_translate("MainWindow", "26,00€"))
+        # self.botonComprar_9.setText(_translate("MainWindow", "Comprar"))
+
+
+
         self.label_20.setText(_translate("MainWindow", "Naranja, Zanahoria y Mango (x6)"))
         self.label_22.setText(_translate("MainWindow", "26,00€"))
         self.botonComprar_8.setText(_translate("MainWindow", "Comprar"))
