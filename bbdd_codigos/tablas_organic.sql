@@ -30,77 +30,38 @@ create table public.descuentos (
 	primary key (desc_id)
 );
 
-create table public.carrito (
-    carr_id 	serial 		not null,
-    usuario 	varchar(50) not null,
-    prod_id 	int 		not null,
-    precio 		int 		not null,
-    cantidad 	int 		not null,
-    primary key (carr_id, usuario, prod_id),
-    foreign key (usuario)
-    	references usuarios (correo),
-    foreign key (prod_id)
-    	references producto (prod_id)
-);
-
-
 create table public.tickets (
     tick_id 	serial 		not null,
     usuario 	varchar(50) not null,
-    prod_id 	int 		not null,
-    desc_id		int 		null,
-    precio 		int 		not null,
-    cantidad 	int 		not null,
-	fecha	 	date 		not null,
-    primary key (tick_id, usuario, prod_id),
-    foreign key (usuario)
-    	references usuarios (correo),
-    foreign key (prod_id)
-    	references producto (prod_id),
-    foreign key (desc_id)
-    	references descuentos (desc_id)
-);
-
-/*
- * En caso de hacerlo con tres tablas
- * 
- create table public.lineapedidos (
-	
-    linea_id 	serial 		not null,
-    usuario 	varchar(50) not null,
-    prod_id 	int 		not null,
-    precio 		int 		not null,
-    cantidad 	int 		not null,
-    primary key (linea_id, usuario, prod_id),
-    foreign key (usuario)
-    	references usuarios (correo),
-    foreign key (prod_id)
-    	references producto (prod_id)
-);
-
-create table public.carrito (
-	usuario 	varchar(50) not null,
-	lineaped	int			not null,
-	primary key (usuario),
-    foreign key (usuario)
-    	references usuarios (correo),
-    foreign key (lineaped)
-    	references lineapedidos (linea_id)
-);
-
-create table public.tickets (
-    tick_id 	serial 		not null,
-    usuario 	varchar(50) not null,
-    lineaped 	int 		not null,
     desc_id		int 		null,
     precio 		int 		not null,
 	fecha	 	date 		not null,
     primary key (tick_id),
     foreign key (usuario)
     	references usuarios (correo),
-    foreign key (lineaped)
-    	references lineapedidos (linea_id),
     foreign key (desc_id)
     	references descuentos (desc_id)
 );
-*/
+
+create table public.lineapedidos (
+	linea_id	serial		not null,
+    prod_id 	int 		not null,
+    precio 		int 		not null,
+    cantidad 	int 		not null,
+    compra_id	int			not null,
+    primary key (linea_id),
+    foreign key (prod_id)
+    	references producto (prod_id),
+    foreign key (compra_id)
+    	references tickets (tick_id)
+);
+
+create table public.carrito (
+	usuario 	varchar(50) not null,
+    prod_id 	int 		not null,
+    precio 		int 		not null,
+    cantidad 	int 		not null,
+	primary key (usuario),
+    foreign key (prod_id)
+    	references producto (prod_id)
+);
