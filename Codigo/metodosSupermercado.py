@@ -66,6 +66,16 @@ def cifrarContra(contra):
   contraCif = str(h.hexdigest()) 
   return contraCif
 
+def mostrarProductos(conn):
+  query = f"SELECT * FROM producto;"
+  try:
+    cur = conn.cursor()
+    cur.execute(query)
+    prods = cur.fetchall()
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+  return prods
+
 def camposVacios(campos):
   # Recorre una tupla para que ningun campo sea nulo
 	vacio = False
@@ -87,4 +97,3 @@ def showDialog(msg, title = "informacion"):
   msgBox.setWindowTitle(title)
   msgBox.exec()
 #FIN POR IMPLEMENTAR
-

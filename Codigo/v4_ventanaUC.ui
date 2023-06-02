@@ -302,12 +302,15 @@ font-size: 2rem;
              <layout class="QHBoxLayout" name="horizontalLayout_2">
               <item>
                <widget class="QFrame" name="frame_productos">
+<<<<<<< HEAD
                 <property name="minimumSize">
                  <size>
                   <width>517</width>
                   <height>560</height>
                  </size>
                 </property>
+=======
+>>>>>>> b0f25a61c899ff3059401033d6ed533002bc97d8
                 <property name="styleSheet">
                  <string notr="true">#frame_productos &gt; [id^=&quot;frame_&quot;] {
   max-height: 130px;
@@ -322,6 +325,7 @@ font-size: 2rem;
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_4">
                  <item>
+<<<<<<< HEAD
                   <widget class="QScrollArea" name="scrollArea">
                    <property name="minimumSize">
                     <size>
@@ -488,6 +492,149 @@ font-size: 2rem;
                      </item>
                     </layout>
                    </widget>
+=======
+                  <widget class="QFrame" name="frame_p_1">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>130</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_3">
+                    <item>
+                     <widget class="QFrame" name="frame_3">
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_5">
+                       <item>
+                        <widget class="QLabel" name="label_imagen">
+                         <property name="styleSheet">
+                          <string notr="true">border-image: url(:/Desayunos/z_desayuno1.jpg);</string>
+                         </property>
+                         <property name="text">
+                          <string/>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QFrame" name="frame_4">
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QGridLayout" name="gridLayout_2">
+                       <item row="0" column="0" colspan="2">
+                        <widget class="QLabel" name="label_tituloProducto">
+                         <property name="text">
+                          <string>TextLabel</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="0">
+                        <widget class="QSpinBox" name="spinBox"/>
+                       </item>
+                       <item row="1" column="1">
+                        <widget class="QLabel" name="label_precioProducto">
+                         <property name="text">
+                          <string>TextLabel</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frame_p_2">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>130</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_4">
+                    <item>
+                     <widget class="QFrame" name="frame_5">
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_6">
+                       <item>
+                        <widget class="QLabel" name="label_imagen_2">
+                         <property name="styleSheet">
+                          <string notr="true">border-image: url(:/Desayunos/z_desayuno1.jpg);</string>
+                         </property>
+                         <property name="text">
+                          <string/>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QFrame" name="frame_6">
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QGridLayout" name="gridLayout_3">
+                       <item row="0" column="0" colspan="2">
+                        <widget class="QLabel" name="label_tituloProducto_2">
+                         <property name="text">
+                          <string>TextLabel</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="0">
+                        <widget class="QSpinBox" name="spinBox_2"/>
+                       </item>
+                       <item row="1" column="1">
+                        <widget class="QLabel" name="label_precioProducto_2">
+                         <property name="text">
+                          <string>TextLabel</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                   </layout>
+>>>>>>> b0f25a61c899ff3059401033d6ed533002bc97d8
                   </widget>
                  </item>
                 </layout>
@@ -495,12 +642,15 @@ font-size: 2rem;
               </item>
               <item>
                <widget class="QFrame" name="frame_2">
+<<<<<<< HEAD
                 <property name="minimumSize">
                  <size>
                   <width>489</width>
                   <height>560</height>
                  </size>
                 </property>
+=======
+>>>>>>> b0f25a61c899ff3059401033d6ed533002bc97d8
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
                 </property>
@@ -519,9 +669,12 @@ font-size: 2rem;
                  <property name="styleSheet">
                   <string notr="true">background-color: rgb(255, 255, 255);</string>
                  </property>
+<<<<<<< HEAD
                  <property name="placeholderText">
                   <string>INTRODUCE TU CÓDIGO DE DESCUENTO</string>
                  </property>
+=======
+>>>>>>> b0f25a61c899ff3059401033d6ed533002bc97d8
                 </widget>
                 <widget class="QPushButton" name="botouc_validar">
                  <property name="geometry">
