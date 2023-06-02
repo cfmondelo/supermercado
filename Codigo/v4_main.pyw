@@ -7,15 +7,6 @@ from unidecode import unidecode
 from v4_ventanaUC import Ui_MainWindow as VentanaUCUi
 from res import *
 
-class ProductoKenia(object):
-    def __init__(self, prod_id, nombre, descripcion, categoria, precio, cantidad, imagen):
-        self.prod_id = prod_id
-        self.nombre = nombre
-        self.descripcion = descripcion
-        self.categoria = categoria
-        self.precio = precio
-        self.cantidad = cantidad
-        self.imagen = imagen
 
 def conectar():
     try:
@@ -39,48 +30,8 @@ def desconectar(conn):
 # Conectar a la base de datos
 conn = conectar()
 
-if conn is not None:
-    try:
-        # Obtener una instancia del frame "productos"
-        frame_productos = {}  # Puedes inicializarlo como un diccionario vacío
-
-        # Obtener los productos de la tabla "productosKenia"
-        cursor = conn.cursor()
-        cursor.execute("SELECT * FROM productosKenia")
-        productos = cursor.fetchall()
-
-        # Insertar cada producto en el frame "productos"
-        for producto in productos:
-            prod_id = producto[0]  # Obtener el ID del producto
-            nombre = producto[1]  # Obtener el nombre del producto
-            descripcion = producto[2]  # Obtener la descripción del producto
-            categoria = producto[3]  # Obtener la categoría del producto
-            precio = producto[4]  # Obtener el precio del producto
-            cantidad = producto[5]  # Obtener la cantidad del producto
-            imagen = producto[6]  # Obtener el nombre de la imagen del producto
-            frame_p = ProductoKenia(prod_id, nombre, descripcion, categoria, precio, cantidad, imagen)  # Crear una instancia de ProductoKenia con los datos del producto
-            frame_productos[frame_p.nombre] = frame_p
-
-        cursor.close()
-    except psycopg2.DatabaseError as error:
-        print(error)
-
 # Desconectar de la base de datos
 desconectar(conn)
-
-
-# def datos():
-
-#     for nombre, producto in frame_productos.items():
-#         print(f"Nombre: {nombre}")
-#         print(f"Descripción: {producto.descripcion}")
-#         print(f"Categoría: {producto.categoria}")
-#         print(f"Precio: {producto.precio}")
-#         print(f"Cantidad: {producto.cantidad}")
-#         print(f"Imagen: {producto.imagen}")
-#         print()
-
-
 
 
 def mostrarProductosKenia(conn):
@@ -102,59 +53,9 @@ class VentanaUC(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
 
 
-        # Buscar y mostrar todos los frames en frame_productos
-        # for index, producto in enumerate(frame_productos.values()):
-
-            # if index == 0:
-            #     self.ui.label_imagen.setStyleSheet(f"border-image: url(:/{producto.categoria}/{producto.imagen});")
-            # elif index == 1:
-            #     self.ui.label_imagen_2.setStyleSheet(f"border-image: url(:/{producto.categoria}/{producto.imagen});")
-            # else:
-            #     # Crear un nuevo QLabel para cada imagen adicional
-            #     label_imagen = QtWidgets.QLabel(self)
-            #     label_imagen.setStyleSheet(f"border-image: url(:/{producto.imagen});")
-            #     label_imagen.setGeometry(10, 10 + (index-2) * 100, 100, 100)
-            #     label_imagen.show()
-
-
-        #  # Imprimir los nombres de los objetos dentro de frame_productos
-        # for frame in self.ui.frame_productos.findChildren(QtWidgets.QFrame):
-        #     print(frame.objectName())
-
-
-
-
-
-# funciona para cargar imagenes
-
-        # Crear un nuevo QFrame dentro del scrollArea para cada producto en frame_productos
-        # for index, producto in enumerate(frame_productos.values()):
-        #     frame_p = QtWidgets.QFrame(self.ui.scrollAreaWidgetContents_4)
-        #     frame_p.setMaximumSize(QtCore.QSize(16777215, 130))
-        #     frame_p.setStyleSheet("background-color: rgb(255, 255, 255);")
-        #     frame_p.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        #     frame_p.setFrameShadow(QtWidgets.QFrame.Raised)
-        #     frame_p.setObjectName("frame_p" + str(index))
-
-
-
-        #     # Crear una nueva QLabel dentro del scrollArea en frame_productos
-        # nueva_label = QtWidgets.QLabel(self.ui.scrollAreaWidgetContents_4)
-        # nueva_label.setText("Nueva Label")
-
-        
-
-
-
-
         # Código para crear frames en frame_productos según productosKenia
         conexion = conectar()
         prods = mostrarProductosKenia(conexion)
-
-        self.frame_names = []  # Lista para almacenar los nombres de los frames
-        self.image_names = []  # Lista para almacenar los nombres de las etiquetas de imagen
-        self.titulo_productos = []  # Lista para almacenar los títulos de los productos
-
 
         scroll_layout = self.ui.scrollAreaWidgetContents_4.layout()
 
@@ -257,58 +158,7 @@ class VentanaUC(QtWidgets.QMainWindow):
             label_precioProducto.setText(_translate("MainWindow", str(prod[4]) + "€"))
             # numeric.setValue(prod[5]) --> No lo quiero 
 
-            self.frame_names.append(frame_p.objectName())
-            self.image_names.append(label_imagen.objectName())
-            self.titulo_productos.append(label_tituloProducto.objectName())
 
-            # self.result = [(frame_name, image_name, titulo_producto) for frame_name, image_name, titulo_producto in zip(self.frame_names, self.image_names, self.titulo_productos)]
-        # print(self.result)
-
-    def cargar_imagenes(self):
-        # for tupla in self.result:
-        #     for frame_name, label_imagen_name, titulo_producto  in tupla:
-        #         print(frame_name)
-        #         print(label_imagen_name)
-        #         print(titulo_producto)
-        for frame_name, label_imagen_name, titulo_producto in self.result:
-            print(frame_name)
-            print(label_imagen_name)
-            print(titulo_producto)
-
-                # # Obtener la imagen del producto según el título
-                # imagen_producto = obtener_imagen_producto(titulo_producto)
-
-                # # Actualizar el estilo de la etiqueta de imagen del frame con la imagen obtenida
-                # label_imagen.setStyleSheet(f"border-image: url(:/{imagen_producto});")
-                # label_imagen.show()
-
-
-
-
-
-def obtener_imagen_producto(titulo_producto):
-    # Conexión a la base de datos
-    conexion = psycopg2.connect(
-        host="localhost",
-        database="basedatos",
-        user="usuario",
-        password="contraseña"
-    )
-    cursor = conexion.cursor()
-
-    # Consulta SQL para obtener la imagen del producto según el título
-    consulta = "SELECT imagen FROM productos WHERE titulo = %s"
-    cursor.execute(consulta, (titulo_producto,))
-    resultado = cursor.fetchone()
-
-    # Cerrar la conexión a la base de datos
-    conexion.close()
-
-    if resultado:
-        imagen = resultado[0]
-        return imagen
-    else:
-        return None
 
 
 
