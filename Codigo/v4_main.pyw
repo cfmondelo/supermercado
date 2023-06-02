@@ -190,7 +190,7 @@ class VentanaUC(QtWidgets.QMainWindow):
             #Aáde la imagen al frame 2
             label_imagen = QtWidgets.QLabel(frame_img)
             categoria=(str(prod[3]))
-            name=(str(prod[6]))
+            name=(str(prod[1]))
 
             # print(categoria)
             # print (name)
@@ -198,8 +198,8 @@ class VentanaUC(QtWidgets.QMainWindow):
             ruta = "border-image: url(:/{}/{})".format(categoria, name)
             # print(ruta)
 
-            # ruta = f"border-image: url(:/{categoria}/{name})"
-            label_imagen.setStyleSheet(ruta)
+            ruta = f"border-image: url(:/{categoria}/{name})"
+            # label_imagen.setStyleSheet(ruta)
 
 
             # label_imagen.setStyleSheet(ruta)
