@@ -229,7 +229,7 @@ class VentanaUC(QtWidgets.QMainWindow):
         self.ui = VentanaUCUi()
         self.ui.setupUi(self)
         self.ui.botonuc_cerrar.clicked.connect(app.quit)
-        self.ui.botonuc_atras.clicked.connect(stacked_widget.setCurrentIndex(2))
+        self.ui.botonuc_atras.clicked.connect(self.cambiarAVentanaPrincipal)
 
 
         # Código para crear frames en frame_productos según productosKenia
@@ -338,9 +338,9 @@ class VentanaUC(QtWidgets.QMainWindow):
             # numeric.setValue(prod[5]) --> No lo quiero 
 
 
-    # def cambiarAVentanaPrincipal(self):
-    #     ventanaPrincipal = VentanaPrincipal()
-    #     stacked_widget.setCurrentIndex(2)
+    def cambiarAVentanaPrincipal(self):
+        ventanaPrincipal = VentanaPrincipal()
+        stacked_widget.setCurrentIndex(2)
 
 
 
