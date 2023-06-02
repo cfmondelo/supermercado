@@ -84,7 +84,7 @@ desconectar(conn)
 
 
 def mostrarProductosKenia(conn):
-  query = f"SELECT * FROM productosKenia;"
+  query = f"SELECT * FROM producto;"
   try:
     cur = conn.cursor()
     cur.execute(query)
@@ -179,7 +179,7 @@ class VentanaUC(QtWidgets.QMainWindow):
             frame_img.setFrameShape(QtWidgets.QFrame.StyledPanel)
             frame_img.setFrameShadow(QtWidgets.QFrame.Raised)
             frame_img.setObjectName("frame_img" + str(i))
-            frame_img.setStyleSheet("background-color: rgb(255, 0, 0);")
+            # frame_img.setStyleSheet("background-color: rgb(255, 0, 0);")
 
 
 #Creo distribucion para la imagen dentro del frame
@@ -190,22 +190,9 @@ class VentanaUC(QtWidgets.QMainWindow):
             #Aáde la imagen al frame 2
             label_imagen = QtWidgets.QLabel(frame_img)
             categoria=(str(prod[3]))
-            name=(str(prod[1]))
-
-            # print(categoria)
-            # print (name)
-
+            name=(str(prod[6]))
             ruta = "border-image: url(:/{}/{})".format(categoria, name)
-            # print(ruta)
-
-            ruta = f"border-image: url(:/{categoria}/{name})"
-            # label_imagen.setStyleSheet(ruta)
-
-
-            # label_imagen.setStyleSheet(ruta)
-            # label_imagen.setStyleSheet(f" {ruta}")
-            # label_imagen.setStyleSheet("background-color: white;")
-            # border-image: url(:/Desayunos/z_desayuno1.jpg);
+            label_imagen.setStyleSheet(ruta)
             label_imagen.setText("")
             label_imagen.setObjectName("label_imagen" + str(i))
 
@@ -220,7 +207,7 @@ class VentanaUC(QtWidgets.QMainWindow):
             frame_cont_prod.setFrameShape(QtWidgets.QFrame.StyledPanel)
             frame_cont_prod.setFrameShadow(QtWidgets.QFrame.Raised)
             frame_cont_prod.setObjectName("frame_cont" + str(i))
-            frame_cont_prod.setStyleSheet("background-color: rgb(0, 255, 0);")
+            # frame_cont_prod.setStyleSheet("background-color: rgb(0, 255, 0);")
 
 #Hago que el Frame imagen y datos este pegados horizontal
             horizontalLayout_prod.addWidget(frame_cont_prod)
@@ -234,7 +221,7 @@ class VentanaUC(QtWidgets.QMainWindow):
             label_tituloProducto = QtWidgets.QLabel(frame_cont_prod)
             label_tituloProducto.setObjectName("label_tituloProducto" + str(i))
             label_tituloProducto.setFixedHeight(20)
-            label_tituloProducto.setStyleSheet("background-color: blue;")
+            # label_tituloProducto.setStyleSheet("background-color: blue;")
 
 #Añado el titulo a la distribucion vertical
             verticalLayout_contprod.addWidget(label_tituloProducto)
@@ -244,7 +231,7 @@ class VentanaUC(QtWidgets.QMainWindow):
             frame_cant_precio.setFrameShape(QtWidgets.QFrame.StyledPanel)
             frame_cant_precio.setFrameShadow(QtWidgets.QFrame.Raised)
             frame_cant_precio.setObjectName("frame_cant_precio" + str(i))           
-            frame_cant_precio.setStyleSheet("background-color: grey;")
+            # frame_cant_precio.setStyleSheet("background-color: grey;")
 
 #Añado Frame precio cantidad a la distribucion vertical
             verticalLayout_contprod.addWidget(frame_cant_precio)
