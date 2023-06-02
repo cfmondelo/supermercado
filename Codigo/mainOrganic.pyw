@@ -234,11 +234,15 @@ class VentanaUC(QtWidgets.QMainWindow):
 
         # Código para crear frames en frame_productos según productosKenia
         conexion = conectar()
-        prods = mostrarProductos(conexion)
+        prods = mostrarCarrito(conexion)
 
         scroll_layout = self.ui.scrollAreaWidgetContents_4.layout()
 
+        precioTot = 0
+
         for i, prod in enumerate(prods):
+            precioTot += prod[2] * prod[3]
+            
 #AÑADE FRAME PRODUCTO AL SCROLL AREA ------------------------->
             frame_p = QtWidgets.QFrame(self.ui.scrollAreaWidgetContents_4)
             frame_p.setMaximumSize(QtCore.QSize(16777215, 130))
@@ -269,8 +273,8 @@ class VentanaUC(QtWidgets.QMainWindow):
 
             #Aáde la imagen al frame 2
             label_imagen = QtWidgets.QLabel(frame_img)
-            categoria=(str(prod[3]))
-            name=(str(prod[6]))
+            categoria=(str(prod[1]))
+            name=(str(prod[4]))
             ruta = "border-image: url(:/{}/{})".format(categoria, name)
             label_imagen.setStyleSheet(ruta)
             label_imagen.setText("")
@@ -323,7 +327,9 @@ class VentanaUC(QtWidgets.QMainWindow):
 
 #Creo spinbox y le añado distribucion 
             numeric = QtWidgets.QSpinBox(frame_cont_prod)
+            numeric.setMinimum(1)
             numeric.setObjectName("numeric" + str(i))
+            numeric.setValue(prod[3])
             horizontalLayout_cant_precio.addWidget(numeric)
 
 
@@ -333,9 +339,16 @@ class VentanaUC(QtWidgets.QMainWindow):
             horizontalLayout_cant_precio.addWidget(label_precioProducto)
 
             _translate = QtCore.QCoreApplication.translate
-            label_tituloProducto.setText(_translate("MainWindow", prod[1]))
-            label_precioProducto.setText(_translate("MainWindow", str(prod[4]) + "€"))
+            label_tituloProducto.setText(_translate("MainWindow", prod[0]))
+            label_precioProducto.setText(_translate("MainWindow", str(prod[2]) + "€"))
             # numeric.setValue(prod[5]) --> No lo quiero 
+
+        precioSub = precioTot - (21 * precioTot/100)
+
+        total = QtWidgets.QLabel(self.ui.label_subtotal_7)
+        subtotal = QtWidgets.QLabel(self.ui.label_subtotal_5)
+        total.setText(_translate("MainWindow", str(precioTot)+"€"))
+        subtotal.setText(_translate("MainWindow", str(precioSub)+"€"))
 
 
     def cambiarAVentanaPrincipal(self):

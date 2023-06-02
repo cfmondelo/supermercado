@@ -328,10 +328,11 @@ class Ui_MainWindow(object):
         self.lineEdit.setPlaceholderText(_translate("MainWindow", "INTRODUCE TU CÓDIGO DE DESCUENTO"))
         self.botouc_validar.setText(_translate("MainWindow", "Validar"))
         self.label_subtotal.setText(_translate("MainWindow", "Subtotal"))
-        self.label_subtotal_5.setText(_translate("MainWindow", "r_sub"))
+        self.label_subtotal_5.setText(_translate("MainWindow", "                "))
+        # self.label_subtotal_5.setText(_translate("MainWindow", "r_sub"))
         self.label_subtotal_2.setText(_translate("MainWindow", "Descuento"))
         self.label_subtotal_6.setText(_translate("MainWindow", "r_desc"))
         self.label_subtotal_3.setText(_translate("MainWindow", "Total "))
-        self.label_subtotal_7.setText(_translate("MainWindow", "r_total"))
+        # self.label_subtotal_7.setText(_translate("MainWindow", "r_total"))
         self.botouc_finalizarPedido.setText(_translate("MainWindow", "FinalizarPedido"))
 # import res_rc
