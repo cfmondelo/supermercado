@@ -76,6 +76,16 @@ def mostrarProductos(conn):
     print(error)
   return prods
 
+def mostrarCarrito(conn):
+  query = f"select p.nombre, p.categoria, p.precio , c.cantidad, p.imagen  from carrito c join producto p on c.prod_id = p.prod_id;"
+  try:
+    cur = conn.cursor()
+    cur.execute(query)
+    prods = cur.fetchall()
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+  return prods
+
 def camposVacios(campos):
   # Recorre una tupla para que ningun campo sea nulo
 	vacio = False

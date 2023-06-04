@@ -550,6 +550,12 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents_4.setObjectName("scrollAreaWidgetContents_4")
         self.gridLayout = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_4)
         self.gridLayout.setObjectName("gridLayout")
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 52306d8e8b057b616b18b98f26ffddfd09440fae
         self.frame_3 = QtWidgets.QFrame(self.scrollAreaWidgetContents_4)
         self.frame_3.setMinimumSize(QtCore.QSize(230, 270))
         self.frame_3.setMaximumSize(QtCore.QSize(230, 270))
@@ -628,6 +634,14 @@ class Ui_MainWindow(object):
         self.botonComprar_8.setObjectName("botonComprar_8")
         self.verticalLayout_22.addWidget(self.botonComprar_8)
         self.gridLayout.addWidget(self.frame_2, 0, 1, 1, 1)
+<<<<<<< HEAD
+=======
+
+
+        # self.insertarZumos()
+
+
+>>>>>>> 52306d8e8b057b616b18b98f26ffddfd09440fae
         self.frame = QtWidgets.QFrame(self.scrollAreaWidgetContents_4)
         self.frame.setMinimumSize(QtCore.QSize(230, 270))
         self.frame.setMaximumSize(QtCore.QSize(230, 270))
@@ -2619,9 +2633,17 @@ class Ui_MainWindow(object):
         self.botonComprar_6.setText(_translate("MainWindow", "Comprar"))
         self.botonComprar_5.setText(_translate("MainWindow", "Comprar"))
         self.botonComprar_4.setText(_translate("MainWindow", "Comprar"))
+<<<<<<< HEAD
         self.label_19.setText(_translate("MainWindow", "Aguacate y Espinacas (x6)"))
         self.precioAvenaHinchada_3.setText(_translate("MainWindow", "26,00€"))
         self.botonComprar_9.setText(_translate("MainWindow", "Comprar"))
+=======
+
+        self.label_19.setText(_translate("MainWindow", "Aguacate y Espinacas (x6)"))
+        self.precioAvenaHinchada_3.setText(_translate("MainWindow", "26,00€"))
+        self.botonComprar_9.setText(_translate("MainWindow", "Comprar"))
+
+>>>>>>> 52306d8e8b057b616b18b98f26ffddfd09440fae
         self.label_20.setText(_translate("MainWindow", "Naranja, Zanahoria y Mango (x6)"))
         self.label_22.setText(_translate("MainWindow", "26,00€"))
         self.botonComprar_8.setText(_translate("MainWindow", "Comprar"))

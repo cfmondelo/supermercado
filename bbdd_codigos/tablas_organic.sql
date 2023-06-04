@@ -61,7 +61,8 @@ create table public.carrito (
     prod_id 	int 		not null,
     precio 		int 		not null,
     cantidad 	int 		not null,
-	primary key (usuario),
+	primary key (usuario, prod_id),
     foreign key (prod_id)
     	references producto (prod_id)
 );
+
