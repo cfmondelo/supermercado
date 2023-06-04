@@ -472,12 +472,15 @@ class VentanaUC(QtWidgets.QMainWindow):
             label_precioProducto.setText(_translate("MainWindow", str(prod[2]) + "€"))
             # numeric.setValue(prod[5]) --> No lo quiero 
 
-        precioSub = precioTot - (21 * precioTot/100)
 
-        total = QtWidgets.QLabel(self.ui.label_subtotal_7)
-        subtotal = QtWidgets.QLabel(self.ui.label_subtotal_5)
-        total.setText(_translate("MainWindow", str(precioTot)+"€"))
-        subtotal.setText(_translate("MainWindow", str(precioSub)+"€"))
+
+# CODIGO DE ANDREA - LO COMENTO PORQUE SINO NO ME FUNCIONA
+        # precioSub = precioTot - (21 * precioTot/100)
+
+        # total = QtWidgets.QLabel(self.ui.label_subtotal_7)
+        # subtotal = QtWidgets.QLabel(self.ui.label_subtotal_5)
+        # total.setText(_translate("MainWindow", str(precioTot)+"€"))
+        # subtotal.setText(_translate("MainWindow", str(precioSub)+"€"))
 
 
     def cambiarAVentanaPrincipal(self):
