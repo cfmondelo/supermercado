@@ -11,6 +11,10 @@ from v4_ventanaUC import Ui_MainWindow as VentanaUCUi
 from res import *
 from metodosSupermercado import *
 
+from PyQt5 import QtWidgets, QtGui
+
+
+
 
 
 # INDEX 0
@@ -113,6 +117,12 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
         self.ui.botonm_lupa.clicked.connect(self.txtm_buscar)  # Boton pulsar
         self.ui.botonm_carrito.clicked.connect(self.cambiar_ventanaUC)
 
+
+
+        # self.ui.botonm_usuario.clicked.connect(self.cambiar_ventanaUC)
+        # self.ventanaUC = None
+   
+
         # Agrego eventFilters a las etiquetas correspondientes
         self.ui.label_logo.installEventFilter(self)
         self.ui.labelm_imagenZumos_2.installEventFilter(self)
@@ -139,6 +149,10 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
         # Conectar clicked de cada botón a la función mostrarPage
         for boton, pagina in self.page_mapping.items():
             boton.clicked.connect(lambda _, p=pagina: self.mostrarPage(p))
+
+
+                # Código para crear frames en frame_productos según productosKenia
+
 
 
     # Cambio de pagina segun la label que pulse
@@ -189,36 +203,149 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
 
     #Al pulsar sobre el boton buscar 
     def txtm_buscar(self):
-        texto_busqueda = self.ui.txtm_buscar.text().lower()
-        paginas = [
-            self.ui.page_desayunos,
-            self.ui.page_waters,
-            self.ui.page_zumos,
-            self.ui.page_platos,
-            self.ui.page_cremas,
-            self.ui.page_gummies,
-            self.ui.page_bars,
-            self.ui.page_teatox,
-            self.ui.page_kombucha,
-            self.ui.page_shots
-        ]
+        # texto_busqueda = self.ui.txtm_buscar.text().lower()
+        texto_busqueda = unidecode(self.ui.txtm_buscar.text().lower())
+
+
+        # Limpiar el contenido actual del scroll area
+        scroll_layout = self.ui.scrollArea_13.widget().layout()
+        if scroll_layout:
+            while scroll_layout.count():
+                child = scroll_layout.takeAt(0)
+                if child.widget():
+                    child.widget().deleteLater()
+
+        conexion = conectar()
+        prods = mostrarProductos(conexion)
+
+        # Obtener los títulos de productos de la lista de tuplas prods
+        # titulos_productos = [unidecode(tupla[1]) for tupla in prods]
+
+
+        s_layout=self.ui.scrollAreaWidgetContents_13.layout()
         
-        for pagina in paginas:
-            for widget in pagina.findChildren(QtWidgets.QLabel):
-                # texto_label = widget.text().lower()
-                texto_label = unidecode(widget.text().lower())
-                if texto_busqueda in texto_label:
-                    self.mostrarPage(pagina)
-                    return
+        contador_frames = 0  # Contador para asignar nombres únicos a los marcos
 
-        print("No se encontraron coincidencias")
+        for tupla in prods:
+            titulo = unidecode(tupla[1])
+            # Obtener los demás datos de la tupla
+            descrip = tupla[2]
+            categ = tupla[3]
+            precio = tupla[4]
+            cant = tupla[5]
+            img = tupla[6]
 
+            if texto_busqueda in titulo.lower():
+
+        #         print(texto_busqueda)
+
+# CREO FRAME DEL PRODUCTO A BUSCAR
+                frame_busqueda = QtWidgets.QFrame(self.ui.scrollAreaWidgetContents_13)
+                frame_busqueda.setMinimumSize(QtCore.QSize(230, 270))
+                frame_busqueda.setMaximumSize(QtCore.QSize(230, 270))
+                frame_busqueda.setFrameShape(QtWidgets.QFrame.StyledPanel)
+                frame_busqueda.setFrameShadow(QtWidgets.QFrame.Raised)
+                frame_busqueda.setObjectName(f"frame_busqueda{contador_frames}")
+                # frame_busqueda.setStyleSheet("background-color: rgb(71, 87, 78);")
+                # frame_busqueda.setStyleSheet("background-color:  rgb(162, 187, 173);")
+                
+
+                # Distribucion del frame_busqueda
+                verticalLayout_63 = QtWidgets.QVBoxLayout(frame_busqueda)
+                verticalLayout_63.setObjectName("verticalLayout_63")
+
+                # Añado el frame creado al layout del scroll
+                s_layout.addWidget(frame_busqueda)
+
+
+# CREO EL LABEL IMAGEN  en el frma creado con tamaño , stylesheet, texto, distribucion
+                labelb_ = QtWidgets.QLabel(frame_busqueda)
+                labelb_.setMinimumSize(QtCore.QSize(200, 150))
+                labelb_.setMaximumSize(QtCore.QSize(200, 150))
+                ruta = "border-image: url(:/{}/{})".format(categ, img)
+                labelb_.setStyleSheet(ruta)
+                labelb_.setText("")
+                labelb_.setObjectName(f"labelb_{contador_frames}")
+
+                # Añado imagen a la distribucion creada para el frame_busqueda
+                verticalLayout_63.addWidget(labelb_)
+
+
+# CREO LA LABEL PARA EL TITULO
+                labelt_= QtWidgets.QLabel(frame_busqueda)
+                labelt_.setMaximumSize(QtCore.QSize(16777215, 15))
+                font = QtGui.QFont()
+                font.setBold(True)
+                font.setWeight(75)
+                font.setStyleStrategy(QtGui.QFont.PreferDefault)
+                labelt_.setFont(font)
+                labelt_.setText(titulo)
+                labelt_.setObjectName(f"labelt_{contador_frames}")
+
+                #Añado la titulo a la distribucion del  frame_busqueda
+                verticalLayout_63.addWidget(labelt_)
+
+
+# CREO LA LABEL PARA EL PRECIO
+                labelp_ = QtWidgets.QLabel(frame_busqueda)
+                labelp_.setMaximumSize(QtCore.QSize(16777215, 15))
+                font = QtGui.QFont()
+                font.setBold(True)
+                font.setWeight(75)
+                labelp_.setFont(font)
+                labelp_.setText(str(precio)+"€")
+                labelp_.setObjectName(f"labelp_{contador_frames}")
+
+                #Añado precio a la distribucion del  frame_busqueda
+                verticalLayout_63.addWidget(labelp_)
+
+# CREO EL BOTON COMPRAR
+                botonc_ = QtWidgets.QPushButton(frame_busqueda)
+                botonc_.setMinimumSize(QtCore.QSize(200, 34))
+                botonc_.setMaximumSize(QtCore.QSize(200, 34))
+                botonc_.setObjectName(f"botonc_{contador_frames}")
+                botonc_.setText("Comprar")
+
+                #Añado el botn a la distribucion del  frame_busqueda
+                verticalLayout_63.addWidget(botonc_)
+
+    # NO ME FUNCIONA El grid layout
+                # #Añade al frame del producto creado a la disposicion de grid 
+                # self.gridLayout_11.addWidget(frame_busqueda, contador_frames // 3, contador_frames % 3, 1, 1)
+
+                contador_frames += 1
+
+
+
+        # Mostrar la página de búsqueda en el scroll area
+        self.mostrarPage(self.ui.page_busquedas)
         self.ui.txtm_buscar.clear()
+
+
 
     def cambiar_ventanaUC(self):
         ventanaUC = VentanaUC()
         stacked_widget.addWidget(ventanaUC)
         stacked_widget.setCurrentIndex(3)
+
+
+
+#### ---> ROBLEMAS PARA LA KENIA DEL FUTURO
+
+##### NO SE HACERLO  Y ME ESTOY LIANDO Y YA NO SE PENSAR- QUIERO QUE AL PULSAR SOBRE EL BOTON USUARIO LLAME A LA OTRA VENTANA A LA V4 PERO QUE SE VAYA A LA PAG DE USUARIO
+        # # Llamar a la función ventanaUsuario si el botón pulsado es botonm_usuario
+        # if self.sender() == self.ui.botonm_usuario:
+        #     self.ventanaUsuario()
+
+    # def ventanaUsuario(self):
+    #     if self.ventanaUC:
+    #         stacked_widget_uc = self.ventanaUC.ui.frame_cuerpo.findChild(QtWidgets.QStackedWidget)
+    #         if stacked_widget_uc:
+    #             index_pag_usuario = 2  # Índice de la página 'pag_usuario' dentro de stacked_widget_uc
+    #             stacked_widget_uc.setCurrentIndex(index_pag_usuario)
+
+
+
 
 
 
@@ -230,6 +357,8 @@ class VentanaUC(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.ui.botonuc_cerrar.clicked.connect(app.quit)
         self.ui.botonuc_atras.clicked.connect(self.cambiarAVentanaPrincipal)
+
+
 
 
         # Código para crear frames en frame_productos según productosKenia
@@ -339,7 +468,6 @@ class VentanaUC(QtWidgets.QMainWindow):
 
 
     def cambiarAVentanaPrincipal(self):
-        ventanaPrincipal = VentanaPrincipal()
         stacked_widget.setCurrentIndex(2)
 
 
@@ -367,4 +495,9 @@ if __name__ == "__main__":
     # login.show()
 
 
+
+
+
     sys.exit(app.exec_())
+
+    

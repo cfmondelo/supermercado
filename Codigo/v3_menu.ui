@@ -443,7 +443,7 @@ color:rgb(0,0,0);
                  <string notr="true"/>
                 </property>
                 <property name="currentIndex">
-                 <number>7</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="page_inicio">
                  <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -457,8 +457,8 @@ color:rgb(0,0,0);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>624</width>
-                       <height>1248</height>
+                       <width>792</width>
+                       <height>1253</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -559,8 +559,8 @@ border-image: url(:/images/z_5.png);</string>
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>624</width>
-                       <height>352</height>
+                       <width>818</width>
+                       <height>497</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -970,8 +970,8 @@ color:rgb(0,0,0);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>676</width>
-                       <height>709</height>
+                       <width>792</width>
+                       <height>706</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -1276,8 +1276,8 @@ color:rgb(0,0,0);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>746</width>
-                       <height>866</height>
+                       <width>792</width>
+                       <height>854</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout">
@@ -2147,8 +2147,8 @@ color:rgb(0,0,0);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>746</width>
-                       <height>866</height>
+                       <width>792</width>
+                       <height>854</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_2">
@@ -2875,8 +2875,8 @@ color:rgb(0,0,0);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>746</width>
-                       <height>866</height>
+                       <width>792</width>
+                       <height>854</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_3">
@@ -3600,8 +3600,8 @@ color:rgb(0,0,0);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>746</width>
-                       <height>580</height>
+                       <width>792</width>
+                       <height>575</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_6">
@@ -4029,8 +4029,8 @@ color:rgb(0,0,0);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>816</width>
-                       <height>580</height>
+                       <width>792</width>
+                       <height>575</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_4">
@@ -4548,8 +4548,8 @@ color:rgb(0,0,0);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>676</width>
-                       <height>579</height>
+                       <width>703</width>
+                       <height>576</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_17">
@@ -4856,8 +4856,8 @@ color:rgb(0,0,0);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>482</width>
-                       <height>767</height>
+                       <width>536</width>
+                       <height>756</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -5236,8 +5236,8 @@ color:rgb(0,0,0);
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>746</width>
-                       <height>580</height>
+                       <width>792</width>
+                       <height>575</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_5">
@@ -5718,6 +5718,461 @@ color:rgb(0,0,0);
                          <item>
                           <widget class="QPushButton" name="botonComprar_49">
                            <property name="minimumSize">
+                            <size>
+                             <width>200</width>
+                             <height>34</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>Comprar</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="page_productoDinamico">
+                 <layout class="QVBoxLayout" name="verticalLayout_61">
+                  <item>
+                   <widget class="QScrollArea" name="scrollArea_12">
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="widgetResizable">
+                     <bool>true</bool>
+                    </property>
+                    <widget class="QWidget" name="scrollAreaWidgetContents_12">
+                     <property name="geometry">
+                      <rect>
+                       <x>0</x>
+                       <y>0</y>
+                       <width>818</width>
+                       <height>497</height>
+                      </rect>
+                     </property>
+                     <layout class="QGridLayout" name="gridLayout_10">
+                      <item row="0" column="0" colspan="3">
+                       <widget class="QLabel" name="labelpd_Titulo">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>35</height>
+                         </size>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(255, 255, 255);</string>
+                        </property>
+                        <property name="text">
+                         <string>EJ SHOTS FUNCIONALES</string>
+                        </property>
+                        <property name="alignment">
+                         <set>Qt::AlignCenter</set>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="0" rowspan="3">
+                       <widget class="QLabel" name="labelpd_imagen">
+                        <property name="minimumSize">
+                         <size>
+                          <width>511</width>
+                          <height>321</height>
+                         </size>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">border-image: url(:/Shots funcionales/z_shot1.jpg);</string>
+                        </property>
+                        <property name="text">
+                         <string/>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="1" colspan="2">
+                       <widget class="QTextBrowser" name="textBrowserpd_descripcion">
+                        <property name="verticalScrollBarPolicy">
+                         <enum>Qt::ScrollBarAlwaysOff</enum>
+                        </property>
+                        <property name="sizeAdjustPolicy">
+                         <enum>QAbstractScrollArea::AdjustIgnored</enum>
+                        </property>
+                        <property name="html">
+                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:696; color:#333333; background-color:#ffffff;&quot;&gt;Comer vegetales es imprescindible para nuestra salud.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:3px; margin-bottom:15px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:496; color:#333333; background-color:#ffffff;&quot;&gt;Este shot&lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:496; color:#333333;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:600; color:#333333;&quot;&gt;elaborado con espinacas, pepino y espirulina&lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:496; color:#333333;&quot;&gt; es ideal para darte los &lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:600; color:#333333;&quot;&gt;aportes de vitaminas y de minerales&lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:496; color:#333333;&quot;&gt; (sobre todo hierro) para que no te falte de nada.&lt;br /&gt;&lt;br /&gt;&lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:600; color:#333333;&quot;&gt;La espinaca&lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:496; color:#333333;&quot;&gt;, base de este shot, es muy &lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:600; color:#333333;&quot;&gt;rica en hierro y magnesio&lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:496; color:#333333;&quot;&gt;, y ayuda a regular la presión arterial. Además, contiene pepino que es un gran diurético, &lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:600; color:#333333;&quot;&gt;rico en vitamina C, potasio y magnesio&lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:496; color:#333333;&quot;&gt;.&lt;br /&gt;&lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:600; color:#333333;&quot;&gt;&lt;br /&gt;La espirulina&lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:496; color:#333333;&quot;&gt; es un &lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:600; color:#333333;&quot;&gt;superalimento&lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:496; color:#333333;&quot;&gt; que tiene un alto contenido en proteínas, además de ser un &lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:600; color:#333333;&quot;&gt;excelente revitalizante&lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:496; color:#333333;&quot;&gt;. Además, añadimos &lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:600; color:#333333;&quot;&gt;jengibre&lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:496; color:#333333;&quot;&gt;, con &lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:600; color:#333333;&quot;&gt;grandes propiedades antiinflamatorias&lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:496; color:#333333;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:600; color:#333333;&quot;&gt;guaraná para darte energía&lt;/span&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:496; color:#333333;&quot;&gt; y manzana para equilibrar el sabor&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:3px; margin-bottom:15px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:496; color:#333333;&quot;&gt;aaaaaaaaaaaaaaaa&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:3px; margin-bottom:15px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Montserrat,sans-serif'; font-weight:496; color:#333333;&quot;&gt;aa&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="1">
+                       <widget class="QSpinBox" name="spinBoxpd_cantidad">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>34</height>
+                         </size>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="2">
+                       <widget class="QPushButton" name="cotonpd_comprar">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>34</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Comprar</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="1" colspan="2">
+                       <spacer name="horizontalSpacer_2">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>269</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                     </layout>
+                    </widget>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="page_busquedas">
+                 <layout class="QVBoxLayout" name="verticalLayout_62">
+                  <item>
+                   <widget class="QScrollArea" name="scrollArea_13">
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="widgetResizable">
+                     <bool>true</bool>
+                    </property>
+                    <widget class="QWidget" name="scrollAreaWidgetContents_13">
+                     <property name="geometry">
+                      <rect>
+                       <x>0</x>
+                       <y>0</y>
+                       <width>792</width>
+                       <height>575</height>
+                      </rect>
+                     </property>
+                     <layout class="QGridLayout" name="gridLayout_11">
+                      <item row="0" column="0">
+                       <widget class="QFrame" name="frame_busqueda1">
+                        <property name="minimumSize">
+                         <size>
+                          <width>230</width>
+                          <height>270</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>230</width>
+                          <height>270</height>
+                         </size>
+                        </property>
+                        <property name="frameShape">
+                         <enum>QFrame::StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Raised</enum>
+                        </property>
+                        <layout class="QVBoxLayout" name="verticalLayout_63">
+                         <item>
+                          <widget class="QLabel" name="labelm_zumo_9">
+                           <property name="minimumSize">
+                            <size>
+                             <width>200</width>
+                             <height>150</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>200</width>
+                             <height>150</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border-image: url(:/Zumos de frutas y verduras/z_zumos2.jpg);</string>
+                           </property>
+                           <property name="text">
+                            <string/>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="label_86">
+                           <property name="maximumSize">
+                            <size>
+                             <width>16777215</width>
+                             <height>15</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <weight>75</weight>
+                             <bold>true</bold>
+                             <stylestrategy>PreferDefault</stylestrategy>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>Naranja, Zanahoria y Mango (x6)</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="label_87">
+                           <property name="maximumSize">
+                            <size>
+                             <width>16777215</width>
+                             <height>15</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <weight>75</weight>
+                             <bold>true</bold>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>26,00€</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="botonComprar_50">
+                           <property name="minimumSize">
+                            <size>
+                             <width>200</width>
+                             <height>34</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>200</width>
+                             <height>34</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>Comprar</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item row="0" column="1">
+                       <widget class="QFrame" name="frame_busqueda2">
+                        <property name="minimumSize">
+                         <size>
+                          <width>230</width>
+                          <height>270</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>230</width>
+                          <height>270</height>
+                         </size>
+                        </property>
+                        <property name="frameShape">
+                         <enum>QFrame::StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Raised</enum>
+                        </property>
+                        <layout class="QVBoxLayout" name="verticalLayout_65">
+                         <item>
+                          <widget class="QLabel" name="labelm_zumo_11">
+                           <property name="minimumSize">
+                            <size>
+                             <width>200</width>
+                             <height>150</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>200</width>
+                             <height>150</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border-image: url(:/Zumos de frutas y verduras/z_zumos2.jpg);</string>
+                           </property>
+                           <property name="text">
+                            <string/>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="label_90">
+                           <property name="maximumSize">
+                            <size>
+                             <width>16777215</width>
+                             <height>15</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <weight>75</weight>
+                             <bold>true</bold>
+                             <stylestrategy>PreferDefault</stylestrategy>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>Naranja, Zanahoria y Mango (x6)</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="label_91">
+                           <property name="maximumSize">
+                            <size>
+                             <width>16777215</width>
+                             <height>15</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <weight>75</weight>
+                             <bold>true</bold>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>26,00€</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="botonComprar_52">
+                           <property name="minimumSize">
+                            <size>
+                             <width>200</width>
+                             <height>34</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>200</width>
+                             <height>34</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>Comprar</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item row="1" column="0">
+                       <widget class="QFrame" name="frame_busqueda3">
+                        <property name="minimumSize">
+                         <size>
+                          <width>230</width>
+                          <height>270</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>230</width>
+                          <height>270</height>
+                         </size>
+                        </property>
+                        <property name="frameShape">
+                         <enum>QFrame::StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Raised</enum>
+                        </property>
+                        <layout class="QVBoxLayout" name="verticalLayout_72">
+                         <item>
+                          <widget class="QLabel" name="labelm_zumo_18">
+                           <property name="minimumSize">
+                            <size>
+                             <width>200</width>
+                             <height>150</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>200</width>
+                             <height>150</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border-image: url(:/Zumos de frutas y verduras/z_zumos2.jpg);</string>
+                           </property>
+                           <property name="text">
+                            <string/>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="label_104">
+                           <property name="maximumSize">
+                            <size>
+                             <width>16777215</width>
+                             <height>15</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <weight>75</weight>
+                             <bold>true</bold>
+                             <stylestrategy>PreferDefault</stylestrategy>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>Naranja, Zanahoria y Mango (x6)</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="label_105">
+                           <property name="maximumSize">
+                            <size>
+                             <width>16777215</width>
+                             <height>15</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <weight>75</weight>
+                             <bold>true</bold>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>26,00€</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="botonComprar_59">
+                           <property name="minimumSize">
+                            <size>
+                             <width>200</width>
+                             <height>34</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
                             <size>
                              <width>200</width>
                              <height>34</height>
