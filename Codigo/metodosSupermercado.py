@@ -98,6 +98,22 @@ def camposVacios(campos):
 def comprobarMail(mail):
   patronCorreo = ("^\w+@[a-z]+\.[a-z]{2,3}$")
   return re.search(patronCorreo, mail)
+
+def comprobarCupon(conn,cupon):
+  query = f"select descuento from descuentos where código = '{cupon}' and activo = true; "
+  try:
+    cur = conn.cursor()
+    cur.execute(query)
+    descuento = cur.fetchall()
+    if len(descuento)==0:      
+      showDialog("El cupón no es válido")
+      valido=False
+    else: 
+      showDialog("Cupon ok")
+      valido=True
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+  return descuento
    
 #POR IMPLEMENTAR (No van a saltar, va a salir en los label)
 def showDialog(msg, title = "informacion"):

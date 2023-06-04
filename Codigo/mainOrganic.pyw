@@ -330,7 +330,7 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
 
 
 
-#### ---> ROBLEMAS PARA LA KENIA DEL FUTURO
+#### ---> PROBLEMAS PARA LA KENIA DEL FUTURO
 
 ##### NO SE HACERLO  Y ME ESTOY LIANDO Y YA NO SE PENSAR- QUIERO QUE AL PULSAR SOBRE EL BOTON USUARIO LLAME A LA OTRA VENTANA A LA V4 PERO QUE SE VAYA A LA PAG DE USUARIO
         # # Llamar a la función ventanaUsuario si el botón pulsado es botonm_usuario
@@ -357,7 +357,7 @@ class VentanaUC(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.ui.botonuc_cerrar.clicked.connect(app.quit)
         self.ui.botonuc_atras.clicked.connect(self.cambiarAVentanaPrincipal)
-
+    
 
 
 
@@ -371,6 +371,7 @@ class VentanaUC(QtWidgets.QMainWindow):
 
         for i, prod in enumerate(prods):
             precioTot += prod[2] * prod[3]
+
             
 #AÑADE FRAME PRODUCTO AL SCROLL AREA ------------------------->
             frame_p = QtWidgets.QFrame(self.ui.scrollAreaWidgetContents_4)
@@ -400,7 +401,7 @@ class VentanaUC(QtWidgets.QMainWindow):
             horizontalLayout_img.setObjectName("horizontalLayout_img" + str(i))
 
 
-            #Aáde la imagen al frame 2
+            #Añade la imagen al frame 2
             label_imagen = QtWidgets.QLabel(frame_img)
             categoria=(str(prod[1]))
             name=(str(prod[4]))
@@ -475,17 +476,28 @@ class VentanaUC(QtWidgets.QMainWindow):
 
 
 # CODIGO DE ANDREA - LO COMENTO PORQUE SINO NO ME FUNCIONA
-        # precioSub = precioTot - (21 * precioTot/100)
+        try:
+            precioSub = precioTot - (21 * precioTot/100)
 
-        # total = QtWidgets.QLabel(self.ui.label_subtotal_7)
-        # subtotal = QtWidgets.QLabel(self.ui.label_subtotal_5)
-        # total.setText(_translate("MainWindow", str(precioTot)+"€"))
-        # subtotal.setText(_translate("MainWindow", str(precioSub)+"€"))
-
-
+            total = QtWidgets.QLabel(self.ui.label_subtotal_7)
+            subtotal = QtWidgets.QLabel(self.ui.label_subtotal_5)
+            total.setText(_translate("MainWindow", str(precioTot)+"€"))
+            subtotal.setText(_translate("MainWindow", str(precioSub)+"€"))
+        except Exception as ex:
+            print(ex)
+        #funcionalidad botón VALIDAR. NO FUNCIONA, ME DA ERROR
+        try:
+            cupon=self.ui.lineEdit.text()
+            self.ui.botouc_validar.clicked.comprobarCupon(conexion,cupon)
+            
+        except Exception as ex:
+            print(ex)
+        
+        
     def cambiarAVentanaPrincipal(self):
         stacked_widget.setCurrentIndex(2)
 
+    
 
 
 #MAIN
@@ -509,10 +521,6 @@ if __name__ == "__main__":
 
     stacked_widget.show()
     # login.show()
-
-
-
-
 
     sys.exit(app.exec_())
 
