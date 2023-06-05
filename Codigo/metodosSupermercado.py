@@ -76,6 +76,43 @@ def mostrarProductos(conn):
     print(error)
   return prods
 
+def buscarProd(conn, nom):
+  query = f"select prod_id, precio from producto p where p.nombre = '{nom}';"
+  try:
+    cur = conn.cursor()
+    cur.execute(query)
+    prod = cur.fetchone()
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+  return prod
+
+def insertarCarr(conn, prod):
+  carr = ('organic@gmail.com', prod[0], prod[1], 1)
+  query = f"insert into carrito (usuario, prod_id, precio, cantidad) values {carr}"
+  try:
+      cur = conn.cursor()
+      cur.execute(query)
+  except (Exception, psycopg2.DatabaseError) as error:
+      print(error)
+
+def actualizarCarr(conn, cant, id):
+  query = f"update carrito set cantidad = '{cant+1}' where prod_id = '{id}';"
+  try:
+    cur = conn.cursor()
+    cur.execute(query)
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+
+def buscarCarr(conn, id):
+  query = f"select cantidad from carrito where prod_id = '{id}';"
+  try:
+    cur = conn.cursor()
+    cur.execute(query)
+    cant = cur.fetchone()
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+  return cant
+
 def mostrarCarrito(conn):
   query = f"select p.nombre, p.categoria, p.precio , c.cantidad, p.imagen  from carrito c join producto p on c.prod_id = p.prod_id;"
   try:
