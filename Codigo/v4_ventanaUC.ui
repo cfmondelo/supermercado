@@ -121,7 +121,7 @@ color:rgb(0,0,0);
            <string/>
           </property>
           <property name="icon">
-           <iconset>
+           <iconset resource="res.qrc">
             <normaloff>:/iconos/user.png</normaloff>:/iconos/user.png</iconset>
           </property>
          </widget>
@@ -203,8 +203,8 @@ font-size: 2rem;
            <string/>
           </property>
           <property name="icon">
-           <iconset>
-            <normaloff>:/iconos/user.png</normaloff>:/iconos/user.png</iconset>
+           <iconset resource="res.qrc">
+            <normaloff>:/iconos/z-minimize-sign.png</normaloff>:/iconos/z-minimize-sign.png</iconset>
           </property>
          </widget>
         </item>
@@ -223,7 +223,7 @@ font-size: 2rem;
            <string/>
           </property>
           <property name="icon">
-           <iconset>
+           <iconset resource="res.qrc">
             <normaloff>:/iconos/user.png</normaloff>:/iconos/user.png</iconset>
           </property>
          </widget>
@@ -243,8 +243,8 @@ font-size: 2rem;
            <string/>
           </property>
           <property name="icon">
-           <iconset>
-            <normaloff>:/iconos/user.png</normaloff>:/iconos/user.png</iconset>
+           <iconset resource="res.qrc">
+            <normaloff>:/iconos/z-plus.png</normaloff>:/iconos/z-plus.png</iconset>
           </property>
          </widget>
         </item>
@@ -263,7 +263,7 @@ font-size: 2rem;
            <string/>
           </property>
           <property name="icon">
-           <iconset resource="../../../../Desktop/TFG/Organic/Codigo/res.qrc">
+           <iconset resource="res.qrc">
             <normaloff>:/iconos/z_cerrar.png</normaloff>:/iconos/z_cerrar.png</iconset>
           </property>
          </widget>
@@ -332,7 +332,7 @@ font-size: 2rem;
                     <x>0</x>
                     <y>0</y>
                     <width>515</width>
-                    <height>530</height>
+                    <height>536</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -539,7 +539,7 @@ font-size: 2rem;
                 <string>Validar</string>
                </property>
                <property name="icon">
-                <iconset>
+                <iconset resource="res.qrc">
                  <normaloff>:/iconos/user.png</normaloff>:/iconos/user.png</iconset>
                </property>
               </widget>
@@ -585,7 +585,7 @@ font-size: 2rem;
                 <item row="0" column="2">
                  <widget class="QLabel" name="label_subtotal_5">
                   <property name="text">
-                   <string>r_sub</string>
+                   <string>0</string>
                   </property>
                  </widget>
                 </item>
@@ -612,7 +612,7 @@ font-size: 2rem;
                 <item row="1" column="2">
                  <widget class="QLabel" name="label_subtotal_6">
                   <property name="text">
-                   <string>r_desc</string>
+                   <string>DESCUENTO NO APLICADO</string>
                   </property>
                  </widget>
                 </item>
@@ -639,7 +639,7 @@ font-size: 2rem;
                 <item row="2" column="2">
                  <widget class="QLabel" name="label_subtotal_7">
                   <property name="text">
-                   <string>r_total</string>
+                   <string>0</string>
                   </property>
                  </widget>
                 </item>
@@ -667,7 +667,7 @@ font-size: 2rem;
                 <string>FinalizarPedido</string>
                </property>
                <property name="icon">
-                <iconset>
+                <iconset resource="res.qrc">
                  <normaloff>:/iconos/user.png</normaloff>:/iconos/user.png</iconset>
                </property>
               </widget>
@@ -1171,7 +1171,7 @@ font-size: 2rem;
   </widget>
  </widget>
  <resources>
-  <include location="../../../../Desktop/TFG/Organic/Codigo/res.qrc"/>
+  <include location="res.qrc"/>
  </resources>
  <connections/>
 </ui>
