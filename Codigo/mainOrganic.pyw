@@ -17,6 +17,7 @@ from PyQt5 import QtWidgets, QtGui
 
 
 
+
 # INDEX 0
 class Login(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
@@ -49,12 +50,12 @@ class Login(QtWidgets.QMainWindow):
 
     def cambiarDePantalla(self):
         crear_cuenta = CrearCuenta()
-        stacked_widget.addWidget(crear_cuenta)
+        # stacked_widget.addWidget(crear_cuenta)
         stacked_widget.setCurrentIndex(1)
 
     def cambiarAVentanaPrincipal(self):
         ventanaPrincipal = VentanaPrincipal()
-        stacked_widget.addWidget(ventanaPrincipal)
+        # stacked_widget.addWidget(ventanaPrincipal)
         stacked_widget.setCurrentIndex(2)
         
         
@@ -112,16 +113,13 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
         QtWidgets.QWidget.__init__(self,parent)
         self.ui = MenuPrincipalUi()
         self.ui.setupUi(self)
+        self.ventanaUC = VentanaUC()
         self.ui.botonI_menu.clicked.connect(self.mover_menu1)  # Conecta la señal del botón a la función mover_menu1()
         self.ui.botonm_cerrar.clicked.connect(app.quit)
         self.ui.botonm_lupa.clicked.connect(self.txtm_buscar)  # Boton pulsar
-        self.ui.botonm_carrito.clicked.connect(self.cambiar_ventanaUC)
+        self.ui.botonm_carrito.clicked.connect(self.cambiar_ventanaUC_carrito)
+        self.ui.botonm_usuario.clicked.connect(self.cambiar_ventanaUC_usuario)
 
-
-
-        # self.ui.botonm_usuario.clicked.connect(self.cambiar_ventanaUC)
-        # self.ventanaUC = None
-   
 
         # Agrego eventFilters a las etiquetas correspondientes
         self.ui.label_logo.installEventFilter(self)
@@ -323,31 +321,17 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
 
 
 
-    def cambiar_ventanaUC(self):
-        ventanaUC = VentanaUC()
-        stacked_widget.addWidget(ventanaUC)
+    def cambiar_ventanaUC_usuario(self):
         stacked_widget.setCurrentIndex(3)
+        ventanaUC.cambiar_a_ventana_usuario()
 
 
+    def cambiar_ventanaUC_carrito(self):
+        # ventanaUC = VentanaUC()
+        stacked_widget.setCurrentIndex(3)
+        ventanaUC.cambiar_a_ventana_carrito()
 
-#### ---> ROBLEMAS PARA LA KENIA DEL FUTURO
-
-##### NO SE HACERLO  Y ME ESTOY LIANDO Y YA NO SE PENSAR- QUIERO QUE AL PULSAR SOBRE EL BOTON USUARIO LLAME A LA OTRA VENTANA A LA V4 PERO QUE SE VAYA A LA PAG DE USUARIO
-        # # Llamar a la función ventanaUsuario si el botón pulsado es botonm_usuario
-        # if self.sender() == self.ui.botonm_usuario:
-        #     self.ventanaUsuario()
-
-    # def ventanaUsuario(self):
-    #     if self.ventanaUC:
-    #         stacked_widget_uc = self.ventanaUC.ui.frame_cuerpo.findChild(QtWidgets.QStackedWidget)
-    #         if stacked_widget_uc:
-    #             index_pag_usuario = 2  # Índice de la página 'pag_usuario' dentro de stacked_widget_uc
-    #             stacked_widget_uc.setCurrentIndex(index_pag_usuario)
-
-
-
-
-
+            
 
 # INDEX 3
 class VentanaUC(QtWidgets.QMainWindow):
@@ -358,6 +342,8 @@ class VentanaUC(QtWidgets.QMainWindow):
         self.ui.botonuc_cerrar.clicked.connect(app.quit)
         self.ui.botonuc_atras.clicked.connect(self.cambiarAVentanaPrincipal)
 
+
+        self.stacked_widget = self.ui.frame_cuerpo.findChild(QtWidgets.QStackedWidget)  # Obtener el QStackedWidget dentro de frame_cuerpo
 
 
 
@@ -486,6 +472,12 @@ class VentanaUC(QtWidgets.QMainWindow):
     def cambiarAVentanaPrincipal(self):
         stacked_widget.setCurrentIndex(2)
 
+    def cambiar_a_ventana_usuario(self):
+            self.stacked_widget.setCurrentWidget(self.ui.pag_usuario)  # Cambiar a la página "pag_usuario"
+
+    def cambiar_a_ventana_carrito(self):
+            self.stacked_widget.setCurrentWidget(self.ui.pag_carrito)  # Cambiar a la página "carrito"
+
 
 
 #MAIN
@@ -494,10 +486,18 @@ if __name__ == "__main__":
 
     stacked_widget = QtWidgets.QStackedWidget()  #Se crea un objeto stacked_widget 
     login = Login()
-    # crear_cuenta = CrearCuenta()
+    crear_cuenta = CrearCuenta()
+    ventanaPrincipal = VentanaPrincipal()
+    ventanaUC = VentanaUC()
 
     #Se agregan las ventanas al objeto stacked widget
     stacked_widget.addWidget(login)
+    stacked_widget.addWidget(crear_cuenta)
+    stacked_widget.addWidget(ventanaPrincipal)
+    stacked_widget.addWidget(ventanaUC)
+    
+
+
     ### stacked_widget.addWidget(crear_cuenta) #La creo mejor arriba en CrearCuenta
 
     stacked_widget.resize(625, 565)
@@ -512,7 +512,8 @@ if __name__ == "__main__":
 
 
 
-
+    num_widgets = stacked_widget.count()
+    print("Número de widgets: ", num_widgets)
 
     sys.exit(app.exec_())
 
