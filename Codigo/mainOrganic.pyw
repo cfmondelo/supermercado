@@ -584,6 +584,7 @@ class VentanaUC(QtWidgets.QMainWindow):
             conexion=conectar()
             cupon=self.ui.lineEdit.text()
             self.descuento=comprobarCupon(conexion,cupon)
+            self.ui.label_subtotal_6.setText(str(self.descuento))
         except Exception as ex:
             print(ex)
         

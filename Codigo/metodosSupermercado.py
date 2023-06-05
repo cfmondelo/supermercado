@@ -144,10 +144,10 @@ def comprobarCupon(conn,cupon):
     descuento = cur.fetchall()
     if len(descuento)==0:      
       showDialog("El cupón no es válido")
-      valido=False
+      descuento=0
     else: 
       showDialog("Cupon ok")
-      valido=True
+      descuento=descuento[0]
   except (Exception, psycopg2.DatabaseError) as error:
     print(error)
   return descuento
