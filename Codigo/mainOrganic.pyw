@@ -477,17 +477,41 @@ class VentanaUC(QtWidgets.QMainWindow):
 
 
 
-# CODIGO DE ANDREA - LO COMENTO PORQUE SINO NO ME FUNCIONA
-        try:
-            precioSub = precioTot - (21 * precioTot/100)
+    # CODIGO DE ANDREA - LO COMENTO PORQUE SINO NO ME FUNCIONA
+            # try:
+                precioSub = precioTot - (21 * precioTot/100)
+            # except Exception as ex:
+            #     print(ex)
+            #funcionalidad botón VALIDAR. NO FUNCIONA, ME DA ERROR
+        else:
+            frame_p = QtWidgets.QFrame(self.ui.scrollAreaWidgetContents_4)
+            frame_p.setMaximumSize(QtCore.QSize(16777215, 130))
+            frame_p.setMinimumHeight(150)
+            frame_p.setMinimumWidth(517)
+            frame_p.setStyleSheet("background-color: rgb(255, 255, 255);")
+            frame_p.setFrameShape(QtWidgets.QFrame.StyledPanel)
+            frame_p.setFrameShadow(QtWidgets.QFrame.Raised)
+            frame_p.setObjectName("frame_p")
+            
+            label_noprod = QtWidgets.QLabel(frame_p)
+            label_noprod.setStyleSheet(" text-align:center;")
+            label_noprod.setText("No hay productos en el carrito")
+            label_noprod.setObjectName("label_noprod")
 
-            total = QtWidgets.QLabel(self.ui.label_subtotal_7)
-            subtotal = QtWidgets.QLabel(self.ui.label_subtotal_5)
-            total.setText(_translate("MainWindow", str(precioTot)+"€"))
-            subtotal.setText(_translate("MainWindow", str(precioSub)+"€"))
-        except Exception as ex:
-            print(ex)
-        #funcionalidad botón VALIDAR. NO FUNCIONA, ME DA ERROR
+            precioTot = 0
+            precioSub = 0
+
+        _translate = QtCore.QCoreApplication.translate
+        total = QtWidgets.QLabel(self.ui.label_subtotal_7)
+        subtotal = QtWidgets.QLabel(self.ui.label_subtotal_5)
+        total.setText(_translate("MainWindow", str(precioTot)+"€"))
+        subtotal.setText(_translate("MainWindow", str(precioSub)+"€"))
+        
+        
+    def cambiarAVentanaPrincipal(self):
+        stacked_widget.setCurrentIndex(2)
+
+    def comprobarDescuento(self):
         try:
             conexion=conectar()
             cupon=self.ui.lineEdit.text()
@@ -495,7 +519,6 @@ class VentanaUC(QtWidgets.QMainWindow):
         except Exception as ex:
             print(ex)
         
-
 
 #MAIN
 if __name__ == "__main__":
