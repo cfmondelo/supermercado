@@ -365,127 +365,147 @@ class VentanaUC(QtWidgets.QMainWindow):
         conexion = conectar()
         prods = mostrarCarrito(conexion)
 
-        scroll_layout = self.ui.scrollAreaWidgetContents_4.layout()
+        if len(prods) > 0:
+            scroll_layout = self.ui.scrollAreaWidgetContents_4.layout()
 
-        precioTot = 0
+            precioTot = 0
 
-        for i, prod in enumerate(prods):
-            precioTot += prod[2] * prod[3]
+            for i, prod in enumerate(prods):
+                precioTot += prod[2] * prod[3]
 
+                
+    #AÑADE FRAME PRODUCTO AL SCROLL AREA ------------------------->
+                frame_p = QtWidgets.QFrame(self.ui.scrollAreaWidgetContents_4)
+                frame_p.setMaximumSize(QtCore.QSize(16777215, 130))
+                frame_p.setMinimumHeight(150)
+                frame_p.setStyleSheet("background-color: rgb(255, 255, 255);")
+                frame_p.setFrameShape(QtWidgets.QFrame.StyledPanel)
+                frame_p.setFrameShadow(QtWidgets.QFrame.Raised)
+                frame_p.setObjectName("frame_p" + str(i))
+
+    #Creo una distribucion horizontal para la imagen y los datos
+                horizontalLayout_prod = QtWidgets.QHBoxLayout(frame_p)
+                horizontalLayout_prod.setObjectName("horizontalLayout_prod")
+
+                scroll_layout.addWidget(frame_p)
+
+    # AÑADE FRAME PARA IAMGEN --------------------------->
+                frame_img = QtWidgets.QFrame(frame_p)
+                frame_img.setFrameShape(QtWidgets.QFrame.StyledPanel)
+                frame_img.setFrameShadow(QtWidgets.QFrame.Raised)
+                frame_img.setObjectName("frame_img" + str(i))
+                # frame_img.setStyleSheet("background-color: rgb(255, 0, 0);")
+
+
+    #Creo distribucion para la imagen dentro del frame
+                horizontalLayout_img = QtWidgets.QHBoxLayout(frame_img)
+                horizontalLayout_img.setObjectName("horizontalLayout_img" + str(i))
+
+
+                #Añade la imagen al frame 2
+                label_imagen = QtWidgets.QLabel(frame_img)
+                categoria=(str(prod[1]))
+                name=(str(prod[4]))
+                ruta = "border-image: url(:/{}/{})".format(categoria, name)
+                label_imagen.setStyleSheet(ruta)
+                label_imagen.setText("")
+                label_imagen.setObjectName("label_imagen" + str(i))
+
+    #Introduzco la distribucion para el frame producto y para la imagen 
+                horizontalLayout_img.addWidget(label_imagen)
+                horizontalLayout_prod.addWidget(frame_img)
+
+
+
+    #AÑADE EL FRAME DE DATOS PRODUCTO ----------------------------->
+                frame_cont_prod = QtWidgets.QFrame(frame_p)
+                frame_cont_prod.setFrameShape(QtWidgets.QFrame.StyledPanel)
+                frame_cont_prod.setFrameShadow(QtWidgets.QFrame.Raised)
+                frame_cont_prod.setObjectName("frame_cont" + str(i))
+                # frame_cont_prod.setStyleSheet("background-color: rgb(0, 255, 0);")
+
+    #Hago que el Frame imagen y datos este pegados horizontal
+                horizontalLayout_prod.addWidget(frame_cont_prod)
+
+
+    #Añado sitribucion vertical dentro del frame de datos
+                verticalLayout_contprod = QtWidgets.QVBoxLayout(frame_cont_prod)
+                verticalLayout_contprod.setObjectName("verticalLayout_contprod" + str(i))
             
-#AÑADE FRAME PRODUCTO AL SCROLL AREA ------------------------->
+    #Añado titulo de producto
+                label_tituloProducto = QtWidgets.QLabel(frame_cont_prod)
+                label_tituloProducto.setObjectName("label_tituloProducto" + str(i))
+                label_tituloProducto.setFixedHeight(20)
+                # label_tituloProducto.setStyleSheet("background-color: blue;")
+
+    #Añado el titulo a la distribucion vertical
+                verticalLayout_contprod.addWidget(label_tituloProducto)
+
+    #Añado un fram para precio y cantidad
+                frame_cant_precio = QtWidgets.QFrame(frame_cont_prod)
+                frame_cant_precio.setFrameShape(QtWidgets.QFrame.StyledPanel)
+                frame_cant_precio.setFrameShadow(QtWidgets.QFrame.Raised)
+                frame_cant_precio.setObjectName("frame_cant_precio" + str(i))           
+                # frame_cant_precio.setStyleSheet("background-color: grey;")
+
+    #Añado Frame precio cantidad a la distribucion vertical
+                verticalLayout_contprod.addWidget(frame_cant_precio)
+
+    #Añado distribucion horizontal al frame precio cant       
+                horizontalLayout_cant_precio = QtWidgets.QHBoxLayout(frame_cant_precio)
+                horizontalLayout_cant_precio.setObjectName("horizontalLayout_cant_precio" + str(i))
+
+
+    #Creo spinbox y le añado distribucion 
+                numeric = QtWidgets.QSpinBox(frame_cont_prod)
+                numeric.setMinimum(1)
+                numeric.setObjectName("numeric" + str(i))
+                numeric.setValue(prod[3])
+                horizontalLayout_cant_precio.addWidget(numeric)
+
+
+    # Añado etiqueta precio y le añado distribucion 
+                label_precioProducto = QtWidgets.QLabel(frame_cont_prod)
+                label_precioProducto.setObjectName("label_precioProducto" + str(i))
+                horizontalLayout_cant_precio.addWidget(label_precioProducto)
+
+                _translate = QtCore.QCoreApplication.translate
+                label_tituloProducto.setText(_translate("MainWindow", prod[0]))
+                label_precioProducto.setText(_translate("MainWindow", str(prod[2]) + "€"))
+                # numeric.setValue(prod[5]) --> No lo quiero 
+
+
+
+    # CODIGO DE ANDREA - LO COMENTO PORQUE SINO NO ME FUNCIONA
+            # try:
+                precioSub = precioTot - (21 * precioTot/100)
+            # except Exception as ex:
+            #     print(ex)
+            #funcionalidad botón VALIDAR. NO FUNCIONA, ME DA ERROR
+        else:
             frame_p = QtWidgets.QFrame(self.ui.scrollAreaWidgetContents_4)
             frame_p.setMaximumSize(QtCore.QSize(16777215, 130))
             frame_p.setMinimumHeight(150)
+            frame_p.setMinimumWidth(517)
             frame_p.setStyleSheet("background-color: rgb(255, 255, 255);")
             frame_p.setFrameShape(QtWidgets.QFrame.StyledPanel)
             frame_p.setFrameShadow(QtWidgets.QFrame.Raised)
-            frame_p.setObjectName("frame_p" + str(i))
+            frame_p.setObjectName("frame_p")
+            
+            label_noprod = QtWidgets.QLabel(frame_p)
+            label_noprod.setStyleSheet(" text-align:center;")
+            label_noprod.setText("No hay productos en el carrito")
+            label_noprod.setObjectName("label_noprod")
 
-#Creo una distribucion horizontal para la imagen y los datos
-            horizontalLayout_prod = QtWidgets.QHBoxLayout(frame_p)
-            horizontalLayout_prod.setObjectName("horizontalLayout_prod")
+            precioTot = 0
+            precioSub = 0
 
-            scroll_layout.addWidget(frame_p)
-
-# AÑADE FRAME PARA IAMGEN --------------------------->
-            frame_img = QtWidgets.QFrame(frame_p)
-            frame_img.setFrameShape(QtWidgets.QFrame.StyledPanel)
-            frame_img.setFrameShadow(QtWidgets.QFrame.Raised)
-            frame_img.setObjectName("frame_img" + str(i))
-            # frame_img.setStyleSheet("background-color: rgb(255, 0, 0);")
-
-
-#Creo distribucion para la imagen dentro del frame
-            horizontalLayout_img = QtWidgets.QHBoxLayout(frame_img)
-            horizontalLayout_img.setObjectName("horizontalLayout_img" + str(i))
-
-
-            #Añade la imagen al frame 2
-            label_imagen = QtWidgets.QLabel(frame_img)
-            categoria=(str(prod[1]))
-            name=(str(prod[4]))
-            ruta = "border-image: url(:/{}/{})".format(categoria, name)
-            label_imagen.setStyleSheet(ruta)
-            label_imagen.setText("")
-            label_imagen.setObjectName("label_imagen" + str(i))
-
-#Introduzco la distribucion para el frame producto y para la imagen 
-            horizontalLayout_img.addWidget(label_imagen)
-            horizontalLayout_prod.addWidget(frame_img)
-
-
-
-#AÑADE EL FRAME DE DATOS PRODUCTO ----------------------------->
-            frame_cont_prod = QtWidgets.QFrame(frame_p)
-            frame_cont_prod.setFrameShape(QtWidgets.QFrame.StyledPanel)
-            frame_cont_prod.setFrameShadow(QtWidgets.QFrame.Raised)
-            frame_cont_prod.setObjectName("frame_cont" + str(i))
-            # frame_cont_prod.setStyleSheet("background-color: rgb(0, 255, 0);")
-
-#Hago que el Frame imagen y datos este pegados horizontal
-            horizontalLayout_prod.addWidget(frame_cont_prod)
-
-
-#Añado sitribucion vertical dentro del frame de datos
-            verticalLayout_contprod = QtWidgets.QVBoxLayout(frame_cont_prod)
-            verticalLayout_contprod.setObjectName("verticalLayout_contprod" + str(i))
-           
-#Añado titulo de producto
-            label_tituloProducto = QtWidgets.QLabel(frame_cont_prod)
-            label_tituloProducto.setObjectName("label_tituloProducto" + str(i))
-            label_tituloProducto.setFixedHeight(20)
-            # label_tituloProducto.setStyleSheet("background-color: blue;")
-
-#Añado el titulo a la distribucion vertical
-            verticalLayout_contprod.addWidget(label_tituloProducto)
-
-#Añado un fram para precio y cantidad
-            frame_cant_precio = QtWidgets.QFrame(frame_cont_prod)
-            frame_cant_precio.setFrameShape(QtWidgets.QFrame.StyledPanel)
-            frame_cant_precio.setFrameShadow(QtWidgets.QFrame.Raised)
-            frame_cant_precio.setObjectName("frame_cant_precio" + str(i))           
-            # frame_cant_precio.setStyleSheet("background-color: grey;")
-
-#Añado Frame precio cantidad a la distribucion vertical
-            verticalLayout_contprod.addWidget(frame_cant_precio)
-
-#Añado distribucion horizontal al frame precio cant       
-            horizontalLayout_cant_precio = QtWidgets.QHBoxLayout(frame_cant_precio)
-            horizontalLayout_cant_precio.setObjectName("horizontalLayout_cant_precio" + str(i))
-
-
-#Creo spinbox y le añado distribucion 
-            numeric = QtWidgets.QSpinBox(frame_cont_prod)
-            numeric.setMinimum(1)
-            numeric.setObjectName("numeric" + str(i))
-            numeric.setValue(prod[3])
-            horizontalLayout_cant_precio.addWidget(numeric)
-
-
-# Añado etiqueta precio y le añado distribucion 
-            label_precioProducto = QtWidgets.QLabel(frame_cont_prod)
-            label_precioProducto.setObjectName("label_precioProducto" + str(i))
-            horizontalLayout_cant_precio.addWidget(label_precioProducto)
-
-            _translate = QtCore.QCoreApplication.translate
-            label_tituloProducto.setText(_translate("MainWindow", prod[0]))
-            label_precioProducto.setText(_translate("MainWindow", str(prod[2]) + "€"))
-            # numeric.setValue(prod[5]) --> No lo quiero 
-
-
-
-# CODIGO DE ANDREA - LO COMENTO PORQUE SINO NO ME FUNCIONA
-        try:
-            precioSub = precioTot - (21 * precioTot/100)
-
-            total = QtWidgets.QLabel(self.ui.label_subtotal_7)
-            subtotal = QtWidgets.QLabel(self.ui.label_subtotal_5)
-            total.setText(_translate("MainWindow", str(precioTot)+"€"))
-            subtotal.setText(_translate("MainWindow", str(precioSub)+"€"))
-        except Exception as ex:
-            print(ex)
-        #funcionalidad botón VALIDAR. NO FUNCIONA, ME DA ERROR
+        _translate = QtCore.QCoreApplication.translate
+        total = QtWidgets.QLabel(self.ui.label_subtotal_7)
+        subtotal = QtWidgets.QLabel(self.ui.label_subtotal_5)
+        total.setText(_translate("MainWindow", str(precioTot)+"€"))
+        subtotal.setText(_translate("MainWindow", str(precioSub)+"€"))
+        
         try:
             cupon=self.ui.lineEdit.text()
             self.ui.botouc_validar.clicked.comprobarCupon(conexion,cupon)
