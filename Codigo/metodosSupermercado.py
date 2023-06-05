@@ -87,7 +87,7 @@ def buscarProd(conn, nom):
   return prod
 
 def insertarCarr(conn, prod):
-  carr = ('andrea@gmail.com', prod[0], prod[1], 1)
+  carr = ('organic@gmail.com', prod[0], prod[1], 1)
   query = f"insert into carrito (usuario, prod_id, precio, cantidad) values {carr}"
   try:
       cur = conn.cursor()

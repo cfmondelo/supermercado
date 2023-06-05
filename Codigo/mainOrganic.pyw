@@ -157,22 +157,29 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
         self.ui.botonComprar_32.clicked.connect(partial(self.insertar, 'Immunity Gummies'))
 
         # Barras
-        # self.ui.botonComprar_33.clicked.connect(partial(self.insertar, ))
-        # self.ui.botonComprar_34.clicked.connect(partial(self.insertar, ))
-        # self.ui.botonComprar_35.clicked.connect(partial(self.insertar, ))
-        # self.ui.botonComprar_36.clicked.connect(partial(self.insertar, ))
-        # self.ui.botonComprar_37.clicked.connect(partial(self.insertar, ))
-        # self.ui.botonComprar_38.clicked.connect(partial(self.insertar, ))
-        # self.ui.botonComprar_39.clicked.connect(partial(self.insertar, ))
-        # self.ui.botonComprar_41.clicked.connect(partial(self.insertar, ))
-        # self.ui.botonComprar_42.clicked.connect(partial(self.insertar, ))
-        # self.ui.botonComprar_43.clicked.connect(partial(self.insertar, ))
-        # self.ui.botonComprar_44.clicked.connect(partial(self.insertar, ))
-        # self.ui.botonComprar_45.clicked.connect(partial(self.insertar, ))
-        # self.ui.botonComprar_46.clicked.connect(partial(self.insertar, ))
-        # self.ui.botonComprar_47.clicked.connect(partial(self.insertar, ))
-        # self.ui.botonComprar_48.clicked.connect(partial(self.insertar, ))
-        # self.ui.botonComprar_49.clicked.connect(partial(self.insertar, ))
+        self.ui.botonComprar_33.clicked.connect(partial(self.insertar, '12 Mix Bars'))
+        self.ui.botonComprar_34.clicked.connect(partial(self.insertar, 'Caja Cocoa Bars'))
+        self.ui.botonComprar_35.clicked.connect(partial(self.insertar, 'Caja Apple Bars'))
+        self.ui.botonComprar_36.clicked.connect(partial(self.insertar, 'Caja Strawberry Bars'))
+        self.ui.botonComprar_41.clicked.connect(partial(self.insertar, 'Mix Bars (x3)'))
+
+        # TeaTo y te desato
+        self.ui.botonComprar_42.clicked.connect(partial(self.insertar, 'NIGHT TEA - Rest & Sleep'))
+        self.ui.botonComprar_43.clicked.connect(partial(self.insertar, 'DAY TEA - Active & Burn'))
+        self.ui.botonComprar_44.clicked.connect(partial(self.insertar, 'IMMUNITY TEA'))
+
+        # Kombucha y Kompoca
+        self.ui.botonComprar_45.clicked.connect(partial(self.insertar, 'Caja Kombucha Limón'))
+        self.ui.botonComprar_46.clicked.connect(partial(self.insertar, 'Caja Kombucha Jengibre'))
+        self.ui.botonComprar_47.clicked.connect(partial(self.insertar, 'Caja Kombucha Frutas del bosque'))
+        self.ui.botonComprar_48.clicked.connect(partial(self.insertar, 'MIX Kombucha (x6)'))
+
+        # Chupitaso
+        self.ui.botonComprar_37.clicked.connect(partial(self.insertar, 'Caja shot Cold Care'))
+        self.ui.botonComprar_38.clicked.connect(partial(self.insertar, 'Caja shot Energy'))
+        self.ui.botonComprar_39.clicked.connect(partial(self.insertar, 'Caja Green Shot'))
+        self.ui.botonComprar_40.clicked.connect(partial(self.insertar, 'Caja shot Antiox'))
+        self.ui.botonComprar_49.clicked.connect(partial(self.insertar, 'Caja Shot Mix 4'))
 
 
 
