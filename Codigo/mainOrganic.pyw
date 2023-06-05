@@ -357,9 +357,10 @@ class VentanaUC(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.ui.botonuc_cerrar.clicked.connect(app.quit)
         self.ui.botonuc_atras.clicked.connect(self.cambiarAVentanaPrincipal)
-    
-
-
+        self.ui.botouc_validar.clicked.connect(self.comprobarDescuento)
+        
+        #variable del objeto
+        self.descuento=0
 
         # Código para crear frames en frame_productos según productosKenia
         conexion = conectar()
@@ -484,20 +485,19 @@ class VentanaUC(QtWidgets.QMainWindow):
             total.setText(_translate("MainWindow", str(precioTot)+"€"))
             subtotal.setText(_translate("MainWindow", str(precioSub)+"€"))
         except Exception as ex:
-            print(ex)
-        #funcionalidad botón VALIDAR. NO FUNCIONA, ME DA ERROR
-        try:
-            cupon=self.ui.lineEdit.text()
-            self.ui.botouc_validar.clicked.comprobarCupon(conexion,cupon)
-            
-        except Exception as ex:
-            print(ex)
-        
+            print(ex)   
         
     def cambiarAVentanaPrincipal(self):
         stacked_widget.setCurrentIndex(2)
 
-    
+    def comprobarDescuento(self):
+        try:
+            conexion=conectar()
+            cupon=self.ui.lineEdit.text()
+            self.descuento=comprobarCupon(conexion,cupon)
+        except Exception as ex:
+            print(ex)
+        
 
 
 #MAIN
