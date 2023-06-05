@@ -12,7 +12,7 @@ from res import *
 from metodosSupermercado import *
 
 from PyQt5 import QtWidgets, QtGui
-
+from functools import partial
 
 
 
@@ -117,6 +117,63 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
         self.ui.botonm_lupa.clicked.connect(self.txtm_buscar)  # Boton pulsar
         self.ui.botonm_carrito.clicked.connect(self.cambiar_ventanaUC)
 
+        # Power waters
+        self.ui.botonComprar_4.clicked.connect(partial(self.insertar, 'Mix aguas (2 sabores x3)'))
+        self.ui.botonComprar_5.clicked.connect(partial(self.insertar, 'Agua con Carbón activado (x6)'))
+        self.ui.botonComprar_6.clicked.connect(partial(self.insertar, 'Agua con Espirulina azul (x6)'))
+
+        # Zumitos
+        self.ui.botonComprar_7.clicked.connect(partial(self.insertar, 'Piña, Fresa y Avena (x6)'))
+        self.ui.botonComprar_8.clicked.connect(partial(self.insertar, 'Naranaja, Zanahoria y Mango (x6)'))
+        self.ui.botonComprar_9.clicked.connect(partial(self.insertar, 'Aguacate y Espinacas (x6)'))
+        self.ui.botonComprar_10.clicked.connect(partial(self.insertar, 'Frutas del bosque y Plátano (x6)'))
+        self.ui.botonComprar_11.clicked.connect(partial(self.insertar, 'Mango, Espinacas y Chía (x6)'))
+        self.ui.botonComprar_12.clicked.connect(partial(self.insertar, 'Piña, Manzana y Menta (x6)'))
+        self.ui.botonComprar_13.clicked.connect(partial(self.insertar, 'Mix Degustación Zumos (x7)'))
+        self.ui.botonComprar_14.clicked.connect(partial(self.insertar, 'Limón y Cayena (x6)'))
+
+        # Platos preparados
+        self.ui.botonComprar_15.clicked.connect(partial(self.insertar, 'Mix Degustación Platos Preparados (x6)'))
+        self.ui.botonComprar_16.clicked.connect(partial(self.insertar, 'Lentejas con Verduras y Quinoa'))
+        self.ui.botonComprar_17.clicked.connect(partial(self.insertar, 'Coliflor rehogada con Pimentón'))
+        self.ui.botonComprar_18.clicked.connect(partial(self.insertar, 'Burger vegana con arroz y frutos secos'))
+        self.ui.botonComprar_19.clicked.connect(partial(self.insertar, 'Burger vegana con ensalada de garbanzos'))
+        self.ui.botonComprar_20.clicked.connect(partial(self.insertar, 'Menestra de Verduras'))
+        self.ui.botonComprar_21.clicked.connect(partial(self.insertar, 'Cous cous con verduras'))
+
+        # Cremas
+        self.ui.botonComprar_22.clicked.connect(partial(self.insertar, 'Mix Degustación Cremas (x6)'))
+        self.ui.botonComprar_23.clicked.connect(partial(self.insertar, 'Crema de Trigueros con Yuca'))
+        self.ui.botonComprar_24.clicked.connect(partial(self.insertar, 'Crema de Guisantes con Menta'))
+        self.ui.botonComprar_25.clicked.connect(partial(self.insertar, 'Crema de coliflor con curry'))
+        self.ui.botonComprar_26.clicked.connect(partial(self.insertar, 'Crema de Calabaza y Naranja'))
+        self.ui.botonComprar_27.clicked.connect(partial(self.insertar, 'Crema de Zanahoria'))
+        self.ui.botonComprar_28.clicked.connect(partial(self.insertar, 'Crema de tomate Thai'))
+
+        # Gummies
+        self.ui.botonComprar_29.clicked.connect(partial(self.insertar, 'Hair & Nails Gummies'))
+        self.ui.botonComprar_30.clicked.connect(partial(self.insertar, 'Fat Burn Gummies'))
+        self.ui.botonComprar_31.clicked.connect(partial(self.insertar, 'Sleep Gummies'))
+        self.ui.botonComprar_32.clicked.connect(partial(self.insertar, 'Immunity Gummies'))
+
+        # Barras
+        # self.ui.botonComprar_33.clicked.connect(partial(self.insertar, ))
+        # self.ui.botonComprar_34.clicked.connect(partial(self.insertar, ))
+        # self.ui.botonComprar_35.clicked.connect(partial(self.insertar, ))
+        # self.ui.botonComprar_36.clicked.connect(partial(self.insertar, ))
+        # self.ui.botonComprar_37.clicked.connect(partial(self.insertar, ))
+        # self.ui.botonComprar_38.clicked.connect(partial(self.insertar, ))
+        # self.ui.botonComprar_39.clicked.connect(partial(self.insertar, ))
+        # self.ui.botonComprar_41.clicked.connect(partial(self.insertar, ))
+        # self.ui.botonComprar_42.clicked.connect(partial(self.insertar, ))
+        # self.ui.botonComprar_43.clicked.connect(partial(self.insertar, ))
+        # self.ui.botonComprar_44.clicked.connect(partial(self.insertar, ))
+        # self.ui.botonComprar_45.clicked.connect(partial(self.insertar, ))
+        # self.ui.botonComprar_46.clicked.connect(partial(self.insertar, ))
+        # self.ui.botonComprar_47.clicked.connect(partial(self.insertar, ))
+        # self.ui.botonComprar_48.clicked.connect(partial(self.insertar, ))
+        # self.ui.botonComprar_49.clicked.connect(partial(self.insertar, ))
+
 
 
         # self.ui.botonm_usuario.clicked.connect(self.cambiar_ventanaUC)
@@ -154,6 +211,17 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
                 # Código para crear frames en frame_productos según productosKenia
 
 
+    def insertar(self, nombre):
+        conn = conectar()
+        # Conseguir el id y precio de producto
+        prod = buscarProd(conn, nombre)
+        if len(prod) > 0:
+            # buscar en carrito si ya existe ese producto y aumentar la cantidad
+            cant = buscarCarr(conn, prod[0])
+            if cant != None:
+                actualizarCarr(conn, cant[0], prod[0])
+            else:
+                insertarCarr(conn, prod)
 
     # Cambio de pagina segun la label que pulse
     def eventFilter(self, obj, event):
