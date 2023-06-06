@@ -48,3 +48,18 @@ values ('Avena hinchada','','Desayunos',3.50,9999,'z_desayuno1.jpg'),
 		('Caja shot Antiox','','Shots funcionales',41,9999,'z_shot3.jpg'),
 		('Caja shot Cold Care','','Shots funcionales',41,9999,'z_shot4.jpg'),
 		('Caja Shot Mix 4','','Shots funcionales',41,9999,'z_shot5.jpg');
+insert into usuarios values
+	('andrea@gmail.com', 'Andrea', '12345678', '','', 'C/ Maravilla, 33', 28019, 'Madrid', 'Madrid' ),
+	('organic@gmail.com', 'Admin', '12345678', '','', 'C/ No tan Maravilla, 66', 28019, 'Madrid', 'Madrid' );
+insert into carrito (usuario, prod_id, precio, cantidad) values
+	('andrea@gmail.com', 49, 3.50, 5),
+	('andrea@gmail.com', 4, 6.50, 6),
+	('andrea@gmail.com', 6, 5, 7),
+	('andrea@gmail.com', 10, 26, 8),
+	('andrea@gmail.com', 20, 6.50, 9);
+insert into tickets (usuario, precio, fecha)values
+	('andrea@gmail.com',800, '2023/03/15');
+insert into lineapedidos (prod_id, precio, cantidad, compra_id) values
+	(49, 3.50, 5, 1),
+	(4, 6.50, 6, 1),
+	(6, 5, 7, 1);

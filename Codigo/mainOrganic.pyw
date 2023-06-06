@@ -424,15 +424,16 @@ class VentanaUC(QtWidgets.QMainWindow):
 
         self.stacked_widget = self.ui.frame_cuerpo.findChild(QtWidgets.QStackedWidget)  # Obtener el QStackedWidget dentro de frame_cuerpo
 
-#>>>>>>>>>>>>>>Carol?
+#>>>>>>>>>>>>>>Carol
 
         self.ui.botouc_validar.clicked.connect(self.comprobarDescuento)
         
-        #variable del objeto
+        #variables del objeto
         self.descuento=0
+        self.precioTot=0
+        self.precioSub=0
 
-#<<<<<<<<<<<<< Carol?
-
+#<<<<<<<<<<<<< Carol
         # Código para crear frames en frame_productos según productosKenia
         conexion = conectar()
         prods = mostrarCarrito(conexion)
@@ -440,10 +441,10 @@ class VentanaUC(QtWidgets.QMainWindow):
         if len(prods) > 0:
             scroll_layout = self.ui.scrollAreaWidgetContents_4.layout()
 
-            precioTot = 0
+            self.precioTot = 0
 
             for i, prod in enumerate(prods):
-                precioTot += prod[2] * prod[3]
+                self.precioTot += (prod[2] * prod[3])
 
                 
     #AÑADE FRAME PRODUCTO AL SCROLL AREA ------------------------->
@@ -550,7 +551,7 @@ class VentanaUC(QtWidgets.QMainWindow):
 
     # CODIGO DE ANDREA - LO COMENTO PORQUE SINO NO ME FUNCIONA
             # try:
-                precioSub = precioTot - (21 * precioTot/100)
+                self.precioSub = self.precioTot/1.21 #corrijo la operación para calcular precio sin IVA
             # except Exception as ex:
             #     print(ex)
             #funcionalidad botón VALIDAR. NO FUNCIONA, ME DA ERROR
@@ -569,14 +570,14 @@ class VentanaUC(QtWidgets.QMainWindow):
             label_noprod.setText("No hay productos en el carrito")
             label_noprod.setObjectName("label_noprod")
 
-            precioTot = 0
-            precioSub = 0
+            self.precioTot = 0
+            self.precioSub = 0
 
         _translate = QtCore.QCoreApplication.translate
         total = QtWidgets.QLabel(self.ui.label_subtotal_7)
         subtotal = QtWidgets.QLabel(self.ui.label_subtotal_5)
-        total.setText(_translate("MainWindow", str(precioTot)+"€"))
-        subtotal.setText(_translate("MainWindow", str(precioSub)+"€"))
+        total.setText(_translate("MainWindow", str(f"{self.precioTot:0.2f}")+"€"))
+        subtotal.setText(_translate("MainWindow", str(f"{self.precioSub:0.2f}")+"€"))
         
         
     def cambiarAVentanaPrincipal(self):
@@ -599,6 +600,10 @@ class VentanaUC(QtWidgets.QMainWindow):
             cupon=self.ui.lineEdit.text()
             self.descuento=comprobarCupon(conexion,cupon)
             self.ui.label_subtotal_6.setText(str(self.descuento))
+            
+            #vuelvo a hacer el cálculo para que se actulice
+            self.precioTot-=self.descuento
+            self.precioSub=self.precioTot/1.21
         except Exception as ex:
             print(ex)
         
