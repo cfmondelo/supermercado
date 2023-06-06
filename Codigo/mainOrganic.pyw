@@ -12,7 +12,7 @@ from res import *
 from metodosSupermercado import *
 
 from PyQt5 import QtWidgets, QtGui
-
+from functools import partial
 
 
 
@@ -120,6 +120,70 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
         self.ui.botonm_carrito.clicked.connect(self.cambiar_ventanaUC_carrito)
         self.ui.botonm_usuario.clicked.connect(self.cambiar_ventanaUC_usuario)
 
+        # Power waters
+        self.ui.botonComprar_4.clicked.connect(partial(self.insertar, 'Mix aguas (2 sabores x3)'))
+        self.ui.botonComprar_5.clicked.connect(partial(self.insertar, 'Agua con Carbón activado (x6)'))
+        self.ui.botonComprar_6.clicked.connect(partial(self.insertar, 'Agua con Espirulina azul (x6)'))
+
+        # Zumitos
+        self.ui.botonComprar_7.clicked.connect(partial(self.insertar, 'Piña, Fresa y Avena (x6)'))
+        self.ui.botonComprar_8.clicked.connect(partial(self.insertar, 'Naranaja, Zanahoria y Mango (x6)'))
+        self.ui.botonComprar_9.clicked.connect(partial(self.insertar, 'Aguacate y Espinacas (x6)'))
+        self.ui.botonComprar_10.clicked.connect(partial(self.insertar, 'Frutas del bosque y Plátano (x6)'))
+        self.ui.botonComprar_11.clicked.connect(partial(self.insertar, 'Mango, Espinacas y Chía (x6)'))
+        self.ui.botonComprar_12.clicked.connect(partial(self.insertar, 'Piña, Manzana y Menta (x6)'))
+        self.ui.botonComprar_13.clicked.connect(partial(self.insertar, 'Mix Degustación Zumos (x7)'))
+        self.ui.botonComprar_14.clicked.connect(partial(self.insertar, 'Limón y Cayena (x6)'))
+
+        # Platos preparados
+        self.ui.botonComprar_15.clicked.connect(partial(self.insertar, 'Mix Degustación Platos Preparados (x6)'))
+        self.ui.botonComprar_16.clicked.connect(partial(self.insertar, 'Lentejas con Verduras y Quinoa'))
+        self.ui.botonComprar_17.clicked.connect(partial(self.insertar, 'Coliflor rehogada con Pimentón'))
+        self.ui.botonComprar_18.clicked.connect(partial(self.insertar, 'Burger vegana con arroz y frutos secos'))
+        self.ui.botonComprar_19.clicked.connect(partial(self.insertar, 'Burger vegana con ensalada de garbanzos'))
+        self.ui.botonComprar_20.clicked.connect(partial(self.insertar, 'Menestra de Verduras'))
+        self.ui.botonComprar_21.clicked.connect(partial(self.insertar, 'Cous cous con verduras'))
+
+        # Cremas
+        self.ui.botonComprar_22.clicked.connect(partial(self.insertar, 'Mix Degustación Cremas (x6)'))
+        self.ui.botonComprar_23.clicked.connect(partial(self.insertar, 'Crema de Trigueros con Yuca'))
+        self.ui.botonComprar_24.clicked.connect(partial(self.insertar, 'Crema de Guisantes con Menta'))
+        self.ui.botonComprar_25.clicked.connect(partial(self.insertar, 'Crema de coliflor con curry'))
+        self.ui.botonComprar_26.clicked.connect(partial(self.insertar, 'Crema de Calabaza y Naranja'))
+        self.ui.botonComprar_27.clicked.connect(partial(self.insertar, 'Crema de Zanahoria'))
+        self.ui.botonComprar_28.clicked.connect(partial(self.insertar, 'Crema de tomate Thai'))
+
+        # Gummies
+        self.ui.botonComprar_29.clicked.connect(partial(self.insertar, 'Hair & Nails Gummies'))
+        self.ui.botonComprar_30.clicked.connect(partial(self.insertar, 'Fat Burn Gummies'))
+        self.ui.botonComprar_31.clicked.connect(partial(self.insertar, 'Sleep Gummies'))
+        self.ui.botonComprar_32.clicked.connect(partial(self.insertar, 'Immunity Gummies'))
+
+        # Barras
+        self.ui.botonComprar_33.clicked.connect(partial(self.insertar, '12 Mix Bars'))
+        self.ui.botonComprar_34.clicked.connect(partial(self.insertar, 'Caja Cocoa Bars'))
+        self.ui.botonComprar_35.clicked.connect(partial(self.insertar, 'Caja Apple Bars'))
+        self.ui.botonComprar_36.clicked.connect(partial(self.insertar, 'Caja Strawberry Bars'))
+        self.ui.botonComprar_41.clicked.connect(partial(self.insertar, 'Mix Bars (x3)'))
+
+        # TeaTo y te desato
+        self.ui.botonComprar_42.clicked.connect(partial(self.insertar, 'NIGHT TEA - Rest & Sleep'))
+        self.ui.botonComprar_43.clicked.connect(partial(self.insertar, 'DAY TEA - Active & Burn'))
+        self.ui.botonComprar_44.clicked.connect(partial(self.insertar, 'IMMUNITY TEA'))
+
+        # Kombucha y Kompoca
+        self.ui.botonComprar_45.clicked.connect(partial(self.insertar, 'Caja Kombucha Limón'))
+        self.ui.botonComprar_46.clicked.connect(partial(self.insertar, 'Caja Kombucha Jengibre'))
+        self.ui.botonComprar_47.clicked.connect(partial(self.insertar, 'Caja Kombucha Frutas del bosque'))
+        self.ui.botonComprar_48.clicked.connect(partial(self.insertar, 'MIX Kombucha (x6)'))
+
+        # Chupitaso
+        self.ui.botonComprar_37.clicked.connect(partial(self.insertar, 'Caja shot Cold Care'))
+        self.ui.botonComprar_38.clicked.connect(partial(self.insertar, 'Caja shot Energy'))
+        self.ui.botonComprar_39.clicked.connect(partial(self.insertar, 'Caja Green Shot'))
+        self.ui.botonComprar_40.clicked.connect(partial(self.insertar, 'Caja shot Antiox'))
+        self.ui.botonComprar_49.clicked.connect(partial(self.insertar, 'Caja Shot Mix 4'))
+
 
         # Agrego eventFilters a las etiquetas correspondientes
         self.ui.label_logo.installEventFilter(self)
@@ -152,6 +216,17 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
                 # Código para crear frames en frame_productos según productosKenia
 
 
+    def insertar(self, nombre):
+        conn = conectar()
+        # Conseguir el id y precio de producto
+        prod = buscarProd(conn, nombre)
+        if len(prod) > 0:
+            # buscar en carrito si ya existe ese producto y aumentar la cantidad
+            cant = buscarCarr(conn, prod[0])
+            if cant != None:
+                actualizarCarr(conn, cant[0], prod[0])
+            else:
+                insertarCarr(conn, prod)
 
     # Cambio de pagina segun la label que pulse
     def eventFilter(self, obj, event):
@@ -327,11 +402,11 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
 
 
     def cambiar_ventanaUC_carrito(self):
-        # ventanaUC = VentanaUC()
         stacked_widget.setCurrentIndex(3)
         ventanaUC.cambiar_a_ventana_carrito()
 
-            
+
+
 
 # INDEX 3
 class VentanaUC(QtWidgets.QMainWindow):
@@ -342,141 +417,233 @@ class VentanaUC(QtWidgets.QMainWindow):
         self.ui.botonuc_cerrar.clicked.connect(app.quit)
         self.ui.botonuc_atras.clicked.connect(self.cambiarAVentanaPrincipal)
 
+        #Para la tabla de usuarios
+        # En el constructor de la clase VentanaUC, después de self.ui.setupUi(self)
+
+
 
         self.stacked_widget = self.ui.frame_cuerpo.findChild(QtWidgets.QStackedWidget)  # Obtener el QStackedWidget dentro de frame_cuerpo
 
+#>>>>>>>>>>>>>>Carol?
 
+        self.ui.botouc_validar.clicked.connect(self.comprobarDescuento)
+        
+        #variable del objeto
+        self.descuento=0
+
+#<<<<<<<<<<<<< Carol?
 
         # Código para crear frames en frame_productos según productosKenia
         conexion = conectar()
         prods = mostrarCarrito(conexion)
 
-        scroll_layout = self.ui.scrollAreaWidgetContents_4.layout()
+        if len(prods) > 0:
+            scroll_layout = self.ui.scrollAreaWidgetContents_4.layout()
 
-        precioTot = 0
+            precioTot = 0
 
-        for i, prod in enumerate(prods):
-            precioTot += prod[2] * prod[3]
+            for i, prod in enumerate(prods):
+                precioTot += prod[2] * prod[3]
+
+                
+    #AÑADE FRAME PRODUCTO AL SCROLL AREA ------------------------->
+                frame_p = QtWidgets.QFrame(self.ui.scrollAreaWidgetContents_4)
+                frame_p.setMaximumSize(QtCore.QSize(16777215, 130))
+                frame_p.setMinimumHeight(150)
+                frame_p.setStyleSheet("background-color: rgb(255, 255, 255);")
+                frame_p.setFrameShape(QtWidgets.QFrame.StyledPanel)
+                frame_p.setFrameShadow(QtWidgets.QFrame.Raised)
+                frame_p.setObjectName("frame_p" + str(i))
+
+    #Creo una distribucion horizontal para la imagen y los datos
+                horizontalLayout_prod = QtWidgets.QHBoxLayout(frame_p)
+                horizontalLayout_prod.setObjectName("horizontalLayout_prod")
+
+                scroll_layout.addWidget(frame_p)
+
+    # AÑADE FRAME PARA IAMGEN --------------------------->
+                frame_img = QtWidgets.QFrame(frame_p)
+                frame_img.setFrameShape(QtWidgets.QFrame.StyledPanel)
+                frame_img.setFrameShadow(QtWidgets.QFrame.Raised)
+                frame_img.setObjectName("frame_img" + str(i))
+                # frame_img.setStyleSheet("background-color: rgb(255, 0, 0);")
+
+
+    #Creo distribucion para la imagen dentro del frame
+                horizontalLayout_img = QtWidgets.QHBoxLayout(frame_img)
+                horizontalLayout_img.setObjectName("horizontalLayout_img" + str(i))
+
+
+                #Añade la imagen al frame 2
+                label_imagen = QtWidgets.QLabel(frame_img)
+                categoria=(str(prod[1]))
+                name=(str(prod[4]))
+                ruta = "border-image: url(:/{}/{})".format(categoria, name)
+                label_imagen.setStyleSheet(ruta)
+                label_imagen.setText("")
+                label_imagen.setObjectName("label_imagen" + str(i))
+
+    #Introduzco la distribucion para el frame producto y para la imagen 
+                horizontalLayout_img.addWidget(label_imagen)
+                horizontalLayout_prod.addWidget(frame_img)
+
+
+
+    #AÑADE EL FRAME DE DATOS PRODUCTO ----------------------------->
+                frame_cont_prod = QtWidgets.QFrame(frame_p)
+                frame_cont_prod.setFrameShape(QtWidgets.QFrame.StyledPanel)
+                frame_cont_prod.setFrameShadow(QtWidgets.QFrame.Raised)
+                frame_cont_prod.setObjectName("frame_cont" + str(i))
+                # frame_cont_prod.setStyleSheet("background-color: rgb(0, 255, 0);")
+
+    #Hago que el Frame imagen y datos este pegados horizontal
+                horizontalLayout_prod.addWidget(frame_cont_prod)
+
+
+    #Añado sitribucion vertical dentro del frame de datos
+                verticalLayout_contprod = QtWidgets.QVBoxLayout(frame_cont_prod)
+                verticalLayout_contprod.setObjectName("verticalLayout_contprod" + str(i))
             
-#AÑADE FRAME PRODUCTO AL SCROLL AREA ------------------------->
+    #Añado titulo de producto
+                label_tituloProducto = QtWidgets.QLabel(frame_cont_prod)
+                label_tituloProducto.setObjectName("label_tituloProducto" + str(i))
+                label_tituloProducto.setFixedHeight(20)
+                # label_tituloProducto.setStyleSheet("background-color: blue;")
+
+    #Añado el titulo a la distribucion vertical
+                verticalLayout_contprod.addWidget(label_tituloProducto)
+
+    #Añado un fram para precio y cantidad
+                frame_cant_precio = QtWidgets.QFrame(frame_cont_prod)
+                frame_cant_precio.setFrameShape(QtWidgets.QFrame.StyledPanel)
+                frame_cant_precio.setFrameShadow(QtWidgets.QFrame.Raised)
+                frame_cant_precio.setObjectName("frame_cant_precio" + str(i))           
+                # frame_cant_precio.setStyleSheet("background-color: grey;")
+
+    #Añado Frame precio cantidad a la distribucion vertical
+                verticalLayout_contprod.addWidget(frame_cant_precio)
+
+    #Añado distribucion horizontal al frame precio cant       
+                horizontalLayout_cant_precio = QtWidgets.QHBoxLayout(frame_cant_precio)
+                horizontalLayout_cant_precio.setObjectName("horizontalLayout_cant_precio" + str(i))
+
+
+    #Creo spinbox y le añado distribucion 
+                numeric = QtWidgets.QSpinBox(frame_cont_prod)
+                numeric.setMinimum(1)
+                numeric.setObjectName("numeric" + str(i))
+                numeric.setValue(prod[3])
+                horizontalLayout_cant_precio.addWidget(numeric)
+
+
+    # Añado etiqueta precio y le añado distribucion 
+                label_precioProducto = QtWidgets.QLabel(frame_cont_prod)
+                label_precioProducto.setObjectName("label_precioProducto" + str(i))
+                horizontalLayout_cant_precio.addWidget(label_precioProducto)
+
+                _translate = QtCore.QCoreApplication.translate
+                label_tituloProducto.setText(_translate("MainWindow", prod[0]))
+                label_precioProducto.setText(_translate("MainWindow", str(prod[2]) + "€"))
+                # numeric.setValue(prod[5]) --> No lo quiero 
+
+
+
+    # CODIGO DE ANDREA - LO COMENTO PORQUE SINO NO ME FUNCIONA
+            # try:
+                precioSub = precioTot - (21 * precioTot/100)
+            # except Exception as ex:
+            #     print(ex)
+            #funcionalidad botón VALIDAR. NO FUNCIONA, ME DA ERROR
+        else:
             frame_p = QtWidgets.QFrame(self.ui.scrollAreaWidgetContents_4)
             frame_p.setMaximumSize(QtCore.QSize(16777215, 130))
             frame_p.setMinimumHeight(150)
+            frame_p.setMinimumWidth(517)
             frame_p.setStyleSheet("background-color: rgb(255, 255, 255);")
             frame_p.setFrameShape(QtWidgets.QFrame.StyledPanel)
             frame_p.setFrameShadow(QtWidgets.QFrame.Raised)
-            frame_p.setObjectName("frame_p" + str(i))
+            frame_p.setObjectName("frame_p")
+            
+            label_noprod = QtWidgets.QLabel(frame_p)
+            label_noprod.setStyleSheet(" text-align:center;")
+            label_noprod.setText("No hay productos en el carrito")
+            label_noprod.setObjectName("label_noprod")
 
-#Creo una distribucion horizontal para la imagen y los datos
-            horizontalLayout_prod = QtWidgets.QHBoxLayout(frame_p)
-            horizontalLayout_prod.setObjectName("horizontalLayout_prod")
+            precioTot = 0
+            precioSub = 0
 
-            scroll_layout.addWidget(frame_p)
-
-# AÑADE FRAME PARA IAMGEN --------------------------->
-            frame_img = QtWidgets.QFrame(frame_p)
-            frame_img.setFrameShape(QtWidgets.QFrame.StyledPanel)
-            frame_img.setFrameShadow(QtWidgets.QFrame.Raised)
-            frame_img.setObjectName("frame_img" + str(i))
-            # frame_img.setStyleSheet("background-color: rgb(255, 0, 0);")
-
-
-#Creo distribucion para la imagen dentro del frame
-            horizontalLayout_img = QtWidgets.QHBoxLayout(frame_img)
-            horizontalLayout_img.setObjectName("horizontalLayout_img" + str(i))
-
-
-            #Aáde la imagen al frame 2
-            label_imagen = QtWidgets.QLabel(frame_img)
-            categoria=(str(prod[1]))
-            name=(str(prod[4]))
-            ruta = "border-image: url(:/{}/{})".format(categoria, name)
-            label_imagen.setStyleSheet(ruta)
-            label_imagen.setText("")
-            label_imagen.setObjectName("label_imagen" + str(i))
-
-#Introduzco la distribucion para el frame producto y para la imagen 
-            horizontalLayout_img.addWidget(label_imagen)
-            horizontalLayout_prod.addWidget(frame_img)
-
-
-
-#AÑADE EL FRAME DE DATOS PRODUCTO ----------------------------->
-            frame_cont_prod = QtWidgets.QFrame(frame_p)
-            frame_cont_prod.setFrameShape(QtWidgets.QFrame.StyledPanel)
-            frame_cont_prod.setFrameShadow(QtWidgets.QFrame.Raised)
-            frame_cont_prod.setObjectName("frame_cont" + str(i))
-            # frame_cont_prod.setStyleSheet("background-color: rgb(0, 255, 0);")
-
-#Hago que el Frame imagen y datos este pegados horizontal
-            horizontalLayout_prod.addWidget(frame_cont_prod)
-
-
-#Añado sitribucion vertical dentro del frame de datos
-            verticalLayout_contprod = QtWidgets.QVBoxLayout(frame_cont_prod)
-            verticalLayout_contprod.setObjectName("verticalLayout_contprod" + str(i))
-           
-#Añado titulo de producto
-            label_tituloProducto = QtWidgets.QLabel(frame_cont_prod)
-            label_tituloProducto.setObjectName("label_tituloProducto" + str(i))
-            label_tituloProducto.setFixedHeight(20)
-            # label_tituloProducto.setStyleSheet("background-color: blue;")
-
-#Añado el titulo a la distribucion vertical
-            verticalLayout_contprod.addWidget(label_tituloProducto)
-
-#Añado un fram para precio y cantidad
-            frame_cant_precio = QtWidgets.QFrame(frame_cont_prod)
-            frame_cant_precio.setFrameShape(QtWidgets.QFrame.StyledPanel)
-            frame_cant_precio.setFrameShadow(QtWidgets.QFrame.Raised)
-            frame_cant_precio.setObjectName("frame_cant_precio" + str(i))           
-            # frame_cant_precio.setStyleSheet("background-color: grey;")
-
-#Añado Frame precio cantidad a la distribucion vertical
-            verticalLayout_contprod.addWidget(frame_cant_precio)
-
-#Añado distribucion horizontal al frame precio cant       
-            horizontalLayout_cant_precio = QtWidgets.QHBoxLayout(frame_cant_precio)
-            horizontalLayout_cant_precio.setObjectName("horizontalLayout_cant_precio" + str(i))
-
-
-#Creo spinbox y le añado distribucion 
-            numeric = QtWidgets.QSpinBox(frame_cont_prod)
-            numeric.setMinimum(1)
-            numeric.setObjectName("numeric" + str(i))
-            numeric.setValue(prod[3])
-            horizontalLayout_cant_precio.addWidget(numeric)
-
-
-# Añado etiqueta precio y le añado distribucion 
-            label_precioProducto = QtWidgets.QLabel(frame_cont_prod)
-            label_precioProducto.setObjectName("label_precioProducto" + str(i))
-            horizontalLayout_cant_precio.addWidget(label_precioProducto)
-
-            _translate = QtCore.QCoreApplication.translate
-            label_tituloProducto.setText(_translate("MainWindow", prod[0]))
-            label_precioProducto.setText(_translate("MainWindow", str(prod[2]) + "€"))
-            # numeric.setValue(prod[5]) --> No lo quiero 
-
-
-
-# CODIGO DE ANDREA - LO COMENTO PORQUE SINO NO ME FUNCIONA
-        # precioSub = precioTot - (21 * precioTot/100)
-
-        # total = QtWidgets.QLabel(self.ui.label_subtotal_7)
-        # subtotal = QtWidgets.QLabel(self.ui.label_subtotal_5)
-        # total.setText(_translate("MainWindow", str(precioTot)+"€"))
-        # subtotal.setText(_translate("MainWindow", str(precioSub)+"€"))
-
-
+        _translate = QtCore.QCoreApplication.translate
+        total = QtWidgets.QLabel(self.ui.label_subtotal_7)
+        subtotal = QtWidgets.QLabel(self.ui.label_subtotal_5)
+        total.setText(_translate("MainWindow", str(precioTot)+"€"))
+        subtotal.setText(_translate("MainWindow", str(precioSub)+"€"))
+        
+        
     def cambiarAVentanaPrincipal(self):
         stacked_widget.setCurrentIndex(2)
 
+
     def cambiar_a_ventana_usuario(self):
             self.stacked_widget.setCurrentWidget(self.ui.pag_usuario)  # Cambiar a la página "pag_usuario"
+            self.cargarDatosTablaTickets()
 
     def cambiar_a_ventana_carrito(self):
             self.stacked_widget.setCurrentWidget(self.ui.pag_carrito)  # Cambiar a la página "carrito"
+
+
+# >>>>>>>>>>> Carol
+
+    def comprobarDescuento(self):
+        try:
+            conexion=conectar()
+            cupon=self.ui.lineEdit.text()
+            self.descuento=comprobarCupon(conexion,cupon)
+            self.ui.label_subtotal_6.setText(str(self.descuento))
+        except Exception as ex:
+            print(ex)
+        
+# <<<<<<<<<<<< Carol
+
+
+
+    def cargarDatosTablaTickets(self):
+        conexion = conectar()
+        tickets = obtenerTickets(conexion)
+
+
+        print(str(tickets))
+        stacked_widget = self.ui.frame_cuerpo.findChild(QtWidgets.QStackedWidget)  # Obtener el QStackedWidget dentro de frame_cuerpo
+        table_widget = stacked_widget.findChild(QtWidgets.QTableWidget)  # Obtener el QTableWidget dentro de QStackedWidget
+
+        table_widget.setRowCount(len(tickets))  # Establecer el número de filas en la tabla
+
+        for i, ticket in enumerate(tickets):
+            # Obtener los datos del ticket
+            tick_id = ticket[0]
+            usuario = ticket[1]
+            desc_id = ticket[2]
+            precio = ticket[3]
+            fecha = ticket[4]
+
+            # Insertar los datos en la tabla
+            table_widget.setItem(i, 0, QtWidgets.QTableWidgetItem(str(tick_id)))
+            table_widget.setItem(i, 1, QtWidgets.QTableWidgetItem(str(fecha)))
+            table_widget.setItem(i, 2, QtWidgets.QTableWidgetItem(str(precio)))
+            table_widget.setItem(i, 3, QtWidgets.QTableWidgetItem(usuario))
+
+
+        # Centrar el texto en las celdas
+        for i in range(table_widget.rowCount()):
+            for j in range(table_widget.columnCount()):
+                item = table_widget.item(i, j)
+                item.setTextAlignment(QtCore.Qt.AlignCenter)
+
+        
+        # Modificar el tamaño de las columnas
+        table_widget.setColumnWidth(0, 125)  # Columna 0: ID del ticket
+        table_widget.setColumnWidth(1, 125)  # Columna 1: Fecha
+        table_widget.setColumnWidth(2, 125)  # Columna 2: Precio
+        table_widget.setColumnWidth(3, 125)  # Columna 3: Usuario
 
 
 
@@ -511,9 +678,9 @@ if __name__ == "__main__":
     # login.show()
 
 
+    # num_widgets = stacked_widget.count()
+    # print("Número de widgets: ", num_widgets)
 
-    num_widgets = stacked_widget.count()
-    print("Número de widgets: ", num_widgets)
 
     sys.exit(app.exec_())
 

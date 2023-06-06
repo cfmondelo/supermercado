@@ -76,6 +76,43 @@ def mostrarProductos(conn):
     print(error)
   return prods
 
+def buscarProd(conn, nom):
+  query = f"select prod_id, precio from producto p where p.nombre = '{nom}';"
+  try:
+    cur = conn.cursor()
+    cur.execute(query)
+    prod = cur.fetchone()
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+  return prod
+
+def insertarCarr(conn, prod):
+  carr = ('organic@gmail.com', prod[0], prod[1], 1)
+  query = f"insert into carrito (usuario, prod_id, precio, cantidad) values {carr}"
+  try:
+      cur = conn.cursor()
+      cur.execute(query)
+  except (Exception, psycopg2.DatabaseError) as error:
+      print(error)
+
+def actualizarCarr(conn, cant, id):
+  query = f"update carrito set cantidad = '{cant+1}' where prod_id = '{id}';"
+  try:
+    cur = conn.cursor()
+    cur.execute(query)
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+
+def buscarCarr(conn, id):
+  query = f"select cantidad from carrito where prod_id = '{id}';"
+  try:
+    cur = conn.cursor()
+    cur.execute(query)
+    cant = cur.fetchone()
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+  return cant
+
 def mostrarCarrito(conn):
   query = f"select p.nombre, p.categoria, p.precio , c.cantidad, p.imagen  from carrito c join producto p on c.prod_id = p.prod_id;"
   try:
@@ -98,6 +135,22 @@ def camposVacios(campos):
 def comprobarMail(mail):
   patronCorreo = ("^\w+@[a-z]+\.[a-z]{2,3}$")
   return re.search(patronCorreo, mail)
+
+def comprobarCupon(conn,cupon):
+  query = f"select descuento from descuentos where código = '{cupon}' and activo = true; "
+  try:
+    cur = conn.cursor()
+    cur.execute(query)
+    descuento = cur.fetchall()
+    if len(descuento)==0:      
+      showDialog("El cupón no es válido")
+      descuento=0
+    else: 
+      showDialog("Cupon ok")
+      descuento=descuento[0]
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+  return descuento
    
 #POR IMPLEMENTAR (No van a saltar, va a salir en los label)
 def showDialog(msg, title = "informacion"):
@@ -107,3 +160,25 @@ def showDialog(msg, title = "informacion"):
   msgBox.setWindowTitle(title)
   msgBox.exec()
 #FIN POR IMPLEMENTAR
+
+
+
+
+###################################################### Kenia
+
+
+def obtenerTickets(conn):
+  query = f"SELECT * FROM tickets;"
+  try:
+    cur = conn.cursor()
+    cur.execute(query)
+    tikets = cur.fetchall()
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+  return tikets
+
+# conn = conectar()
+# t = obtenerTickets(conn)
+# print(t)
+
+###################################################### Kenia
