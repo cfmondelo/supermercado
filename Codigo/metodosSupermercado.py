@@ -86,8 +86,8 @@ def buscarProd(conn, nom):
     print(error)
   return prod
 
-def insertarCarr(conn, prod):
-  carr = ('organic@gmail.com', prod[0], prod[1], 1)
+def insertarCarr(conn, prod, email):
+  carr = (email, prod[0], prod[1], 1)
   query = f"insert into carrito (usuario, prod_id, precio, cantidad) values {carr}"
   try:
       cur = conn.cursor()
@@ -96,8 +96,8 @@ def insertarCarr(conn, prod):
   except (Exception, psycopg2.DatabaseError) as error:
       print(error)
 
-def actualizarCarr(conn, cant, id):
-  query = f"update carrito set cantidad = '{cant+1}' where prod_id = '{id}';"
+def actualizarCarr(conn, cant, id, email):
+  query = f"update carrito set cantidad = '{cant+1}' where prod_id = '{id}' and usuario = '{email}';"
   try:
     cur = conn.cursor()
     cur.execute(query)
@@ -105,8 +105,8 @@ def actualizarCarr(conn, cant, id):
   except (Exception, psycopg2.DatabaseError) as error:
     print(error)
 
-def buscarCarr(conn, id):
-  query = f"select cantidad from carrito where prod_id = '{id}';"
+def buscarCarr(conn, id, email):
+  query = f"select cantidad from carrito where prod_id = '{id}' and usuario = '{email}';"
   try:
     cur = conn.cursor()
     cur.execute(query)
@@ -115,8 +115,8 @@ def buscarCarr(conn, id):
     print(error)
   return cant
 
-def mostrarCarrito(conn):
-  query = f"select p.nombre, p.categoria, p.precio , c.cantidad, p.imagen  from carrito c join producto p on c.prod_id = p.prod_id;"
+def mostrarCarrito(conn, email):
+  query = f"select p.nombre, p.categoria, p.precio , c.cantidad, p.imagen, p.prod_id from carrito c join producto p on c.prod_id = p.prod_id where usuario = '{email}';"
   try:
     cur = conn.cursor()
     cur.execute(query)
@@ -124,6 +124,63 @@ def mostrarCarrito(conn):
   except (Exception, psycopg2.DatabaseError) as error:
     print(error)
   return prods
+
+def borrarCarrito(conn, usu):
+  query = f"delete from carrito where usuario = '{usu}';"
+  try:
+    cur = conn.cursor()
+    cur.execute(query)
+    conn.commit()
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+
+def insertarLineaPed(conn, usu, desc, prec, fecha):
+  linea = []
+  tick_id = insertarTicket(conn, usu, desc, prec, fecha)
+
+  prods = mostrarCarrito(conn, usu)
+
+  for prod in prods:
+    valores = (prod[5], prod[2], prod[3], tick_id)
+
+    query = f"insert into lineapedidos (prod_id, precio, cantidad, compra_id) values {valores};"
+    try:
+      cur = conn.cursor()
+      cur.execute(query)
+      conn.commit()
+    except (Exception, psycopg2.DatabaseError) as error:
+      print(error)
+  borrarCarrito(conn, usu)
+  showDialog("Compra realizada correctamente")
+
+def insertarTicket(conn, usu, desc, prec, fecha):
+  if desc != "":
+    desc = buscarDescuento(conn, desc)
+    valores = (usu, desc, prec, fecha)
+    query = f"insert into tickets (usuario, desc_id, precio, fecha) values {valores} returning tick_id;"
+  else:
+    valores = (usu, prec, fecha)
+    query = f"insert into tickets (usuario, precio, fecha) values {valores} returning tick_id;"
+
+  try:
+    cur = conn.cursor()
+    cur.execute(query)
+    conn.commit()
+    serial = cur.fetchone()[0]
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+  
+  return serial
+
+def buscarDescuento(conn, desc):
+  query = f"select desc_id from descuentos where código = '{desc}';"
+  try:
+    cur = conn.cursor()
+    cur.execute(query)
+    desc = cur.fetchone()[0]
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+  return desc
 
 def camposVacios(campos):
   # Recorre una tupla para que ningun campo sea nulo
@@ -169,8 +226,8 @@ def showDialog(msg, title = "informacion"):
 ###################################################### Kenia
 
 
-def obtenerTickets(conn):
-  query = f"SELECT * FROM tickets;"
+def obtenerTickets(conn, usu):
+  query = f"SELECT * FROM tickets where usuario = '{usu};"
   try:
     cur = conn.cursor()
     cur.execute(query)

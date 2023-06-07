@@ -12,7 +12,7 @@ from res import *
 from metodosSupermercado import *
 from PyQt5 import QtWidgets, QtGui
 from functools import partial
-
+from datetime import date
 
 
 
@@ -23,22 +23,22 @@ class Login(QtWidgets.QMainWindow):
         QtWidgets.QWidget.__init__(self,parent)
         self.ui = LoginUi()
         self.ui.setupUi(self)
-        # self.ui.boton_entrar.clicked.connect(self.funcionLogin)
-        self.ui.boton_entrar.clicked.connect(self.cambiarAVentanaPrincipal)
+        self.ui.boton_entrar.clicked.connect(self.funcionLogin)
+        # self.ui.boton_entrar.clicked.connect(self.cambiarAVentanaPrincipal)
         self.ui.botonl_crearCuentaNueva.clicked.connect(self.cambiarDePantalla)
         self.ui.botonlCerrar.clicked.connect(app.quit)
         
 
 
     def funcionLogin(self):
+        global email
         email = self.ui.txtl_usuario.text().lower()
         password = self.ui.txtl_password.text()
 
         conexion = conectar()   
         usuarioOK = comprobarUsuario(conexion, email, password)
         if usuarioOK:
-            showDialog("Login ok")
-            self.cambiarAVentanaPrincipal
+            self.cambiarAVentanaPrincipal()
         else:
             showDialog("Datos incorrectos")
         desconectar(conexion)
@@ -53,6 +53,7 @@ class Login(QtWidgets.QMainWindow):
         stacked_widget.setCurrentIndex(1)
 
     def cambiarAVentanaPrincipal(self):
+        print("Hola")
         ventanaPrincipal = VentanaPrincipal()
         # stacked_widget.addWidget(ventanaPrincipal)
         stacked_widget.setCurrentIndex(2)
@@ -221,11 +222,11 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
         prod = buscarProd(conn, nombre)
         if len(prod) > 0:
             # buscar en carrito si ya existe ese producto y aumentar la cantidad
-            cant = buscarCarr(conn, prod[0])
+            cant = buscarCarr(conn, prod[0], email)
             if cant != None:
-                actualizarCarr(conn, cant[0], prod[0])
+                actualizarCarr(conn, cant[0], prod[0], email)
             else:
-                insertarCarr(conn, prod)
+                insertarCarr(conn, prod, email)
 
     # Cambio de pagina segun la label que pulse
     def eventFilter(self, obj, event):
@@ -416,6 +417,7 @@ class VentanaUC(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.ui.botonuc_cerrar.clicked.connect(app.quit)
         self.ui.botonuc_atras.clicked.connect(self.cambiarAVentanaPrincipal)
+        self.ui.botouc_finalizarPedido.clicked.connect(self.finalizarPedido)
 
         #Para la tabla de usuarios
         # En el constructor de la clase VentanaUC, después de self.ui.setupUi(self)
@@ -432,6 +434,7 @@ class VentanaUC(QtWidgets.QMainWindow):
         self.descuento=0
         self.precioTot=0
         self.precioSub=0
+        self.cupon = ""
 
 #<<<<<<<<<<<<< Carol
 
@@ -448,8 +451,17 @@ class VentanaUC(QtWidgets.QMainWindow):
         
     def refrescarCarrito(self): #lo he quitado del constructor y lo pongo a parte
                 # Código para crear frames en frame_productos según productosKenia
+        
+        scroll_layout = self.ui.scrollAreaWidgetContents_4.layout()
+        if scroll_layout:
+            while scroll_layout.count():
+                child = scroll_layout.takeAt(0)
+                if child.widget():
+                    child.widget().deleteLater()
+        
+        
         conexion = conectar()
-        prods = mostrarCarrito(conexion)
+        prods = mostrarCarrito(conexion, email)
         # print(prods)
         if len(prods) > 0:
             scroll_layout = self.ui.scrollAreaWidgetContents_4.layout()
@@ -564,7 +576,7 @@ class VentanaUC(QtWidgets.QMainWindow):
 
     # CODIGO DE ANDREA - LO COMENTO PORQUE SINO NO ME FUNCIONA
             # try:
-                self.precioTot-=self.descuento
+                # self.precioTot-=self.descuento
                 self.precioSub = self.precioTot/1.21 #corrijo la operación para calcular precio sin IVA
             # except Exception as ex:
             #     print(ex)
@@ -586,7 +598,20 @@ class VentanaUC(QtWidgets.QMainWindow):
 
             self.precioTot = 0
             self.precioSub = 0
+
+        self.ui.label_subtotal_5.setText(str(f"{self.precioSub:0.2f}")+"€") #subtotal
+        self.ui.label_subtotal_7.setText(str(f"{self.precioTot-(self.descuento*self.precioTot/100):0.2f}")+"€") #total
               
+    def finalizarPedido(self):
+        conn = conectar()
+
+        fecha = date.today()
+        fecha_str = fecha.strftime("%Y/%m/%d")
+        insertarLineaPed(conn, email, self.cupon, self.precioTot, fecha_str)
+        desconectar(conn)
+
+        self.refrescarCarrito()
+
     def cambiarAVentanaPrincipal(self):
         stacked_widget.setCurrentIndex(2)
 
@@ -604,15 +629,15 @@ class VentanaUC(QtWidgets.QMainWindow):
     def comprobarDescuento(self):
         try:
             conexion=conectar()
-            cupon=self.ui.lineEdit.text()
-            self.descuento=comprobarCupon(conexion,cupon)
+            self.cupon=self.ui.lineEdit.text()
+            self.descuento=comprobarCupon(conexion,self.cupon)
             self.ui.label_subtotal_6.setText(str(self.descuento))
             
             #vuelvo a hacer el cálculo para que se actulice
-            self.precioTot-=(self.descuento*self.precioTot/100)
-            self.precioSub=self.precioTot/1.21
+            # self.precioTot-=(self.descuento*self.precioTot/100)
+            # self.precioSub=self.precioTot/1.21
             self.ui.label_subtotal_5.setText(str(f"{self.precioSub:0.2f}")+"€") #subtotal
-            self.ui.label_subtotal_7.setText(str(f"{self.precioTot:0.2f}")+"€") #total
+            self.ui.label_subtotal_7.setText(str(f"{self.precioTot-(self.descuento*self.precioTot/100):0.2f}")+"€") #total
         except Exception as ex:
             print(ex)
         
@@ -622,7 +647,7 @@ class VentanaUC(QtWidgets.QMainWindow):
 
     def cargarDatosTablaTickets(self):
         conexion = conectar()
-        tickets = obtenerTickets(conexion)
+        tickets = obtenerTickets(conexion, email)
 
 
         print(str(tickets))
