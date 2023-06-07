@@ -63,3 +63,5 @@ insert into lineapedidos (prod_id, precio, cantidad, compra_id) values
 	(49, 3.50, 5, 1),
 	(4, 6.50, 6, 1),
 	(6, 5, 7, 1);
+insert into descuentos (código, descuento, activo)  values
+	('HOLAMUNDO',15,TRUE);

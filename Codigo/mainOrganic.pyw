@@ -551,6 +551,7 @@ class VentanaUC(QtWidgets.QMainWindow):
 
     # CODIGO DE ANDREA - LO COMENTO PORQUE SINO NO ME FUNCIONA
             # try:
+                self.precioTot-=self.descuento
                 self.precioSub = self.precioTot/1.21 #corrijo la operación para calcular precio sin IVA
             # except Exception as ex:
             #     print(ex)
@@ -573,11 +574,16 @@ class VentanaUC(QtWidgets.QMainWindow):
             self.precioTot = 0
             self.precioSub = 0
 
-        _translate = QtCore.QCoreApplication.translate
-        total = QtWidgets.QLabel(self.ui.label_subtotal_7)
-        subtotal = QtWidgets.QLabel(self.ui.label_subtotal_5)
-        total.setText(_translate("MainWindow", str(f"{self.precioTot:0.2f}")+"€"))
-        subtotal.setText(_translate("MainWindow", str(f"{self.precioSub:0.2f}")+"€"))
+        self.ui.label_subtotal_5.setText(str(f"{self.precioSub:0.2f}")+"€") #subtotal
+        self.ui.label_subtotal_7.setText(str(f"{self.precioTot:0.2f}")+"€") #total
+        
+    # >>>>>> Manera de Andrea para rellenar los campos de total y subtotal
+        # _translate = QtCore.QCoreApplication.translate
+        # total = QtWidgets.QLabel(self.ui.label_subtotal_7)
+        # subtotal = QtWidgets.QLabel(self.ui.label_subtotal_5)
+        # total.setText(_translate("MainWindow", str(f"{self.precioTot:0.2f}")+"€"))
+        # subtotal.setText(_translate("MainWindow", str(f"{self.precioSub:0.2f}")+"€"))
+    #<<<<<<< Fin Andrea
         
         
     def cambiarAVentanaPrincipal(self):
@@ -602,8 +608,10 @@ class VentanaUC(QtWidgets.QMainWindow):
             self.ui.label_subtotal_6.setText(str(self.descuento))
             
             #vuelvo a hacer el cálculo para que se actulice
-            self.precioTot-=self.descuento
+            self.precioTot-=(self.descuento*self.precioTot/100)
             self.precioSub=self.precioTot/1.21
+            self.ui.label_subtotal_5.setText(str(f"{self.precioSub:0.2f}")+"€") #subtotal
+            self.ui.label_subtotal_7.setText(str(f"{self.precioTot:0.2f}")+"€") #total
         except Exception as ex:
             print(ex)
         

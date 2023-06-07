@@ -92,6 +92,7 @@ def insertarCarr(conn, prod):
   try:
       cur = conn.cursor()
       cur.execute(query)
+      conn.commit()
   except (Exception, psycopg2.DatabaseError) as error:
       print(error)
 
@@ -100,6 +101,7 @@ def actualizarCarr(conn, cant, id):
   try:
     cur = conn.cursor()
     cur.execute(query)
+    conn.commit()
   except (Exception, psycopg2.DatabaseError) as error:
     print(error)
 
@@ -147,7 +149,7 @@ def comprobarCupon(conn,cupon):
       descuento=0
     else: 
       showDialog("Cupon ok")
-      descuento=descuento[0]
+      descuento=descuento[0][0]
   except (Exception, psycopg2.DatabaseError) as error:
     print(error)
   return descuento
