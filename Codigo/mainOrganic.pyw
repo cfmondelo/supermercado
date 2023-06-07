@@ -10,7 +10,6 @@ from v3_menu import Ui_MainWindow as MenuPrincipalUi
 from v4_ventanaUC import Ui_MainWindow as VentanaUCUi
 from res import *
 from metodosSupermercado import *
-
 from PyQt5 import QtWidgets, QtGui
 from functools import partial
 
@@ -403,6 +402,7 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
 
     def cambiar_ventanaUC_carrito(self):
         stacked_widget.setCurrentIndex(3)
+        ventanaUC.refrescarCarrito() #refresco carrito antes de meterme
         ventanaUC.cambiar_a_ventana_carrito()
 
 
@@ -434,10 +434,23 @@ class VentanaUC(QtWidgets.QMainWindow):
         self.precioSub=0
 
 #<<<<<<<<<<<<< Carol
-        # Código para crear frames en frame_productos según productosKenia
+
+        self.ui.label_subtotal_5.setText(str(f"{self.precioSub:0.2f}")+"€") #subtotal
+        self.ui.label_subtotal_7.setText(str(f"{self.precioTot:0.2f}")+"€") #total
+        
+    # >>>>>> Manera de Andrea para rellenar los campos de total y subtotal
+        # _translate = QtCore.QCoreApplication.translate
+        # total = QtWidgets.QLabel(self.ui.label_subtotal_7)
+        # subtotal = QtWidgets.QLabel(self.ui.label_subtotal_5)
+        # total.setText(_translate("MainWindow", str(f"{self.precioTot:0.2f}")+"€"))
+        # subtotal.setText(_translate("MainWindow", str(f"{self.precioSub:0.2f}")+"€"))
+    #<<<<<<< Fin Andrea
+        
+    def refrescarCarrito(self): #lo he quitado del constructor y lo pongo a parte
+                # Código para crear frames en frame_productos según productosKenia
         conexion = conectar()
         prods = mostrarCarrito(conexion)
-
+        # print(prods)
         if len(prods) > 0:
             scroll_layout = self.ui.scrollAreaWidgetContents_4.layout()
 
@@ -573,19 +586,7 @@ class VentanaUC(QtWidgets.QMainWindow):
 
             self.precioTot = 0
             self.precioSub = 0
-
-        self.ui.label_subtotal_5.setText(str(f"{self.precioSub:0.2f}")+"€") #subtotal
-        self.ui.label_subtotal_7.setText(str(f"{self.precioTot:0.2f}")+"€") #total
-        
-    # >>>>>> Manera de Andrea para rellenar los campos de total y subtotal
-        # _translate = QtCore.QCoreApplication.translate
-        # total = QtWidgets.QLabel(self.ui.label_subtotal_7)
-        # subtotal = QtWidgets.QLabel(self.ui.label_subtotal_5)
-        # total.setText(_translate("MainWindow", str(f"{self.precioTot:0.2f}")+"€"))
-        # subtotal.setText(_translate("MainWindow", str(f"{self.precioSub:0.2f}")+"€"))
-    #<<<<<<< Fin Andrea
-        
-        
+              
     def cambiarAVentanaPrincipal(self):
         stacked_widget.setCurrentIndex(2)
 
