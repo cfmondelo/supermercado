@@ -227,7 +227,7 @@ def showDialog(msg, title = "informacion"):
 
 
 def obtenerTickets(conn, usu):
-  query = f"SELECT * FROM tickets where usuario = '{usu};"
+  query = f"SELECT * FROM tickets where usuario = '{usu}';"
   try:
     cur = conn.cursor()
     cur.execute(query)

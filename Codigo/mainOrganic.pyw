@@ -27,11 +27,10 @@ class Login(QtWidgets.QMainWindow):
         # self.ui.boton_entrar.clicked.connect(self.cambiarAVentanaPrincipal)
         self.ui.botonl_crearCuentaNueva.clicked.connect(self.cambiarDePantalla)
         self.ui.botonlCerrar.clicked.connect(app.quit)
-        
+        self.__email=""
 
 
     def funcionLogin(self):
-        global email
         email = self.ui.txtl_usuario.text().lower()
         password = self.ui.txtl_password.text()
 
@@ -46,6 +45,8 @@ class Login(QtWidgets.QMainWindow):
         self.ui.txtl_usuario.clear()
         self.ui.txtl_password.clear()
         
+    def getEmail(self):
+        return self.__email
 
     def cambiarDePantalla(self):
         crear_cuenta = CrearCuenta()
@@ -222,11 +223,11 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
         prod = buscarProd(conn, nombre)
         if len(prod) > 0:
             # buscar en carrito si ya existe ese producto y aumentar la cantidad
-            cant = buscarCarr(conn, prod[0], email)
+            cant = buscarCarr(conn, prod[0], login.getEmail())
             if cant != None:
-                actualizarCarr(conn, cant[0], prod[0], email)
+                actualizarCarr(conn, cant[0], prod[0], login.getEmail())
             else:
-                insertarCarr(conn, prod, email)
+                insertarCarr(conn, prod, login.getEmail())
 
     # Cambio de pagina segun la label que pulse
     def eventFilter(self, obj, event):
@@ -418,7 +419,7 @@ class VentanaUC(QtWidgets.QMainWindow):
         self.ui.botonuc_cerrar.clicked.connect(app.quit)
         self.ui.botonuc_atras.clicked.connect(self.cambiarAVentanaPrincipal)
         self.ui.botouc_finalizarPedido.clicked.connect(self.finalizarPedido)
-
+        # self.refrescarCarrito()
         #Para la tabla de usuarios
         # En el constructor de la clase VentanaUC, después de self.ui.setupUi(self)
 
@@ -461,7 +462,7 @@ class VentanaUC(QtWidgets.QMainWindow):
         
         
         conexion = conectar()
-        prods = mostrarCarrito(conexion, email)
+        prods = mostrarCarrito(conexion, login.getEmail())
         # print(prods)
         if len(prods) > 0:
             scroll_layout = self.ui.scrollAreaWidgetContents_4.layout()
@@ -580,7 +581,6 @@ class VentanaUC(QtWidgets.QMainWindow):
                 self.precioSub = self.precioTot/1.21 #corrijo la operación para calcular precio sin IVA
             # except Exception as ex:
             #     print(ex)
-            #funcionalidad botón VALIDAR. NO FUNCIONA, ME DA ERROR
         else:
             frame_p = QtWidgets.QFrame(self.ui.scrollAreaWidgetContents_4)
             frame_p.setMaximumSize(QtCore.QSize(16777215, 130))
@@ -607,7 +607,7 @@ class VentanaUC(QtWidgets.QMainWindow):
 
         fecha = date.today()
         fecha_str = fecha.strftime("%Y/%m/%d")
-        insertarLineaPed(conn, email, self.cupon, self.precioTot, fecha_str)
+        insertarLineaPed(conn, login.getEmail(), self.cupon, self.precioTot, fecha_str)
         desconectar(conn)
 
         self.refrescarCarrito()
@@ -647,7 +647,7 @@ class VentanaUC(QtWidgets.QMainWindow):
 
     def cargarDatosTablaTickets(self):
         conexion = conectar()
-        tickets = obtenerTickets(conexion, email)
+        tickets = obtenerTickets(conexion, login.getEmail())
 
 
         print(str(tickets))
@@ -688,39 +688,42 @@ class VentanaUC(QtWidgets.QMainWindow):
 
 #MAIN
 if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
-
-    stacked_widget = QtWidgets.QStackedWidget()  #Se crea un objeto stacked_widget 
-    login = Login()
-    crear_cuenta = CrearCuenta()
-    ventanaPrincipal = VentanaPrincipal()
-    ventanaUC = VentanaUC()
-
-    #Se agregan las ventanas al objeto stacked widget
-    stacked_widget.addWidget(login)
-    stacked_widget.addWidget(crear_cuenta)
-    stacked_widget.addWidget(ventanaPrincipal)
-    stacked_widget.addWidget(ventanaUC)
     
+    try:
+        app = QtWidgets.QApplication(sys.argv)
+
+        stacked_widget = QtWidgets.QStackedWidget()  #Se crea un objeto stacked_widget 
+        login = Login()
+        crear_cuenta = CrearCuenta()
+        ventanaPrincipal = VentanaPrincipal()
+        ventanaUC = VentanaUC()
+
+        #Se agregan las ventanas al objeto stacked widget
+        stacked_widget.addWidget(login)
+        stacked_widget.addWidget(crear_cuenta)
+        stacked_widget.addWidget(ventanaPrincipal)
+        stacked_widget.addWidget(ventanaUC)
+        
 
 
-    ### stacked_widget.addWidget(crear_cuenta) #La creo mejor arriba en CrearCuenta
+        ### stacked_widget.addWidget(crear_cuenta) #La creo mejor arriba en CrearCuenta
 
-    stacked_widget.resize(625, 565)
-    stacked_widget.setCurrentIndex(0)  # Iniciar en la ventana de Login
+        stacked_widget.resize(625, 565)
+        stacked_widget.setCurrentIndex(0)  # Iniciar en la ventana de Login
 
-    # Para esconder el marco principal en la ventana principal
-    stacked_widget.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-    stacked_widget.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        # Para esconder el marco principal en la ventana principal
+        stacked_widget.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        stacked_widget.setAttribute(QtCore.Qt.WA_TranslucentBackground)
 
-    stacked_widget.show()
-    # login.show()
-
-
-    # num_widgets = stacked_widget.count()
-    # print("Número de widgets: ", num_widgets)
+        stacked_widget.show()
+        # login.show()
 
 
-    sys.exit(app.exec_())
+        # num_widgets = stacked_widget.count()
+        # print("Número de widgets: ", num_widgets)
 
+
+        sys.exit(app.exec_())
+    except Exception as ex:
+        print(ex)
     
