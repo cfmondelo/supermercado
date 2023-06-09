@@ -31,11 +31,11 @@ class Login(QtWidgets.QMainWindow):
 
 
     def funcionLogin(self):
-        email = self.ui.txtl_usuario.text().lower()
+        self.__email = self.ui.txtl_usuario.text().lower()
         password = self.ui.txtl_password.text()
 
         conexion = conectar()   
-        usuarioOK = comprobarUsuario(conexion, email, password)
+        usuarioOK = comprobarUsuario(conexion, self.__email, password)
         if usuarioOK:
             self.cambiarAVentanaPrincipal()
         else:
@@ -613,6 +613,7 @@ class VentanaUC(QtWidgets.QMainWindow):
 
         fecha = date.today()
         fecha_str = fecha.strftime("%Y/%m/%d")
+        showDialog(login.getEmail())
         insertarLineaPed(conn, login.getEmail(), self.cupon, self.precioTot, fecha_str)
         desconectar(conn)
 

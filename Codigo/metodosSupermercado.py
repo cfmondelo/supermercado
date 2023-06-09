@@ -154,23 +154,24 @@ def insertarLineaPed(conn, usu, desc, prec, fecha):
   showDialog("Compra realizada correctamente")
 
 def insertarTicket(conn, usu, desc, prec, fecha):
-  if desc != "":
-    desc = buscarDescuento(conn, desc)
-    valores = (usu, desc, prec, fecha)
-    query = f"insert into tickets (usuario, desc_id, precio, fecha) values {valores} returning tick_id;"
-  else:
-    valores = (usu, prec, fecha)
-    query = f"insert into tickets (usuario, precio, fecha) values {valores} returning tick_id;"
+    print(usu)
+    if desc != "":
+        desc = buscarDescuento(conn, desc)
+        valores = (usu, desc, prec, fecha)
+        query = f"INSERT INTO tickets (usuario, desc_id, precio, fecha) VALUES {valores} RETURNING tick_id;"
+    else:
+        valores = (usu, prec, fecha)
+        query = f"INSERT INTO tickets (usuario, precio, fecha) VALUES {valores} RETURNING tick_id;"
 
-  try:
-    cur = conn.cursor()
-    cur.execute(query)
-    conn.commit()
-    serial = cur.fetchone()[0]
-  except (Exception, psycopg2.DatabaseError) as error:
-    print(error)
+    try:
+        cur = conn.cursor()
+        cur.execute(query)
+        conn.commit()
+        serial = cur.fetchone()[0]
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
   
-  return serial
+    return serial
 
 def buscarDescuento(conn, desc):
   query = f"select desc_id from descuentos where código = '{desc}';"
