@@ -73,37 +73,43 @@ class CrearCuenta(QtWidgets.QMainWindow):
 
 
     def funcionRegistro(self):
-        if self.ui.txtr_password.text() == self.ui.txtr_confirmarPassword.text():
-            usuario = self.ui.txtr_usuario.text()
-            contra  = self.ui.txtr_password.text()
-            email   = self.ui.txtr_email.text().lower()
-            preSeg  = self.ui.txtr_preguntaSeguridad.text()
-            resSeg  = self.ui.txtr_respuestaSeguridad.text()
+        try:
+            
+            usuario    = self.ui.txtr_usuario.text()
+            contra     = self.ui.txtr_password.text()
+            contraRepe = self.ui.txtr_confirmarPassword.text()
+            email      = self.ui.txtr_email.text().lower()
+            preSeg     = self.ui.txtr_preguntaSeguridad.text()
+            resSeg     = self.ui.txtr_respuestaSeguridad.text()
 
-            datos = (email, usuario, contra, preSeg, resSeg)
+            datos = (email, usuario, contra, contraRepe, preSeg, resSeg)
             vacio = camposVacios(datos)
             
             if vacio:
                 showDialog("Debe rellenar todos los datos")
             elif len(contra) < 8:
                 showDialog("La contraseña debe tener al menos 8 caracteres")
+            elif contra != contraRepe:
+                showDialog("El campo de confirmación de contraseña debe ser igual al de contraseña")
             elif not comprobarMail(email):
                 showDialog("El mail no es valido")
             else:
                 conexion = conectar()
-            if existeUsu(conexion, email):
-                showDialog("La cuenta ya existe")
-            else:
-                contraCif = cifrarContra(contra)
-                resSegCif = cifrarContra(resSeg)
-                datos = (email, usuario, contraCif, preSeg, resSegCif)
-                crearUsuario(conexion, datos)
-                stacked_widget.setCurrentIndex(0)  # Cambiar a la ventana de Login
-                desconectar(conexion)
+                if existeUsu(conexion, email):
+                    showDialog("La cuenta ya existe")
+                else:
+                    contraCif = cifrarContra(contra)
+                    resSegCif = cifrarContra(resSeg)
+                    datos = (email, usuario, contraCif, preSeg, resSegCif)
+                    crearUsuario(conexion, datos)
+                    stacked_widget.setCurrentIndex(0)  # Cambiar a la ventana de Login
+                    desconectar(conexion)
 
-                self.ui.txtr_password.clear()
-                self.ui.txtr_confirmarPassword.clear()
-                self.ui.txtr_respuestaSeguridad.clear()
+                    self.ui.txtr_password.clear()
+                    self.ui.txtr_confirmarPassword.clear()
+                    self.ui.txtr_respuestaSeguridad.clear()
+        except Exception as ex:
+            print(ex)
 
 
 
@@ -631,11 +637,7 @@ class VentanaUC(QtWidgets.QMainWindow):
             conexion=conectar()
             self.cupon=self.ui.lineEdit.text()
             self.descuento=comprobarCupon(conexion,self.cupon)
-            self.ui.label_subtotal_6.setText(str(self.descuento))
-            
-            #vuelvo a hacer el cálculo para que se actulice
-            # self.precioTot-=(self.descuento*self.precioTot/100)
-            # self.precioSub=self.precioTot/1.21
+            self.ui.label_subtotal_6.setText(str(self.descuento)) #descuento
             self.ui.label_subtotal_5.setText(str(f"{self.precioSub:0.2f}")+"€") #subtotal
             self.ui.label_subtotal_7.setText(str(f"{self.precioTot-(self.descuento*self.precioTot/100):0.2f}")+"€") #total
         except Exception as ex:
