@@ -19,6 +19,8 @@ create table public.usuarios (
 	cp 			int 			null,
 	ciudad 		varchar(50) 	null,
 	municipio 	varchar(50) 	null,
+	dni         varchar(9)      null,
+	Apellidos   varchar(50)     null,
     primary key (correo)
 );
 
@@ -34,7 +36,7 @@ create table public.tickets (
     tick_id 	serial 		not null,
     usuario 	varchar(50) not null,
     desc_id		int 		null,
-    precio 		int 		not null,
+    precio 		float4		not null,
 	fecha	 	date 		not null,
     primary key (tick_id),
     foreign key (usuario)
@@ -46,7 +48,7 @@ create table public.tickets (
 create table public.lineapedidos (
 	linea_id	serial		not null,
     prod_id 	int 		not null,
-    precio 		int 		not null,
+    precio 		float4 		not null,
     cantidad 	int 		not null,
     compra_id	int			not null,
     primary key (linea_id),

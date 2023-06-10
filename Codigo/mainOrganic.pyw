@@ -13,6 +13,7 @@ from metodosSupermercado import *
 from PyQt5 import QtWidgets, QtGui
 from functools import partial
 from datetime import date
+from pasarFactura import *
 
 
 
@@ -425,6 +426,7 @@ class VentanaUC(QtWidgets.QMainWindow):
         self.ui.botonuc_cerrar.clicked.connect(app.quit)
         self.ui.botonuc_atras.clicked.connect(self.cambiarAVentanaPrincipal)
         self.ui.botouc_finalizarPedido.clicked.connect(self.finalizarPedido)
+        self.ui.pushButton_2.clicked.connect(self.generarFactura)
         # self.refrescarCarrito()
         #Para la tabla de usuarios
         # En el constructor de la clase VentanaUC, después de self.ui.setupUi(self)
@@ -442,6 +444,7 @@ class VentanaUC(QtWidgets.QMainWindow):
         self.precioTot=0
         self.precioSub=0
         self.cupon = ""
+        self.datos_fila = [] ## Crear una lista para almacenar los datos de la fila seleccionada
 
 #<<<<<<<<<<<<< Carol
 
@@ -671,7 +674,7 @@ class VentanaUC(QtWidgets.QMainWindow):
             table_widget.setItem(i, 0, QtWidgets.QTableWidgetItem(str(tick_id)))
             table_widget.setItem(i, 1, QtWidgets.QTableWidgetItem(str(fecha)))
             table_widget.setItem(i, 2, QtWidgets.QTableWidgetItem(str(precio)))
-            table_widget.setItem(i, 3, QtWidgets.QTableWidgetItem(usuario))
+            table_widget.setItem(i, 3, QtWidgets.QTableWidgetItem(str(usuario)))
 
 
         # Centrar el texto en las celdas
@@ -691,6 +694,8 @@ class VentanaUC(QtWidgets.QMainWindow):
         table_widget.itemSelectionChanged.connect(self.filaSeleccionada)
 
     def filaSeleccionada(self):
+        #Igualo a 0 la lista para que no se vaya sumando cada vez que selecciono una nueva.
+        self.datos_fila=[]
         #  widget pag_usuario
         pag_usuario_widget = self.ui.pag_usuario
         # Busco el QTableWidget dentro de pag_usuario
@@ -705,8 +710,6 @@ class VentanaUC(QtWidgets.QMainWindow):
                 fila_seleccionada = selected_rows[0].row()
                 print("Fila seleccionada:", fila_seleccionada)
 
-               
-                datos_fila = [] ## Crear una lista para almacenar los datos de la fila seleccionada
                 columnas = table_widget_pag_usuario.columnCount() # Obtener el número de columnas del QTableWidget
 
                 for columna in range(columnas):
@@ -715,11 +718,11 @@ class VentanaUC(QtWidgets.QMainWindow):
 
                     if item is not None:
                         dato = item.text()
-                        datos_fila.append(dato)
+                        self.datos_fila.append(dato)
                     else:
-                        datos_fila.append("")
+                        self.datos_fila.append("")
 
-                print("Datos de la fila seleccionada:", datos_fila)
+                print("Datos de la fila seleccionada:", self.datos_fila)
                 print("---")
 
             else:
@@ -728,12 +731,46 @@ class VentanaUC(QtWidgets.QMainWindow):
             print("No se encontró un QTableWidget dentro de pag_usuario.")
 
 
-
-        push_button = pag_usuario_widget.findChild(QtWidgets.QPushButton, "pushButton")
-        if push_button is not None:
-            if push_button.isChecked():
-                print("boton pulsado")
-                print("Datos de la fila seleccionada:", datos_fila)
+        #Lo comento porque este código no hace nada (creo):
+        
+        # push_button = pag_usuario_widget.findChild(QtWidgets.QPushButton, "pushButton")
+        # if push_button is not None:
+        #     if push_button.isChecked():
+        #         print("boton pulsado")
+        
+    def generarFactura(self):
+        # print(self.datos_fila)
+        if self.datos_fila:
+            #si hay datos en la lista
+            #PREPARO LOS DATOS PARA LA FACTURA
+            compraID=self.datos_fila[0]
+            #Producto= [nombre producto, cantidad, precio]
+            listaProductos=[] #lista de listas
+            datosTicket=obtenerLineaPedidosPorTickID(compraID) #devuelve: lineaID, prodID, precio, cantidad, compraID
+            print(datosTicket)
+            for i in range(len(datosTicket)):
+                producto=[]
+                nombre=nombreProducto(datosTicket[i][1])
+                print(nombre)
+                producto.append(nombre)
+                producto.append(datosTicket[i][3]) #cantidad
+                producto.append(datosTicket[i][2]) #precio del producto
+                listaProductos.append(producto)
+            datosCompra=buscarCompra(compraID)
+            datosUsuario=buscarUsuario(self.datos_fila[3])
+            print("aqui")
+            print(listaProductos)
+            print("--")
+            print(datosCompra)
+            print("--")
+            print(datosUsuario)
+            #CREO EL HTML CON LOS DATOS
+            # addLineasProductos(listaProductos) 
+            # crea_pdf(rutaHtml(),info)
+            print()
+        else:
+            showDialog("Debe seleccionar un pedido")
+            
 
 #MAIN
 if __name__ == "__main__":

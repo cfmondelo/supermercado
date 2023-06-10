@@ -1,0 +1,54 @@
+*{
+    font-family:'Raleway', sans-serif;
+    margin:0px;
+    padding:0px;
+    list-style-type: none;
+    border:none;
+    text-decoration:none;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+
+#todo{
+    width:90%;
+    margin:5% auto;
+}
+
+#logo img{
+    border: 0px !important; 
+}
+#datosEmpresa{
+    padding-left:5%;
+
+}
+.borderless{
+    border-top-style:hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+}
+.borderless-total{
+    border-top-style:hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    border-right-style: hidden;
+}
+.borderless-ultima{
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+}
+#datosEmpresa p{
+    margin:2px;
+}
+#datosPersona{
+    background-color: #efe8e0;
+    border-radius: 10px;
+}
+#datosPersona p{
+    margin:2px;
+}
+.sin-borde{
+    border:none!important;
+}
+

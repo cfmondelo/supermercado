@@ -266,3 +266,48 @@ def obtenerLineaPedidosPorTickID(tick_id):
     return resultados
 
 ###################################################### Kenia
+
+def nombreProducto(prodID):
+  consulta=(f"SELECT nombre from producto where prod_id='{prodID}'")
+  try:
+    conn=conectar()
+    cur = conn.cursor()
+    cur.execute(consulta)
+    nombre = cur.fetchone()[0]
+    
+    # Cerrar la conexión con la base de datos
+    cur.close()
+    conn.close()
+    return nombre
+  except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+
+def buscarCompra(compraID):
+  consulta=(f"SELECT * from tickets where tick_id='{compraID}'")
+  try:
+    conn=conectar()
+    cur = conn.cursor()
+    cur.execute(consulta)
+    compra = cur.fetchall()
+    
+    # Cerrar la conexión con la base de datos
+    cur.close()
+    conn.close()
+    return compra
+  except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+
+def buscarUsuario(usuarioID):
+  consulta=(f"SELECT * from usuarios where correo='{usuarioID}'")
+  try:
+    conn=conectar()
+    cur = conn.cursor()
+    cur.execute(consulta)
+    datosUsuario = cur.fetchall()
+    
+    # Cerrar la conexión con la base de datos
+    cur.close()
+    conn.close()
+    return datosUsuario
+  except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
