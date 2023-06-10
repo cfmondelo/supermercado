@@ -709,7 +709,6 @@ class VentanaUC(QtWidgets.QMainWindow):
 
         if not error:
             datos = (nombre, contra, preseg, resseg, dir, cp, ca, prov, mun, tel, dni, apell)
-            print(datos)
             actualizarUsu(conexion, datos, login.getEmail())
 
         desconectar(conexion)
@@ -740,11 +739,22 @@ class VentanaUC(QtWidgets.QMainWindow):
             self.ui.cbd_CA.addItem(ca[1])
 
         self.ui.txtd_nombre.setText(datosUsu[1])
-        self.ui.txtd_apellidos.setText(datosUsu[12])
-        self.ui.txtd_dni.setText(datosUsu[11])
-        self.ui.txtd_cp.setText(datosUsu[6])
-        self.ui.txtd_direccion.setText(datosUsu[5])
         self.ui.txtd_preseg.setText(datosUsu[3])
+
+        if datosUsu[12] != None:
+            self.ui.txtd_apellidos.setText(datosUsu[12])
+            
+        if datosUsu[11] != None:
+            self.ui.txtd_dni.setText(datosUsu[11])
+            
+        if datosUsu[10] != None:
+            self.ui.txtd_telefono.setText(datosUsu[10])
+            
+        if datosUsu[6] != None:
+            self.ui.txtd_cp.setText(str(datosUsu[6]))
+        
+        if datosUsu[5] != None:
+            self.ui.txtd_direccion.setText(datosUsu[5])
         
         if datosUsu[7] != None: 
             ca = buscarCA(conexion, datosUsu[7])
@@ -752,11 +762,12 @@ class VentanaUC(QtWidgets.QMainWindow):
             mun = buscarMun(conexion, datosUsu[9])
 
             indiceca = self.ui.cbd_CA.findText(ca)
-            indiceprov = self.ui.cbd_provincia.findText(prov)
-            indicemun = self.ui.cbd_municipio.findText(mun)
-
             self.ui.cbd_CA.setCurrentIndex(indiceca)
+            
+            indiceprov = self.ui.cbd_provincia.findText(prov)
             self.ui.cbd_provincia.setCurrentIndex(indiceprov)
+            
+            indicemun = self.ui.cbd_municipio.findText(mun)
             self.ui.cbd_municipio.setCurrentIndex(indicemun)
         else:
             self.ui.cbd_CA.setCurrentIndex(-1)
@@ -781,7 +792,7 @@ class VentanaUC(QtWidgets.QMainWindow):
 
     def comboProv_changed(self):
         conexion = conectar()
-        self.ui.cbd_municipio.setCurrentIndex(-1)
+        # self.ui.cbd_municipio.setCurrentIndex(-1)
         self.ui.cbd_municipio.clear()
 
         prov = buscarProvNom(conexion, self.ui.cbd_provincia.currentText())
@@ -905,9 +916,9 @@ class VentanaUC(QtWidgets.QMainWindow):
             print("--")
             print(datosUsuario)
             #CREO EL HTML CON LOS DATOS
-            addLineasProductos(listaProductos,datosCompra,datosUsuario) 
-            crea_pdf(compraID,datosCompra[0][0],rutaHtml())
-            showDialog("Factura generada correctamente en la ruta: "+rutaPdf(compraID,datosCompra[0][0]))
+            # addLineasProductos(listaProductos) 
+            # crea_pdf(rutaHtml(),info)
+            print()
         else:
             showDialog("Debe seleccionar un pedido")
             
