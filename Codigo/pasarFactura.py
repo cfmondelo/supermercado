@@ -1,9 +1,7 @@
 # Para poder usar esto tenéis que instalar estas librerías:
-# pip3 install jinja2
 # pip3 install pdfkit
 # pip3 install wkhtmltopdf
 # si trabajáis con anaconda, creo que ya están todas instaladas
-import jinja2
 import pdfkit
 import os
 
@@ -11,10 +9,10 @@ import os
 #                  ["Bebida Diurética",1, 4.3]]
 def addLineasProductos(listaProductos, listaCompra, listaUsuario):
     #le quito la tupla a las listas que vienen con ellas
-    listaCompra=[elemento for tupla in listaCompra for elemento in tupla] 
-    listaUsuario=[elemento for tupla in listaUsuario for elemento in tupla]
-    print(listaCompra)
-    print(listaUsuario)
+    listaCompra  = [elemento for tupla in listaCompra  for elemento in tupla] 
+    listaUsuario = [elemento for tupla in listaUsuario for elemento in tupla]
+    # print(listaCompra)
+    # print(listaUsuario)
     with open("facturaGenerada.html", "w") as f:
         #escribe cabecera
         f.write('''
@@ -133,29 +131,7 @@ def rutaHtml():
     return ruta_salida
 
 def crea_pdf(idCompra,fecha,html):
-    # nombre_plantilla = ruta_plantilla.split('/')[-1] #obtiene el nombre de la plantilla sin la ruta completa
-    # ruta_plantilla   = ruta_plantilla.replace(nombre_plantilla,'') #obtiene la ruta sin el archivo
-    # # print(nombre_plantilla)
-    # # print(ruta_plantilla)
-    # env=jinja2.Environment(loader=jinja2.FileSystemLoader(ruta_plantilla))
-    # plantilla=env.get_template(nombre_plantilla)
-    # html=plantilla.render(info)
-    # opcionesExportado={
-    #     'page-size': 'A4',
-    #     'encoding' : 'UTF-8'
-    # }
     with open(html,"r") as archivo_html:
         contenido_html=archivo_html.read()
     config=pdfkit.configuration()
     pdfkit.from_string(contenido_html,rutaPdf(idCompra,fecha), configuration=config)
-    
-    
-# if __name__=="__main__":
-#     info={
-#         "NombreCliente"    : "Carolina Fernández",
-#         "DniCliente"       : "12345678L",
-#         "DireccionCliente" : "C/Maravillas, 123, 2ºA",
-#         "ProvinciaCliente" : "MADRID"
-#     }
-#     addLineasProductos(listaProductos) 
-#     crea_pdf(rutaHtml(),info)

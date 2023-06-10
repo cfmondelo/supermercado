@@ -1,8 +1,8 @@
 import sys
 from PyQt5 import QtWidgets
 from PyQt5 import QtWidgets, QtCore
-from PyQt5.QtCore import QPropertyAnimation, QEasingCurve 
-from PyQt5.QtWidgets import QApplication, QLabel, QVBoxLayout, QWidget, QPushButton 
+from PyQt5.QtCore import QPropertyAnimation, QEasingCurve
+from PyQt5.QtWidgets import QApplication, QLabel, QVBoxLayout, QWidget, QPushButton
 from unidecode import unidecode
 from v2_login import Ui_MainWindow as LoginUi
 from v2_2_registrarse import Ui_MainWindow as CrearCuentaUi
@@ -758,12 +758,12 @@ class VentanaUC(QtWidgets.QMainWindow):
                 listaProductos.append(producto)
             datosCompra=buscarCompra(compraID)
             datosUsuario=buscarUsuario(self.datos_fila[3])
-            print("aqui")
-            print(listaProductos)
-            print("--")
-            print(datosCompra)
-            print("--")
-            print(datosUsuario)
+            # print("aqui")
+            # print(listaProductos)
+            # print("--")
+            # print(datosCompra)
+            # print("--")
+            # print(datosUsuario)
             #CREO EL HTML CON LOS DATOS
             addLineasProductos(listaProductos,datosCompra,datosUsuario) 
             crea_pdf(compraID,datosCompra[0][0],rutaHtml())
@@ -794,7 +794,15 @@ if __name__ == "__main__":
 
         ### stacked_widget.addWidget(crear_cuenta) #La creo mejor arriba en CrearCuenta
 
-        stacked_widget.resize(625, 565)
+        #>>>> Código para que sea responsive
+        desktop = QApplication.desktop()
+        screen_geometry = desktop.availableGeometry()
+        width = int(screen_geometry.width() * 0.8)  # 80% del ancho de la pantalla
+        height = int(screen_geometry.height() * 0.7)  # 70% de la altura de la pantalla
+        stacked_widget.resize(width, height)
+        #<<<<<< Fin código para que sea responsive
+
+        # stacked_widget.resize(800, 565)
         stacked_widget.setCurrentIndex(0)  # Iniciar en la ventana de Login
 
         # Para esconder el marco principal en la ventana principal
