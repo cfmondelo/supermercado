@@ -9,6 +9,28 @@ create table public.producto (
     primary key (prod_id)
 );
 
+CREATE TABLE CCAA (
+    idCCAA int NOT NULL,
+    Nombre varchar(100) NOT NULL,
+    PRIMARY KEY (idCCAA)
+) ;
+
+CREATE TABLE PROVINCIAS (
+    idProvincia int NOT NULL,
+    idCCAA      int NOT NULL,
+    Provincia   varchar(30) DEFAULT NULL,
+    PRIMARY KEY (idProvincia)
+);
+
+CREATE TABLE MUNICIPIOS (
+    idMunicipio   serial NOT NULL,
+    idProvincia   int NOT NULL,
+    codMunicipio  int NOT NULL,
+    DC            int NOT NULL,
+    Municipio     varchar(100) NOT NULL,
+    PRIMARY KEY (idMunicipio)
+);
+
 create table public.usuarios (
 	correo 		varchar(50) 	unique not null,
 	nombre	 	varchar(50) 	not null,
@@ -17,11 +39,20 @@ create table public.usuarios (
 	resp_seg	varchar(100) 	not null,
 	direccion 	varchar(100) 	null,
 	cp 			int 			null,
-	ciudad 		varchar(50) 	null,
-	municipio 	varchar(50) 	null,
+	id_ca 		int 	null,
+	id_provincia	int 	null,
+	id_municipio 	int 	null,
+	telefono	int			null,
 	dni         varchar(9)      null,
 	Apellidos   varchar(50)     null,
-    primary key (correo)
+    primary key (correo),
+    foreign key (id_ca)
+    	references CCAA (idCCAA),
+    foreign key (id_municipio)
+    	references MUNICIPIOS (idMunicipio), 
+    foreign key (id_provincia)
+    	references PROVINCIAS (idProvincia)
+    
 );
 
 create table public.descuentos (

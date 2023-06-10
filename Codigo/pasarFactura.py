@@ -10,7 +10,11 @@ import os
 # listaProductos= [["Bebida Energética",2, 2.3],
 #                  ["Bebida Diurética",1, 4.3]]
 def addLineasProductos(listaProductos, listaCompra, listaUsuario):
-    total=0
+    #le quito la tupla a las listas que vienen con ellas
+    listaCompra=[elemento for tupla in listaCompra for elemento in tupla] 
+    listaUsuario=[elemento for tupla in listaUsuario for elemento in tupla]
+    print(listaCompra)
+    print(listaUsuario)
     with open("facturaGenerada.html", "w") as f:
         #escribe cabecera
         f.write('''
@@ -43,12 +47,11 @@ def addLineasProductos(listaProductos, listaCompra, listaUsuario):
             </td>
         </table>
         <div id="datosPersona" class="mt-5 p-3">
-            <p><strong>Nombre:</strong> {{NombreCliente}}</p>
-            <p><strong>DNI:</strong> {{DniCliente}}</p>
-            <p><strong>Dirección:</strong> {{DireccionCliente}}</p>
-            <p><strong>Municipio:</strong> {{ProvinciaCliente}}</p>
-            <p><strong>Provincia:</strong> {{ProvinciaCliente}}</p>
-            <p><strong>Código Postal:</strong> {{ProvinciaCliente}}</p>
+            <p><strong>Nombre:</strong> '''+listaUsuario[0]+' '+listaUsuario[1]+'''</p>
+            <p><strong>DNI:</strong> '''+listaUsuario[2]+'''</p>
+            <p><strong>Dirección:</strong> '''+listaUsuario[3]+'''</p>
+            <p><strong>Provincia:</strong> '''+listaUsuario[4]+'''</p>
+            <p><strong>Código Postal:</strong> '''+str(listaUsuario[5])+'''</p>
         </div>
         <div class="mt-5"></div>
         <table class="table">
@@ -66,7 +69,6 @@ def addLineasProductos(listaProductos, listaCompra, listaUsuario):
         
         #escribe los productos
         for x in range(len(listaProductos)):
-            total+=(listaProductos[x][1]*listaProductos[x][2])
             f.write('''
                 <tr>
                     <th scope="row">'''+str(x+1)+'''</th>
@@ -77,16 +79,20 @@ def addLineasProductos(listaProductos, listaCompra, listaUsuario):
                     
                 </tr>''')
         
-        total=listaCompra
-        precioSinIva=total-(total*0.21)
+        total=listaCompra[1]
+        precioSinIva=total/1.21
         iva=total-precioSinIva
+        if listaCompra[2] == None:    
+            descuento=0
+        else:
+            descuento=(total*(listaCompra[2]/100+1))-total
         f.write('''
                 <tr>
                     <th scope="row" class="borderless-ultima"></th>
                     <td class="borderless-ultima"> </td>
                     <td class="borderless-ultima"> </td>
                     <td>Descuentos aplicados</td>
-                    <td>'''+"-"+str(descuento)+'%'+'''</td>
+                    <td>'''+"-"+str(descuento)+'''</td>
                 </tr>
                 <tr>
                     <th scope="row" class="borderless"></th>
@@ -116,9 +122,9 @@ def addLineasProductos(listaProductos, listaCompra, listaUsuario):
         f.write("</div>")
         f.write("</body>")
         f.write("</html>")    
-def rutaPdf():
+def rutaPdf(idCompra,fecha):
     ruta_absoluta=os.getcwd()
-    ruta_salida=ruta_absoluta+"/facturas_exportadas/factura.pdf"
+    ruta_salida=ruta_absoluta+"/facturas_exportadas/factura_"+str(idCompra)+"_"+str(fecha)+".pdf"
     return ruta_salida
 
 def rutaHtml():
@@ -126,28 +132,30 @@ def rutaHtml():
     ruta_salida=ruta_absoluta+"/facturaGenerada.html"
     return ruta_salida
 
-def crea_pdf(ruta_plantilla,info,rutacss=''):
-    nombre_plantilla = ruta_plantilla.split('/')[-1] #obtiene el nombre de la plantilla sin la ruta completa
-    ruta_plantilla   = ruta_plantilla.replace(nombre_plantilla,'') #obtiene la ruta sin el archivo
-    # print(nombre_plantilla)
-    # print(ruta_plantilla)
-    env=jinja2.Environment(loader=jinja2.FileSystemLoader(ruta_plantilla))
-    plantilla=env.get_template(nombre_plantilla)
-    html=plantilla.render(info)
-    opcionesExportado={
-        'page-size': 'A4',
-        'encoding' : 'UTF-8'
-    }
+def crea_pdf(idCompra,fecha,html):
+    # nombre_plantilla = ruta_plantilla.split('/')[-1] #obtiene el nombre de la plantilla sin la ruta completa
+    # ruta_plantilla   = ruta_plantilla.replace(nombre_plantilla,'') #obtiene la ruta sin el archivo
+    # # print(nombre_plantilla)
+    # # print(ruta_plantilla)
+    # env=jinja2.Environment(loader=jinja2.FileSystemLoader(ruta_plantilla))
+    # plantilla=env.get_template(nombre_plantilla)
+    # html=plantilla.render(info)
+    # opcionesExportado={
+    #     'page-size': 'A4',
+    #     'encoding' : 'UTF-8'
+    # }
+    with open(html,"r") as archivo_html:
+        contenido_html=archivo_html.read()
     config=pdfkit.configuration()
-    pdfkit.from_string(html,rutaPdf(), configuration=config)
+    pdfkit.from_string(contenido_html,rutaPdf(idCompra,fecha), configuration=config)
     
     
-if __name__=="__main__":
-    info={
-        "NombreCliente"    : "Carolina Fernández",
-        "DniCliente"       : "12345678L",
-        "DireccionCliente" : "C/Maravillas, 123, 2ºA",
-        "ProvinciaCliente" : "MADRID"
-    }
-    addLineasProductos(listaProductos) 
-    crea_pdf(rutaHtml(),info)
+# if __name__=="__main__":
+#     info={
+#         "NombreCliente"    : "Carolina Fernández",
+#         "DniCliente"       : "12345678L",
+#         "DireccionCliente" : "C/Maravillas, 123, 2ºA",
+#         "ProvinciaCliente" : "MADRID"
+#     }
+#     addLineasProductos(listaProductos) 
+#     crea_pdf(rutaHtml(),info)
