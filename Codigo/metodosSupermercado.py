@@ -227,7 +227,7 @@ def showDialog(msg, title = "informacion"):
 ###################################################### Kenia
 
 
-def obtenerTickets(conn, usu):
+def obtenerTickets(conn,usu):
   query = f"SELECT * FROM tickets where usuario = '{usu}';"
   try:
     cur = conn.cursor()
@@ -240,5 +240,29 @@ def obtenerTickets(conn, usu):
 # conn = conectar()
 # t = obtenerTickets(conn)
 # print(t)
+
+
+
+def obtenerLineaPedidosPorTickID(tick_id):
+   
+    consulta = '''
+        SELECT lp.linea_id, lp.prod_id, lp.precio, lp.cantidad, lp.compra_id
+        FROM lineapedidos lp
+        JOIN tickets t ON lp.compra_id = t.tick_id
+        WHERE t.tick_id = %s
+    '''
+
+    # Ejecutar la consulta
+    conexion = conectar()
+    cursor = conexion.cursor()
+    cursor.execute(consulta, (tick_id,))
+    resultados = cursor.fetchall()
+
+    # Cerrar la conexión con la base de datos
+    cursor.close()
+    conexion.close()
+
+    # Devolver los resultados
+    return resultados
 
 ###################################################### Kenia

@@ -686,8 +686,54 @@ class VentanaUC(QtWidgets.QMainWindow):
         table_widget.setColumnWidth(1, 125)  # Columna 1: Fecha
         table_widget.setColumnWidth(2, 125)  # Columna 2: Precio
         table_widget.setColumnWidth(3, 125)  # Columna 3: Usuario
+        
+        # Conectar la señal itemSelectionChanged a la función filaSeleccionada
+        table_widget.itemSelectionChanged.connect(self.filaSeleccionada)
+
+    def filaSeleccionada(self):
+        #  widget pag_usuario
+        pag_usuario_widget = self.ui.pag_usuario
+        # Busco el QTableWidget dentro de pag_usuario
+        table_widget_pag_usuario = pag_usuario_widget.findChild(QtWidgets.QTableWidget)
+
+        if table_widget_pag_usuario:
+            # Obtener las celdas seleccionadas
+            selected_rows = table_widget_pag_usuario.selectedItems()
+
+            # si se seleccionó alguna fila
+            if selected_rows:
+                fila_seleccionada = selected_rows[0].row()
+                print("Fila seleccionada:", fila_seleccionada)
+
+               
+                datos_fila = [] ## Crear una lista para almacenar los datos de la fila seleccionada
+                columnas = table_widget_pag_usuario.columnCount() # Obtener el número de columnas del QTableWidget
+
+                for columna in range(columnas):
+                    # Obtener el item (celda) en la fila seleccionada y la columna actual
+                    item = table_widget_pag_usuario.item(fila_seleccionada, columna)
+
+                    if item is not None:
+                        dato = item.text()
+                        datos_fila.append(dato)
+                    else:
+                        datos_fila.append("")
+
+                print("Datos de la fila seleccionada:", datos_fila)
+                print("---")
+
+            else:
+                print("No se ha seleccionado ninguna fila.")
+        else:
+            print("No se encontró un QTableWidget dentro de pag_usuario.")
 
 
+
+        push_button = pag_usuario_widget.findChild(QtWidgets.QPushButton, "pushButton")
+        if push_button is not None:
+            if push_button.isChecked():
+                print("boton pulsado")
+                print("Datos de la fila seleccionada:", datos_fila)
 
 #MAIN
 if __name__ == "__main__":
