@@ -765,9 +765,9 @@ class VentanaUC(QtWidgets.QMainWindow):
             print("--")
             print(datosUsuario)
             #CREO EL HTML CON LOS DATOS
-            # addLineasProductos(listaProductos) 
-            # crea_pdf(rutaHtml(),info)
-            print()
+            addLineasProductos(listaProductos,datosCompra,datosUsuario) 
+            crea_pdf(compraID,datosCompra[0][0],rutaHtml())
+            showDialog("Factura generada correctamente en la ruta: "+rutaPdf(compraID,datosCompra[0][0]))
         else:
             showDialog("Debe seleccionar un pedido")
             

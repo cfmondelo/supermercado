@@ -283,7 +283,7 @@ def nombreProducto(prodID):
         print(error)
 
 def buscarCompra(compraID):
-  consulta=(f"SELECT * from tickets where tick_id='{compraID}'")
+  consulta=(f"SELECT t.fecha, t.precio, d.descuento, t.tick_id from tickets t left join descuentos d on t.desc_id=d.desc_id where t.tick_id={compraID}")
   try:
     conn=conectar()
     cur = conn.cursor()
@@ -298,7 +298,7 @@ def buscarCompra(compraID):
         print(error)
 
 def buscarUsuario(usuarioID):
-  consulta=(f"SELECT * from usuarios where correo='{usuarioID}'")
+  consulta=(f"SELECT nombre, apellidos, dni, direccion, ciudad, cp from usuarios where correo='{usuarioID}'")
   try:
     conn=conectar()
     cur = conn.cursor()
