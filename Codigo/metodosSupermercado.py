@@ -54,7 +54,7 @@ def existeUsu(conn, mail):
   try:
     cur = conn.cursor()
     cur.execute(query)
-    datosUsu = cur.fetchall()
+    datosUsu = cur.fetchone()
   except (Exception, psycopg2.DatabaseError) as error:
     print(error)
   return datosUsu
@@ -183,11 +183,127 @@ def buscarDescuento(conn, desc):
     print(error)
   return desc
 
+def cargarCCAA(conn):
+  query = f"SELECT * FROM CCAA;"
+  try:
+    cur = conn.cursor()
+    cur.execute(query)
+    comunidades = cur.fetchall()
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+  return comunidades
+
+def cargarProvs(conn, ca):
+  if ca != None:
+    query = f"SELECT * FROM PROVINCIAS where idCCAA = '{ca}';"
+    try:
+      cur = conn.cursor()
+      cur.execute(query)
+      provincias = cur.fetchall()
+    except (Exception, psycopg2.DatabaseError) as error:
+      print(error)
+    return provincias
+  else: return []
+
+def cargarMuns(conn, prov):
+  if prov != None:
+    query = f"SELECT * FROM MUNICIPIOS where idProvincia = '{prov}';"
+    try:
+      cur = conn.cursor()
+      cur.execute(query)
+      municipios = cur.fetchall()
+    except (Exception, psycopg2.DatabaseError) as error:
+      print(error)
+    return municipios
+  else: return []
+
+def buscarCA(conn, ca):
+  query = f"select Nombre from CCAA where idCCAA = '{ca}';"
+  try:
+    cur = conn.cursor()
+    cur.execute(query)
+    car = cur.fetchone()[0]
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+  return car
+
+def buscarCANom(conn, ca):
+  if ca != "":
+    query = f"select idCCAA from CCAA where Nombre = '{ca}';"
+    try:
+      cur = conn.cursor()
+      cur.execute(query)
+      car = cur.fetchone()[0]
+    except (Exception, psycopg2.DatabaseError) as error:
+      print(error)
+    return car
+
+def buscarProv(conn, pro):
+  query = f"select Provincia from PROVINCIAS where idProvincia = '{pro}';"
+  try:
+    cur = conn.cursor()
+    cur.execute(query)
+    prov = cur.fetchone()[0]
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+  return prov
+
+def buscarProvNom(conn, pro):
+  if pro != "":
+    query = f"select idProvincia from PROVINCIAS where Provincia = '{pro}';"
+    try:
+      cur = conn.cursor()
+      cur.execute(query)
+      prov = cur.fetchone()[0]
+    except (Exception, psycopg2.DatabaseError) as error:
+      print(error)
+    return prov
+
+def buscarMun(conn, mu):
+  query = f"select Municipio from MUNICIPIOS where idMunicipio = '{mu}';"
+  try:
+    cur = conn.cursor()
+    cur.execute(query)
+    mun = cur.fetchone()[0]
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+  return mun
+
+def buscarMunNom(conn, mu):
+  query = f"select idMunicipio from MUNICIPIOS where Municipio = '{mu}';"
+  try:
+    cur = conn.cursor()
+    cur.execute(query)
+    mun = cur.fetchone()[0]
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+  return mun
+
+def actualizarUsu(conn, datos, email):
+  query = f"update usuarios set nombre = %s, contrasena = %s, preg_seg = %s, resp_seg = %s, direccion = %s, cp = %s, id_ca = %s, id_provincia = %s, id_municipio = %s, telefono = %s, dni = %s, Apellidos = %s where correo = '{email}';"
+  try:
+    cur = conn.cursor()
+    cur.execute(query, datos)
+    conn.commit()
+    showDialog("Los datos se han actualizado correctamente")
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+
+
 def camposVacios(campos):
   # Recorre una tupla para que ningun campo sea nulo
 	vacio = False
 	for campo in campos:
 		if campo == "":
+			vacio = True
+			break
+	return vacio
+
+def camposNone(campos):
+  # Recorre una tupla para que ningun campo sea nulo
+	vacio = False
+	for campo in campos:
+		if campo == None:
 			vacio = True
 			break
 	return vacio
