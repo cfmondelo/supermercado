@@ -40,6 +40,12 @@ QPushButton#pushButton_2:pressed{
 	padding-top:5px;
 	background-color:rgba(91,88,53,255);
 }
+QLineEdit{
+background-color:rgba(0,0,0,0);
+border:none;
+border-bottom:2px solid rgb(73,86,78);
+color:rgba(0,0,0,240);
+padding-bottom:7px;}
 </string>
     </property>
     <widget class="QLabel" name="label_6">
@@ -113,15 +119,11 @@ border-bottom-right-radius: 50px;
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>8</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">	background-color:rgba(0,0,0,0);
-border:none;
-border-bottom:2px solid rgb(73,86,78);
-color:rgba(0,0,0,240);
-padding-bottom:7px;</string>
+      <string notr="true"/>
      </property>
      <property name="placeholderText">
       <string>Nombre de usuario</string>
@@ -139,15 +141,11 @@ padding-bottom:7px;</string>
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>8</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">	background-color:rgba(0,0,0,0);
-border:none;
-border-bottom:2px solid rgb(73,86,78);
-color:rgba(0,0,0,240);
-padding-bottom:7px;</string>
+      <string notr="true"/>
      </property>
      <property name="echoMode">
       <enum>QLineEdit::Password</enum>
@@ -168,7 +166,7 @@ padding-bottom:7px;</string>
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>8</pointsize>
+       <pointsize>12</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -196,15 +194,11 @@ border-color:  rgb(73,86,78);
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>8</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">	background-color:rgba(0,0,0,0);
-border:none;
-border-bottom:2px solid rgb(73,86,78);
-color:rgba(0,0,0,240);
-padding-bottom:7px;</string>
+      <string notr="true"/>
      </property>
      <property name="echoMode">
       <enum>QLineEdit::Password</enum>
@@ -225,15 +219,11 @@ padding-bottom:7px;</string>
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>8</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">	background-color:rgba(0,0,0,0);
-border:none;
-border-bottom:2px solid rgb(73,86,78);
-color:rgba(0,0,0,240);
-padding-bottom:7px;</string>
+      <string notr="true"/>
      </property>
      <property name="echoMode">
       <enum>QLineEdit::Password</enum>
@@ -254,15 +244,11 @@ padding-bottom:7px;</string>
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>8</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">	background-color:rgba(0,0,0,0);
-border:none;
-border-bottom:2px solid rgb(73,86,78);
-color:rgba(0,0,0,240);
-padding-bottom:7px;</string>
+      <string notr="true"/>
      </property>
      <property name="cursorPosition">
       <number>0</number>
@@ -283,15 +269,11 @@ padding-bottom:7px;</string>
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>8</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">	background-color:rgba(0,0,0,0);
-border:none;
-border-bottom:2px solid rgb(73,86,78);
-color:rgba(0,0,0,240);
-padding-bottom:7px;</string>
+      <string notr="true"/>
      </property>
      <property name="placeholderText">
       <string>Pregunta de seguridad</string>

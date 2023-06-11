@@ -208,27 +208,7 @@ font-size: 2rem;
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="botouc_minimizar">
-          <property name="minimumSize">
-           <size>
-            <width>47</width>
-            <height>34</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="res.qrc">
-            <normaloff>:/iconos/z-minimize-sign.png</normaloff>:/iconos/z-minimize-sign.png</iconset>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="botouc_min">
+         <widget class="QPushButton" name="botouc_usu">
           <property name="minimumSize">
            <size>
             <width>47</width>
@@ -244,26 +224,6 @@ font-size: 2rem;
           <property name="icon">
            <iconset resource="res.qrc">
             <normaloff>:/iconos/user.png</normaloff>:/iconos/user.png</iconset>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="botonuc_max">
-          <property name="minimumSize">
-           <size>
-            <width>47</width>
-            <height>34</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="res.qrc">
-            <normaloff>:/iconos/z-plus.png</normaloff>:/iconos/z-plus.png</iconset>
           </property>
          </widget>
         </item>
@@ -367,7 +327,7 @@ color:rgb(0,0,0);
                     <x>0</x>
                     <y>0</y>
                     <width>515</width>
-                    <height>28</height>
+                    <height>532</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_7"/>
@@ -718,7 +678,7 @@ padding:3px;
 </string>
               </property>
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="tab">
                <attribute name="title">
@@ -1396,6 +1356,18 @@ padding:3px;
                 <string>Mis pedidos</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_5">
+                <item row="1" column="1">
+                 <widget class="QPushButton" name="pushButton_2">
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Generar factura</string>
+                  </property>
+                 </widget>
+                </item>
                 <item row="0" column="0" colspan="2">
                  <widget class="QTableWidget" name="tableWidget">
                   <property name="font">
@@ -1444,7 +1416,7 @@ padding:3px;
                   </column>
                   <column>
                    <property name="text">
-                    <string>Estado </string>
+                    <string>Usuario</string>
                    </property>
                    <property name="font">
                     <font>
@@ -1452,18 +1424,6 @@ padding:3px;
                     </font>
                    </property>
                   </column>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QPushButton" name="pushButton_2">
-                  <property name="font">
-                   <font>
-                    <family>Raleway</family>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Generar factura</string>
-                  </property>
                  </widget>
                 </item>
                </layout>

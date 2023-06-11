@@ -120,6 +120,7 @@ class Ui_MainWindow(object):
         self.frame_controlMenu.setFont(font)
         self.frame_controlMenu.setStyleSheet("QFrame{\n"
 "background-color: rgb(73, 86, 78);\n"
+"padding:20px 0px;\n"
 "}\n"
 "\n"
 "QPushButton{\n"
@@ -141,13 +142,6 @@ class Ui_MainWindow(object):
         self.frame_controlMenu.setObjectName("frame_controlMenu")
         self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.frame_controlMenu)
         self.verticalLayout_9.setObjectName("verticalLayout_9")
-        self.botonpDesayunos = QtWidgets.QPushButton(self.frame_controlMenu)
-        self.botonpDesayunos.setMinimumSize(QtCore.QSize(0, 30))
-        font = QtGui.QFont()
-        font.setFamily("Raleway")
-        self.botonpDesayunos.setFont(font)
-        self.botonpDesayunos.setObjectName("botonpDesayunos")
-        self.verticalLayout_9.addWidget(self.botonpDesayunos)
         self.botonpPowerWaters = QtWidgets.QPushButton(self.frame_controlMenu)
         self.botonpPowerWaters.setMinimumSize(QtCore.QSize(0, 30))
         font = QtGui.QFont()
@@ -2750,7 +2744,6 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.botonpDesayunos.setText(_translate("MainWindow", "Desayunos"))
         self.botonpPowerWaters.setText(_translate("MainWindow", "Power Waters"))
         self.botonpZumos.setText(_translate("MainWindow", "Zumos de frutas y verduras"))
         self.botonpPlatosPreparados.setText(_translate("MainWindow", "Platos preparados"))

@@ -206,7 +206,8 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
 
         # Crear un diccionario para mapear los botones con las páginas 
         self.page_mapping = {
-            self.ui.botonpDesayunos: self.ui.page_desayunos,
+            #lo he quitado porque salía cortado y era más fácil quitarlo que intentarlo poner con scroll
+            # self.ui.botonpDesayunos: self.ui.page_desayunos,
             self.ui.botonpPowerWaters: self.ui.page_waters,
             self.ui.botonpZumos: self.ui.page_zumos,
             self.ui.botonpPlatosPreparados: self.ui.page_platos,

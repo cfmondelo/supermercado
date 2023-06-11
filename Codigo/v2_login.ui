@@ -131,7 +131,7 @@ border-bottom-right-radius: 50px;
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>8</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="focusPolicy">
@@ -156,7 +156,7 @@ border-bottom-right-radius: 50px;
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>8</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="focusPolicy">
@@ -184,7 +184,7 @@ border-bottom-right-radius: 50px;
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>8</pointsize>
+       <pointsize>12</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -199,27 +199,6 @@ border-color:  rgb(73,86,78);</string>
       <string>Entrar</string>
      </property>
     </widget>
-    <widget class="QLabel" name="labell_olvidastePassword">
-     <property name="geometry">
-      <rect>
-       <x>330</x>
-       <y>310</y>
-       <width>131</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>7</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color:rgba(0,0,0,210);</string>
-     </property>
-     <property name="text">
-      <string>¿Has olvidado tu contraseña?</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="botonl_crearCuentaNueva">
      <property name="geometry">
       <rect>
@@ -232,7 +211,7 @@ border-color:  rgb(73,86,78);</string>
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>8</pointsize>
+       <pointsize>12</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>

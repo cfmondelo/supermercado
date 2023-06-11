@@ -260,6 +260,7 @@ border-color:  rgba(46,82,101,200);</string>
              <property name="styleSheet">
               <string notr="true">QFrame{
 background-color: rgb(73, 86, 78);
+padding:20px 0px;
 }
 
 QPushButton{
@@ -284,24 +285,6 @@ color:rgb(0,0,0);
               <enum>QFrame::Raised</enum>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_9">
-              <item>
-               <widget class="QPushButton" name="botonpDesayunos">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>Raleway</family>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Desayunos</string>
-                </property>
-               </widget>
-              </item>
               <item>
                <widget class="QPushButton" name="botonpPowerWaters">
                 <property name="minimumSize">
