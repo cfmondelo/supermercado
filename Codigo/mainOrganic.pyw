@@ -20,10 +20,14 @@ from pasarFactura import *
 
 # INDEX 0
 class Login(QtWidgets.QMainWindow):
+    
     def __init__(self, parent=None):
         QtWidgets.QWidget.__init__(self,parent)
         self.ui = LoginUi()
         self.ui.setupUi(self)
+            
+        # icon = QtGui.QIcon(':/iconos/logo_naranja.png')
+        # self.setWindowIcon(icon)
         self.ui.boton_entrar.clicked.connect(self.funcionLogin)
         # self.ui.boton_entrar.clicked.connect(self.cambiarAVentanaPrincipal)
         self.ui.botonl_crearCuentaNueva.clicked.connect(self.cambiarDePantalla)
@@ -55,7 +59,6 @@ class Login(QtWidgets.QMainWindow):
         stacked_widget.setCurrentIndex(1)
 
     def cambiarAVentanaPrincipal(self):
-        print("Hola")
         ventanaPrincipal = VentanaPrincipal()
         # stacked_widget.addWidget(ventanaPrincipal)
         stacked_widget.setCurrentIndex(2)
@@ -427,6 +430,9 @@ class VentanaUC(QtWidgets.QMainWindow):
         self.ui.botonuc_atras.clicked.connect(self.cambiarAVentanaPrincipal)
         self.ui.botouc_finalizarPedido.clicked.connect(self.finalizarPedido)
         self.ui.pushButton_2.clicked.connect(self.generarFactura)
+        self.ui.botonuc_update.clicked.connect(self.actualizarDatos)
+        self.ui.cbd_CA.currentIndexChanged.connect(self.comboCCAA_changed)
+        self.ui.cbd_provincia.currentIndexChanged.connect(self.comboProv_changed)
         # self.refrescarCarrito()
         #Para la tabla de usuarios
         # En el constructor de la clase VentanaUC, después de self.ui.setupUi(self)
@@ -612,12 +618,17 @@ class VentanaUC(QtWidgets.QMainWindow):
         self.ui.label_subtotal_7.setText(str(f"{self.precioTot-(self.descuento*self.precioTot/100):0.2f}")+"€") #total
               
     def finalizarPedido(self):
-        conn = conectar()
 
-        fecha = date.today()
-        fecha_str = fecha.strftime("%Y/%m/%d")
-        showDialog(login.getEmail())
-        insertarLineaPed(conn, login.getEmail(), self.cupon, self.precioTot, fecha_str)
+        conn = conectar()
+        datosUsu = existeUsu(conn, login.getEmail())
+        dir = [datosUsu[5], datosUsu[6], datosUsu[7], datosUsu[8], datosUsu[9], datosUsu[11]]
+        if(camposNone(dir)):
+            showDialog("Debe introducir su dirección y dni para realizar una compra")
+        else:
+            fecha = date.today()
+            fecha_str = fecha.strftime("%Y/%m/%d")
+            showDialog(login.getEmail())
+            insertarLineaPed(conn, login.getEmail(), self.cupon, self.precioTot, fecha_str)
         desconectar(conn)
 
         self.refrescarCarrito()
@@ -625,14 +636,82 @@ class VentanaUC(QtWidgets.QMainWindow):
     def cambiarAVentanaPrincipal(self):
         stacked_widget.setCurrentIndex(2)
 
-
     def cambiar_a_ventana_usuario(self):
-            self.stacked_widget.setCurrentWidget(self.ui.pag_usuario)  # Cambiar a la página "pag_usuario"
-            self.cargarDatosTablaTickets()
+        self.stacked_widget.setCurrentWidget(self.ui.pag_usuario)  # Cambiar a la página "pag_usuario"
+        self.cargarDatosTablaTickets()
+        self.cargarDatosUsuario()
 
     def cambiar_a_ventana_carrito(self):
             self.stacked_widget.setCurrentWidget(self.ui.pag_carrito)  # Cambiar a la página "carrito"
 
+    def actualizarDatos(self):
+        conexion = conectar()
+        error = False
+        
+        datosUsu = existeUsu(conexion, login.getEmail())
+        # correo, nombre, contraseña, preseg ,resseg, direccion, cp, ca, prov, mun, tel, dni, apellidos
+
+        if len(self.ui.txtd_nombre.text()) > 0:
+            nombre = self.ui.txtd_nombre.text()
+        else: nombre = datosUsu[1]
+
+        if len(self.ui.txtd_contra.text()) > 0:
+            contra = self.ui.txtd_contra.text()
+            if len(contra) < 8:
+                showDialog("La contraseña debe tener al menos 8 caracteres")
+                error = True
+            elif contra != self.ui.txtd_confcontra.text():
+                showDialog("El campo de confirmación de contraseña debe ser igual al de contraseña")
+                error = True
+            else: contra = cifrarContra(contra)
+        else: contra = datosUsu[2]
+
+        if len(self.ui.txtd_preseg.text()) > 0:
+            preseg = self.ui.txtd_preseg.text()
+        else: preseg = datosUsu[3]
+
+        if len(self.ui.txtd_resseg.text()) > 0:
+            resseg = self.ui.txtd_resseg.text()
+            resseg = cifrarContra(resseg)
+        else: resseg = datosUsu[4]
+
+        if len(self.ui.txtd_direccion.text()) > 0:
+            dir = self.ui.txtd_direccion.text()
+        else: dir = datosUsu[5]
+
+        if len(self.ui.txtd_cp.text()) > 0:
+            cp = self.ui.txtd_cp.text()
+        else: cp = datosUsu[6]
+
+        if len(self.ui.cbd_CA.currentText()) > 0:
+            ca = buscarCANom(conexion, self.ui.cbd_CA.currentText())
+        else: ca = datosUsu[7]
+
+        if len(self.ui.cbd_provincia.currentText()) > 0:
+            prov = buscarProvNom(conexion, self.ui.cbd_provincia.currentText())
+        else: prov = datosUsu[8]
+
+        if len(self.ui.cbd_municipio.currentText()) > 0:
+            mun = buscarMunNom(conexion, self.ui.cbd_municipio.currentText())
+        else: mun = datosUsu[9]
+
+        if len(self.ui.txtd_telefono.text()) > 0:
+            tel = self.ui.txtd_telefono.text()
+        else: tel = datosUsu[10]
+
+        if len(self.ui.txtd_dni.text()) > 0:
+            dni = self.ui.txtd_dni.text()
+        else: dni = datosUsu[11]
+
+        if len(self.ui.txtd_apellidos.text()) > 0:
+            apell = self.ui.txtd_apellidos.text()
+        else: apell = datosUsu[12]
+
+        if not error:
+            datos = (nombre, contra, preseg, resseg, dir, cp, ca, prov, mun, tel, dni, apell)
+            actualizarUsu(conexion, datos, login.getEmail())
+
+        desconectar(conexion)
 
 # >>>>>>>>>>> Carol
 
@@ -649,7 +728,79 @@ class VentanaUC(QtWidgets.QMainWindow):
         
 # <<<<<<<<<<<< Carol
 
+    def cargarDatosUsuario(self):
+        conexion = conectar()
+        datosUsu = existeUsu(conexion, login.getEmail())
 
+        # correo, nombre, contraseña, preseg ,resseg, direccion, cp, ca, prov, mun, tel, dni, apellidos
+
+        ccaa = cargarCCAA(conexion)
+        for ca in ccaa:
+            self.ui.cbd_CA.addItem(ca[1])
+
+        self.ui.txtd_nombre.setText(datosUsu[1])
+        self.ui.txtd_preseg.setText(datosUsu[3])
+
+        if datosUsu[12] != None:
+            self.ui.txtd_apellidos.setText(datosUsu[12])
+            
+        if datosUsu[11] != None:
+            self.ui.txtd_dni.setText(datosUsu[11])
+            
+        if datosUsu[10] != None:
+            self.ui.txtd_telefono.setText(datosUsu[10])
+            
+        if datosUsu[6] != None:
+            self.ui.txtd_cp.setText(str(datosUsu[6]))
+        
+        if datosUsu[5] != None:
+            self.ui.txtd_direccion.setText(datosUsu[5])
+        
+        if datosUsu[7] != None: 
+            ca = buscarCA(conexion, datosUsu[7])
+            prov = buscarProv(conexion, datosUsu[8])
+            mun = buscarMun(conexion, datosUsu[9])
+
+            indiceca = self.ui.cbd_CA.findText(ca)
+            self.ui.cbd_CA.setCurrentIndex(indiceca)
+            
+            indiceprov = self.ui.cbd_provincia.findText(prov)
+            self.ui.cbd_provincia.setCurrentIndex(indiceprov)
+            
+            indicemun = self.ui.cbd_municipio.findText(mun)
+            self.ui.cbd_municipio.setCurrentIndex(indicemun)
+        else:
+            self.ui.cbd_CA.setCurrentIndex(-1)
+            self.ui.cbd_provincia.setCurrentIndex(-1)
+            self.ui.cbd_municipio.setCurrentIndex(-1)
+
+        desconectar(conexion)
+
+    def comboCCAA_changed(self):
+        conexion = conectar()
+        self.ui.cbd_provincia.setCurrentIndex(-1)
+        self.ui.cbd_municipio.setCurrentIndex(-1)
+        self.ui.cbd_provincia.clear()
+        self.ui.cbd_municipio.clear()
+
+        ca = buscarCANom(conexion, self.ui.cbd_CA.currentText())
+
+        provs = cargarProvs(conexion, ca)
+        for prov in provs:
+            self.ui.cbd_provincia.addItem(prov[2])
+        desconectar(conexion)
+
+    def comboProv_changed(self):
+        conexion = conectar()
+        # self.ui.cbd_municipio.setCurrentIndex(-1)
+        self.ui.cbd_municipio.clear()
+
+        prov = buscarProvNom(conexion, self.ui.cbd_provincia.currentText())
+        muns = cargarMuns(conexion, prov)
+        for mun in muns:
+            self.ui.cbd_municipio.addItem(mun[4])
+            
+        desconectar(conexion)
 
     def cargarDatosTablaTickets(self):
         conexion = conectar()
@@ -765,9 +916,9 @@ class VentanaUC(QtWidgets.QMainWindow):
             # print("--")
             # print(datosUsuario)
             #CREO EL HTML CON LOS DATOS
-            addLineasProductos(listaProductos,datosCompra,datosUsuario) 
-            crea_pdf(compraID,datosCompra[0][0],rutaHtml())
-            showDialog("Factura generada correctamente en la ruta: "+rutaPdf(compraID,datosCompra[0][0]))
+            # addLineasProductos(listaProductos) 
+            # crea_pdf(rutaHtml(),info)
+            print()
         else:
             showDialog("Debe seleccionar un pedido")
             
@@ -783,14 +934,19 @@ if __name__ == "__main__":
         crear_cuenta = CrearCuenta()
         ventanaPrincipal = VentanaPrincipal()
         ventanaUC = VentanaUC()
+        icon = QtGui.QIcon(':/iconos/logo_naranja.png')
+
+        # window = QtWidgets.QMainWindow()
 
         #Se agregan las ventanas al objeto stacked widget
         stacked_widget.addWidget(login)
         stacked_widget.addWidget(crear_cuenta)
         stacked_widget.addWidget(ventanaPrincipal)
         stacked_widget.addWidget(ventanaUC)
-        
 
+        
+        # window.setCentralWidget(stacked_widget)
+        # window.setWindowIcon(icon)
 
         ### stacked_widget.addWidget(crear_cuenta) #La creo mejor arriba en CrearCuenta
 
@@ -809,7 +965,14 @@ if __name__ == "__main__":
         stacked_widget.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         stacked_widget.setAttribute(QtCore.Qt.WA_TranslucentBackground)
 
+        # stacked_widget.setWindowIcon(icon)s
+
+
+        # icon = QtGui.QIcon(':/iconos/logo_naranja.png')
+        # window.setWindowIcon(icon)
+
         stacked_widget.show()
+        # window.show()
         # login.show()
 
 

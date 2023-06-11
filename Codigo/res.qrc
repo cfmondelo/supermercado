@@ -77,6 +77,7 @@
     <file>z_desayuno3.jpg</file>
   </qresource>
   <qresource prefix="iconos">
+    <file>logo_naranja.png</file>
     <file>z-minimize-sign.png</file>
     <file>z-plus.png</file>
     <file>z-maximize.png</file>
