@@ -618,12 +618,12 @@ class VentanaUC(QtWidgets.QMainWindow):
 
             # self.precioTot = 0
             # self.precioSub = 0
-        self.precioTot-=(self.descuento*self.precioTot/100)
+        # self.precioTot-=(self.descuento*self.precioTot/100)
         if self.precioTot==0:
             self.descuento=0
             self.ui.label_subtotal_6.setText("DESCUENTO NO APLICADO") #descuento
             self.ui.lineEdit.setText("")
-        self.ui.label_subtotal_5.setText(str(f"{self.precioSub:0.2f}")+"€") #subtotal
+        self.ui.label_subtotal_5.setText(str(f"{(self.precioTot-(self.descuento*self.precioTot/100))/1.21:0.2f}")+"€") #subtotal
         self.ui.label_subtotal_7.setText(str(f"{self.precioTot-(self.descuento*self.precioTot/100):0.2f}")+"€") #total
     def actualizaCantidad(self,cantidad,nombreProducto):
         conn=conectar()
@@ -740,7 +740,7 @@ class VentanaUC(QtWidgets.QMainWindow):
                 self.ui.label_subtotal_6.setText("DESCUENTO NO APLICADO") #descuento
             
             self.precioSub=self.precioTot/1.21
-            self.ui.label_subtotal_5.setText(str(f"{self.precioSub:0.2f}")+"€") #subtotal
+            self.ui.label_subtotal_5.setText(str(f"{(self.precioTot-(self.descuento*self.precioTot/100))/1.21:0.2f}")+"€") #subtotal
             self.ui.label_subtotal_7.setText(str(f"{self.precioTot-(self.descuento*self.precioTot/100):0.2f}")+"€") #total
         except Exception as ex:
             print(ex)
