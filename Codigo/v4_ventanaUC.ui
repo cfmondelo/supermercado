@@ -291,7 +291,7 @@ color:rgb(0,0,0);
                     <x>0</x>
                     <y>0</y>
                     <width>515</width>
-                    <height>28</height>
+                    <height>550</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_7"/>
@@ -310,7 +310,7 @@ color:rgb(0,0,0);
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">margin-right:10px;</string>
+               <string notr="true"/>
               </property>
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
@@ -686,38 +686,7 @@ color:back}
                    <string/>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_4">
-                   <item row="10" column="3">
-                    <widget class="QComboBox" name="cbd_municipio">
-                     <property name="font">
-                      <font>
-                       <family>Raleway</family>
-                      </font>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="5" column="3">
-                    <widget class="QComboBox" name="cbd_provincia">
-                     <property name="font">
-                      <font>
-                       <family>Raleway</family>
-                      </font>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="0">
-                    <spacer name="horizontalSpacer_8">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>100</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item row="3" column="0">
+                   <item row="4" column="0">
                     <spacer name="horizontalSpacer_11">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
@@ -730,7 +699,7 @@ color:back}
                      </property>
                     </spacer>
                    </item>
-                   <item row="0" column="4">
+                   <item row="1" column="4">
                     <spacer name="horizontalSpacer_18">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
@@ -743,32 +712,19 @@ color:back}
                      </property>
                     </spacer>
                    </item>
-                   <item row="1" column="0">
-                    <spacer name="horizontalSpacer_9">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>100</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
                    <item row="3" column="1">
-                    <widget class="QLabel" name="label_4">
+                    <widget class="QLabel" name="label_3">
                      <property name="font">
                       <font>
                        <family>Raleway</family>
                       </font>
                      </property>
                      <property name="text">
-                      <string>Teléfono</string>
+                      <string>DNI</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="3" column="3">
+                   <item row="4" column="3">
                     <widget class="QLineEdit" name="txtd_telefono">
                      <property name="font">
                       <font>
@@ -777,20 +733,16 @@ color:back}
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="4">
-                    <spacer name="horizontalSpacer_26">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
+                   <item row="6" column="3">
+                    <widget class="QComboBox" name="cbd_provincia">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
                      </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>99</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
+                    </widget>
                    </item>
-                   <item row="2" column="0">
+                   <item row="3" column="0">
                     <spacer name="horizontalSpacer_10">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
@@ -803,32 +755,7 @@ color:back}
                      </property>
                     </spacer>
                    </item>
-                   <item row="3" column="4">
-                    <spacer name="horizontalSpacer_21">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>99</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item row="2" column="1">
-                    <widget class="QLabel" name="label_3">
-                     <property name="font">
-                      <font>
-                       <family>Raleway</family>
-                      </font>
-                     </property>
-                     <property name="text">
-                      <string>DNI</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="10" column="4">
+                   <item row="11" column="4">
                     <spacer name="horizontalSpacer_51">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
@@ -841,38 +768,20 @@ color:back}
                      </property>
                     </spacer>
                    </item>
-                   <item row="0" column="3">
-                    <widget class="QLineEdit" name="txtd_nombre">
+                   <item row="4" column="1">
+                    <widget class="QLabel" name="label_4">
                      <property name="font">
                       <font>
                        <family>Raleway</family>
                       </font>
                      </property>
-                     <property name="styleSheet">
-                      <string notr="true">margin-top:10px;</string>
+                     <property name="text">
+                      <string>Teléfono</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="3">
-                    <widget class="QLineEdit" name="txtd_apellidos">
-                     <property name="font">
-                      <font>
-                       <family>Raleway</family>
-                      </font>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="21" column="3">
-                    <widget class="QLineEdit" name="txtd_preseg">
-                     <property name="font">
-                      <font>
-                       <family>Raleway</family>
-                      </font>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="22" column="4">
-                    <spacer name="horizontalSpacer_25">
+                   <item row="2" column="4">
+                    <spacer name="horizontalSpacer_26">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
                      </property>
@@ -884,20 +793,30 @@ color:back}
                      </property>
                     </spacer>
                    </item>
-                   <item row="19" column="3">
-                    <widget class="QLineEdit" name="txtd_contra">
+                   <item row="11" column="3">
+                    <widget class="QComboBox" name="cbd_municipio">
                      <property name="font">
                       <font>
                        <family>Raleway</family>
                       </font>
                      </property>
-                     <property name="echoMode">
-                      <enum>QLineEdit::Password</enum>
-                     </property>
                     </widget>
                    </item>
-                   <item row="21" column="4">
-                    <spacer name="horizontalSpacer_23">
+                   <item row="2" column="0">
+                    <spacer name="horizontalSpacer_9">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>100</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item row="4" column="4">
+                    <spacer name="horizontalSpacer_21">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
                      </property>
@@ -909,20 +828,20 @@ color:back}
                      </property>
                     </spacer>
                    </item>
-                   <item row="20" column="4">
-                    <spacer name="horizontalSpacer_22">
+                   <item row="1" column="0">
+                    <spacer name="horizontalSpacer_8">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
-                       <width>99</width>
+                       <width>100</width>
                        <height>20</height>
                       </size>
                      </property>
                     </spacer>
                    </item>
-                   <item row="22" column="0">
+                   <item row="23" column="0">
                     <spacer name="horizontalSpacer_17">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
@@ -935,43 +854,32 @@ color:back}
                      </property>
                     </spacer>
                    </item>
-                   <item row="20" column="1">
-                    <widget class="QLabel" name="label_7">
+                   <item row="22" column="4">
+                    <spacer name="horizontalSpacer_23">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>99</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QLabel" name="label_2">
                      <property name="font">
                       <font>
                        <family>Raleway</family>
                       </font>
                      </property>
                      <property name="text">
-                      <string>Confirme contraseña</string>
+                      <string>Apellidos</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="23" column="3">
-                    <widget class="QPushButton" name="botonuc_update">
-                     <property name="font">
-                      <font>
-                       <family>Raleway</family>
-                      </font>
-                     </property>
-                     <property name="text">
-                      <string>Actualizar</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="4" column="1">
-                    <widget class="QLabel" name="label_5">
-                     <property name="font">
-                      <font>
-                       <family>Raleway</family>
-                      </font>
-                     </property>
-                     <property name="text">
-                      <string>Comunidad Autónoma</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="19" column="4">
+                   <item row="20" column="4">
                     <spacer name="horizontalSpacer_24">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
@@ -984,20 +892,19 @@ color:back}
                      </property>
                     </spacer>
                    </item>
-                   <item row="19" column="0">
-                    <spacer name="horizontalSpacer_14">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
+                   <item row="20" column="1">
+                    <widget class="QLabel" name="label_6">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
                      </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>100</width>
-                       <height>20</height>
-                      </size>
+                     <property name="text">
+                      <string>Contraseña</string>
                      </property>
-                    </spacer>
+                    </widget>
                    </item>
-                   <item row="20" column="0">
+                   <item row="21" column="0">
                     <spacer name="horizontalSpacer_15">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
@@ -1010,7 +917,66 @@ color:back}
                      </property>
                     </spacer>
                    </item>
+                   <item row="1" column="3">
+                    <widget class="QLineEdit" name="txtd_nombre">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true"/>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="23" column="1">
+                    <widget class="QLabel" name="label_10">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Respuesta de seguridad</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="20" column="0">
+                    <spacer name="horizontalSpacer_14">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>100</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item row="23" column="4">
+                    <spacer name="horizontalSpacer_25">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>99</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
                    <item row="2" column="3">
+                    <widget class="QLineEdit" name="txtd_apellidos">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="3">
                     <widget class="QLineEdit" name="txtd_dni">
                      <property name="font">
                       <font>
@@ -1022,19 +988,19 @@ color:back}
                      </property>
                     </widget>
                    </item>
-                   <item row="19" column="1">
-                    <widget class="QLabel" name="label_6">
+                   <item row="23" column="3">
+                    <widget class="QLineEdit" name="txtd_resseg">
                      <property name="font">
                       <font>
                        <family>Raleway</family>
                       </font>
                      </property>
-                     <property name="text">
-                      <string>Contraseña</string>
+                     <property name="echoMode">
+                      <enum>QLineEdit::Password</enum>
                      </property>
                     </widget>
                    </item>
-                   <item row="4" column="0">
+                   <item row="5" column="0">
                     <spacer name="horizontalSpacer_12">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
@@ -1047,19 +1013,7 @@ color:back}
                      </property>
                     </spacer>
                    </item>
-                   <item row="1" column="1">
-                    <widget class="QLabel" name="label_2">
-                     <property name="font">
-                      <font>
-                       <family>Raleway</family>
-                      </font>
-                     </property>
-                     <property name="text">
-                      <string>Apellidos</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="20" column="3">
+                   <item row="21" column="3">
                     <widget class="QLineEdit" name="txtd_confcontra">
                      <property name="font">
                       <font>
@@ -1071,31 +1025,31 @@ color:back}
                      </property>
                     </widget>
                    </item>
-                   <item row="21" column="1">
-                    <widget class="QLabel" name="label_9">
+                   <item row="5" column="1">
+                    <widget class="QLabel" name="label_5">
                      <property name="font">
                       <font>
                        <family>Raleway</family>
                       </font>
                      </property>
                      <property name="text">
-                      <string>Pregunta de seguridad</string>
+                      <string>Comunidad Autónoma</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="22" column="3">
-                    <widget class="QLineEdit" name="txtd_resseg">
+                   <item row="21" column="1">
+                    <widget class="QLabel" name="label_7">
                      <property name="font">
                       <font>
                        <family>Raleway</family>
                       </font>
                      </property>
-                     <property name="echoMode">
-                      <enum>QLineEdit::Password</enum>
+                     <property name="text">
+                      <string>Confirme contraseña</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="4" column="4">
+                   <item row="5" column="4">
                     <spacer name="horizontalSpacer_27">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
@@ -1108,7 +1062,28 @@ color:back}
                      </property>
                     </spacer>
                    </item>
-                   <item row="18" column="4">
+                   <item row="19" column="1">
+                    <widget class="QLabel" name="label_8">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Dirección</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="19" column="3">
+                    <widget class="QLineEdit" name="txtd_direccion">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="19" column="4">
                     <spacer name="horizontalSpacer_20">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
@@ -1121,85 +1096,41 @@ color:back}
                      </property>
                     </spacer>
                    </item>
-                   <item row="22" column="1">
-                    <widget class="QLabel" name="label_10">
+                   <item row="22" column="3">
+                    <widget class="QLineEdit" name="txtd_preseg">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="20" column="3">
+                    <widget class="QLineEdit" name="txtd_contra">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                     <property name="echoMode">
+                      <enum>QLineEdit::Password</enum>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="24" column="3">
+                    <widget class="QPushButton" name="botonuc_update">
                      <property name="font">
                       <font>
                        <family>Raleway</family>
                       </font>
                      </property>
                      <property name="text">
-                      <string>Respuesta de seguridad</string>
+                      <string>Actualizar</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="18" column="3">
-                    <widget class="QLineEdit" name="txtd_direccion">
-                     <property name="font">
-                      <font>
-                       <family>Raleway</family>
-                      </font>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="18" column="1">
-                    <widget class="QLabel" name="label_8">
-                     <property name="font">
-                      <font>
-                       <family>Raleway</family>
-                      </font>
-                     </property>
-                     <property name="text">
-                      <string>Dirección</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QLabel" name="label">
-                     <property name="font">
-                      <font>
-                       <family>Raleway</family>
-                      </font>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">margin-top:10px;</string>
-                     </property>
-                     <property name="text">
-                      <string>Nombre</string>
-                     </property>
-                     <property name="margin">
-                      <number>0</number>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="21" column="0">
-                    <spacer name="horizontalSpacer_16">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>100</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item row="18" column="0">
-                    <spacer name="horizontalSpacer_13">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>100</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item row="2" column="4">
-                    <spacer name="horizontalSpacer_19">
+                   <item row="21" column="4">
+                    <spacer name="horizontalSpacer_22">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
                      </property>
@@ -1211,19 +1142,31 @@ color:back}
                      </property>
                     </spacer>
                    </item>
-                   <item row="4" column="3">
-                    <widget class="QComboBox" name="cbd_CA">
+                   <item row="22" column="1">
+                    <widget class="QLabel" name="label_9">
                      <property name="font">
                       <font>
                        <family>Raleway</family>
                       </font>
                      </property>
-                     <property name="styleSheet">
-                      <string notr="true"/>
+                     <property name="text">
+                      <string>Pregunta de seguridad</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="10" column="0">
+                   <item row="11" column="1">
+                    <widget class="QLabel" name="label_22">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Municipio</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="11" column="0">
                     <spacer name="horizontalSpacer_50">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
@@ -1236,31 +1179,7 @@ color:back}
                      </property>
                     </spacer>
                    </item>
-                   <item row="10" column="1">
-                    <widget class="QLabel" name="label_22">
-                     <property name="font">
-                      <font>
-                       <family>Raleway</family>
-                      </font>
-                     </property>
-                     <property name="text">
-                      <string>Municipio</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="5" column="1">
-                    <widget class="QLabel" name="label_21">
-                     <property name="font">
-                      <font>
-                       <family>Raleway</family>
-                      </font>
-                     </property>
-                     <property name="text">
-                      <string>Provincia</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="5" column="0">
+                   <item row="6" column="0">
                     <spacer name="horizontalSpacer_28">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
@@ -1273,7 +1192,7 @@ color:back}
                      </property>
                     </spacer>
                    </item>
-                   <item row="5" column="4">
+                   <item row="6" column="4">
                     <spacer name="horizontalSpacer_49">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
@@ -1286,7 +1205,88 @@ color:back}
                      </property>
                     </spacer>
                    </item>
-                   <item row="15" column="0">
+                   <item row="22" column="0">
+                    <spacer name="horizontalSpacer_16">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>100</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item row="19" column="0">
+                    <spacer name="horizontalSpacer_13">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>100</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item row="6" column="1">
+                    <widget class="QLabel" name="label_21">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Provincia</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="4">
+                    <spacer name="horizontalSpacer_19">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>99</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item row="5" column="3">
+                    <widget class="QComboBox" name="cbd_CA">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true"/>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QLabel" name="label">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true"/>
+                     </property>
+                     <property name="text">
+                      <string>Nombre</string>
+                     </property>
+                     <property name="margin">
+                      <number>0</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="16" column="0">
                     <spacer name="horizontalSpacer_53">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
@@ -1299,7 +1299,7 @@ color:back}
                      </property>
                     </spacer>
                    </item>
-                   <item row="15" column="1">
+                   <item row="16" column="1">
                     <widget class="QLabel" name="label_23">
                      <property name="font">
                       <font>
@@ -1311,7 +1311,7 @@ color:back}
                      </property>
                     </widget>
                    </item>
-                   <item row="15" column="4">
+                   <item row="16" column="4">
                     <spacer name="horizontalSpacer_52">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
@@ -1324,7 +1324,7 @@ color:back}
                      </property>
                     </spacer>
                    </item>
-                   <item row="15" column="3">
+                   <item row="16" column="3">
                     <widget class="QLineEdit" name="txtd_cp">
                      <property name="font">
                       <font>
@@ -1332,6 +1332,19 @@ color:back}
                       </font>
                      </property>
                     </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <spacer name="verticalSpacer">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
                   </layout>
                  </widget>
