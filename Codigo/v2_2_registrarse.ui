@@ -119,7 +119,7 @@ border-bottom-right-radius: 50px;
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -141,7 +141,7 @@ border-bottom-right-radius: 50px;
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -166,7 +166,7 @@ border-bottom-right-radius: 50px;
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -194,7 +194,7 @@ border-color:  rgb(73,86,78);
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -219,7 +219,7 @@ border-color:  rgb(73,86,78);
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -244,7 +244,7 @@ border-color:  rgb(73,86,78);
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -269,7 +269,7 @@ border-color:  rgb(73,86,78);
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="styleSheet">
