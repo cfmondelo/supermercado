@@ -315,7 +315,6 @@ border-top-left-radius:50px;</string>
     </widget>
    </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <tabstops>
   <tabstop>botonrCerrar</tabstop>

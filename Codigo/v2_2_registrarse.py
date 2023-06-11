@@ -144,9 +144,6 @@ class Ui_MainWindow(object):
         self.label_7.setText("")
         self.label_7.setObjectName("label_7")
         MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)

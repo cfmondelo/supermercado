@@ -265,7 +265,6 @@ border-top-left-radius:50px;</string>
     </widget>
    </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
   <include location="res.qrc"/>
