@@ -92,7 +92,7 @@ create table public.lineapedidos (
 create table public.carrito (
 	usuario 	varchar(50) not null,
     prod_id 	int 		not null,
-    precio 		int 		not null,
+    precio 		float4 		not null,
     cantidad 	int 		not null,
 	primary key (usuario, prod_id),
     foreign key (prod_id)

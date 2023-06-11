@@ -720,9 +720,12 @@ class VentanaUC(QtWidgets.QMainWindow):
             conexion=conectar()
             self.cupon=self.ui.lineEdit.text()
             self.descuento=comprobarCupon(conexion,self.cupon)
-            self.ui.label_subtotal_6.setText(str(self.descuento)) #descuento
-            self.ui.label_subtotal_5.setText(str(f"{self.precioSub:0.2f}")+"€") #subtotal
-            self.ui.label_subtotal_7.setText(str(f"{self.precioTot-(self.descuento*self.precioTot/100):0.2f}")+"€") #total
+            if self.descuento !=0:
+                self.precioTot-=(self.descuento*self.precioTot/100)
+                self.precioSub=self.precioTot/1.21
+                self.ui.label_subtotal_6.setText("-"+str(self.descuento)+"%") #descuento
+                self.ui.label_subtotal_5.setText(str(f"{self.precioSub:0.2f}")+"€") #subtotal
+                self.ui.label_subtotal_7.setText(str(f"{self.precioTot:0.2f}")+"€") #total
         except Exception as ex:
             print(ex)
         
@@ -909,6 +912,9 @@ class VentanaUC(QtWidgets.QMainWindow):
                 listaProductos.append(producto)
             datosCompra=buscarCompra(compraID)
             datosUsuario=buscarUsuario(self.datos_fila[3])
+            #le quito la tupla a las listas que vienen con ellas
+            datosCompra  = [elemento for tupla in datosCompra  for elemento in tupla] 
+            datosUsuario = [elemento for tupla in datosUsuario for elemento in tupla]
             # print("aqui")
             # print(listaProductos)
             # print("--")
@@ -916,8 +922,10 @@ class VentanaUC(QtWidgets.QMainWindow):
             # print("--")
             # print(datosUsuario)
             #CREO EL HTML CON LOS DATOS
-            # addLineasProductos(listaProductos) 
-            # crea_pdf(rutaHtml(),info)
+
+            addLineasProductos(listaProductos,datosCompra,datosUsuario) 
+            crea_pdf(compraID,datosCompra[0],rutaHtml())
+            showDialog("Factura generada correctamente en la ruta: "+rutaPdf(compraID,datosCompra[0]))
             print()
         else:
             showDialog("Debe seleccionar un pedido")

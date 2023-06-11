@@ -414,7 +414,7 @@ def buscarCompra(compraID):
         print(error)
 
 def buscarUsuario(usuarioID):
-  consulta=(f"SELECT nombre, apellidos, dni, direccion, ciudad, cp from usuarios where correo='{usuarioID}'")
+  consulta=(f"SELECT u.nombre, u.apellidos, u.dni, u.direccion, c.nombre, u.cp, p.provincia, m.municipio from usuarios u join ccaa c on u.id_ca=c.idccaa join municipios m on u.id_municipio=m.idmunicipio join provincias p on u.id_provincia=p.idprovincia where correo='{usuarioID}'")
   try:
     conn=conectar()
     cur = conn.cursor()

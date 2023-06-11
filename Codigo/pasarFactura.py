@@ -8,9 +8,6 @@ import os
 # listaProductos= [["Bebida Energética",2, 2.3],
 #                  ["Bebida Diurética",1, 4.3]]
 def addLineasProductos(listaProductos, listaCompra, listaUsuario):
-    #le quito la tupla a las listas que vienen con ellas
-    listaCompra  = [elemento for tupla in listaCompra  for elemento in tupla] 
-    listaUsuario = [elemento for tupla in listaUsuario for elemento in tupla]
     # print(listaCompra)
     # print(listaUsuario)
     with open("facturaGenerada.html", "w") as f:
@@ -48,7 +45,8 @@ def addLineasProductos(listaProductos, listaCompra, listaUsuario):
             <p><strong>Nombre:</strong> '''+listaUsuario[0]+' '+listaUsuario[1]+'''</p>
             <p><strong>DNI:</strong> '''+listaUsuario[2]+'''</p>
             <p><strong>Dirección:</strong> '''+listaUsuario[3]+'''</p>
-            <p><strong>Provincia:</strong> '''+listaUsuario[4]+'''</p>
+            <p><strong>Provincia:</strong> '''+listaUsuario[6]+'''</p>
+            <p><strong>Municipio:</strong> '''+listaUsuario[7]+'''</p>
             <p><strong>Código Postal:</strong> '''+str(listaUsuario[5])+'''</p>
         </div>
         <div class="mt-5"></div>
@@ -66,7 +64,9 @@ def addLineasProductos(listaProductos, listaCompra, listaUsuario):
                     ''')
         
         #escribe los productos
+        totalSinDescuento=0
         for x in range(len(listaProductos)):
+            totalSinDescuento+=listaProductos[x][1]*listaProductos[x][2]
             f.write('''
                 <tr>
                     <th scope="row">'''+str(x+1)+'''</th>
@@ -83,14 +83,14 @@ def addLineasProductos(listaProductos, listaCompra, listaUsuario):
         if listaCompra[2] == None:    
             descuento=0
         else:
-            descuento=(total*(listaCompra[2]/100+1))-total
+            descuento=totalSinDescuento-total
         f.write('''
                 <tr>
                     <th scope="row" class="borderless-ultima"></th>
                     <td class="borderless-ultima"> </td>
                     <td class="borderless-ultima"> </td>
                     <td>Descuentos aplicados</td>
-                    <td>'''+"-"+str(descuento)+'''</td>
+                    <td>'''+"-"+str(f"{descuento:.2f}")+'''</td>
                 </tr>
                 <tr>
                     <th scope="row" class="borderless"></th>
