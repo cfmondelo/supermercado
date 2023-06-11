@@ -94,7 +94,7 @@ class Ui_MainWindow(object):
         self.txtl_password.setEchoMode(QtWidgets.QLineEdit.Password)
         self.txtl_password.setObjectName("txtl_password")
         self.boton_entrar = QtWidgets.QPushButton(self.widget)
-        self.boton_entrar.setGeometry(QtCore.QRect(290, 260, 190, 40))
+        self.boton_entrar.setGeometry(QtCore.QRect(290, 290, 190, 40))
         font = QtGui.QFont()
         font.setFamily("Raleway")
         font.setPointSize(12)
