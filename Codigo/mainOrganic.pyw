@@ -430,6 +430,7 @@ class VentanaUC(QtWidgets.QMainWindow):
         self.ui.botonuc_cerrar.clicked.connect(app.quit)
         self.ui.botonuc_atras.clicked.connect(self.cambiarAVentanaPrincipal)
         self.ui.botouc_finalizarPedido.clicked.connect(self.finalizarPedido)
+        self.ui.botouc_usu.clicked.connect(self.cambiar_a_ventana_usuario)
         self.ui.pushButton_2.clicked.connect(self.generarFactura)
         self.ui.botonuc_update.clicked.connect(self.actualizarDatos)
         self.ui.cbd_CA.currentIndexChanged.connect(self.comboCCAA_changed)
