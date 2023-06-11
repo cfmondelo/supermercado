@@ -131,7 +131,7 @@ border-bottom-right-radius: 50px;
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="focusPolicy">
@@ -156,7 +156,7 @@ border-bottom-right-radius: 50px;
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="focusPolicy">
@@ -184,7 +184,7 @@ border-bottom-right-radius: 50px;
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -211,7 +211,7 @@ border-color:  rgb(73,86,78);</string>
      <property name="font">
       <font>
        <family>Raleway</family>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -223,7 +223,7 @@ border-width: 1px;
 border-color:  rgb(73,86,78);</string>
      </property>
      <property name="text">
-      <string>Crear nueva cuenta </string>
+      <string>Crear cuenta </string>
      </property>
     </widget>
     <widget class="QPushButton" name="botonlCerrar">
