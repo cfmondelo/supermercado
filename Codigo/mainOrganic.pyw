@@ -942,7 +942,7 @@ if __name__ == "__main__":
         crear_cuenta = CrearCuenta()
         ventanaPrincipal = VentanaPrincipal()
         ventanaUC = VentanaUC()
-        icon = QtGui.QIcon(':/iconos/logo_naranja.png')
+        icon = QtGui.QIcon(':/iconos/z_logo_naranja.png')
 
         # window = QtWidgets.QMainWindow()
 
@@ -987,7 +987,7 @@ if __name__ == "__main__":
         # num_widgets = stacked_widget.count()
         # print("Número de widgets: ", num_widgets)
 
-
+        app.setWindowIcon(icon)
         sys.exit(app.exec_())
     except Exception as ex:
         print(ex)
