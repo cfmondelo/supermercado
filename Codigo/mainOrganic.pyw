@@ -598,24 +598,29 @@ class VentanaUC(QtWidgets.QMainWindow):
                 self.precioSub = self.precioTot/1.21 #corrijo la operación para calcular precio sin IVA
             # except Exception as ex:
             #     print(ex)
-        else:
-            frame_p = QtWidgets.QFrame(self.ui.scrollAreaWidgetContents_4)
-            frame_p.setMaximumSize(QtCore.QSize(16777215, 130))
-            frame_p.setMinimumHeight(150)
-            frame_p.setMinimumWidth(517)
-            frame_p.setStyleSheet("background-color: rgb(255, 255, 255);")
-            frame_p.setFrameShape(QtWidgets.QFrame.StyledPanel)
-            frame_p.setFrameShadow(QtWidgets.QFrame.Raised)
-            frame_p.setObjectName("frame_p")
+        #LO COMENTO PORQUE EL LABEL NO SE QUITA CUANDO SE AGREGAN PRODUCTOS
+        # else:
+        #     frame_p = QtWidgets.QFrame(self.ui.scrollAreaWidgetContents_4)
+        #     frame_p.setMaximumSize(QtCore.QSize(16777215, 130))
+        #     frame_p.setMinimumHeight(150)
+        #     frame_p.setMinimumWidth(517)
+        #     frame_p.setStyleSheet("background-color: rgb(255, 255, 255);")
+        #     frame_p.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        #     frame_p.setFrameShadow(QtWidgets.QFrame.Raised)
+        #     frame_p.setObjectName("frame_p")
             
-            label_noprod = QtWidgets.QLabel(frame_p)
-            label_noprod.setStyleSheet(" text-align:center;")
-            label_noprod.setText("No hay productos en el carrito")
-            label_noprod.setObjectName("label_noprod")
+        #     label_noprod = QtWidgets.QLabel(frame_p)
+        #     label_noprod.setStyleSheet(" text-align:center;")
+        #     label_noprod.setText("No hay productos en el carrito")
+        #     label_noprod.setObjectName("label_noprod")
 
             self.precioTot = 0
             self.precioSub = 0
-
+        self.precioTot-=(self.descuento*self.precioTot/100)
+        if self.precioTot==0:
+            self.descuento=0
+            self.ui.label_subtotal_6.setText("DESCUENTO NO APLICADO") #descuento
+            self.ui.lineEdit.setText("")
         self.ui.label_subtotal_5.setText(str(f"{self.precioSub:0.2f}")+"€") #subtotal
         self.ui.label_subtotal_7.setText(str(f"{self.precioTot-(self.descuento*self.precioTot/100):0.2f}")+"€") #total
               
