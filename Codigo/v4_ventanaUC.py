@@ -86,28 +86,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.botonuc_atras)
         spacerItem = QtWidgets.QSpacerItem(282, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
-        self.labeluc_titulo = QtWidgets.QLabel(self.frame_cabecera)
-        font = QtGui.QFont()
-        font.setFamily("Raleway")
-        font.setPointSize(20)
-        font.setBold(False)
-        font.setWeight(50)
-        self.labeluc_titulo.setFont(font)
-        self.labeluc_titulo.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
-        self.labeluc_titulo.setStyleSheet("#label_titulo {\n"
-"color: white;\n"
-"font-size: 2rem;\n"
-"\n"
-"\n"
-"}\n"
-"\n"
-"\n"
-"\n"
-"")
-        self.labeluc_titulo.setTextFormat(QtCore.Qt.PlainText)
-        self.labeluc_titulo.setAlignment(QtCore.Qt.AlignCenter)
-        self.labeluc_titulo.setObjectName("labeluc_titulo")
-        self.horizontalLayout.addWidget(self.labeluc_titulo)
         spacerItem1 = QtWidgets.QSpacerItem(177, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem1)
         self.botouc_usu = QtWidgets.QPushButton(self.frame_cabecera)
@@ -342,8 +320,31 @@ class Ui_MainWindow(object):
 "QLabel{\n"
 "padding:3px;\n"
 "}\n"
-"\n"
+"QTabBar::tab{\n"
+"width:130px;\n"
+"border-style:solid;\n"
+"border-width: 1px;\n"
+"border-color:  rgba(46,82,101,200);\n"
+"padding:10px;}\n"
+"QTabBar::tab:hover{\n"
+"background-color:   rgb(239, 232, 224);\n"
+"border-top-left-radius: 20px;\n"
+"border-bottom-left-radius:20px;\n"
+"color:rgb(0,0,0);\n"
+"}\n"
+"QTableWidget::item:selected \n"
+"{ background-color: rgba(239,232,224); }\n"
 "*{background-color:rgb(255,255,255);}\n"
+"QLineEdit::focus{\n"
+"border-width:0px;\n"
+"outline:0px;\n"
+"}\n"
+"QHeaderView::section{\n"
+"border-style:solid;\n"
+"border-width: 1px;\n"
+"border-color:  rgba(46,82,101,200);\n"
+"padding:3px;\n"
+"color:back}\n"
 "")
         self.tabWidget.setObjectName("tabWidget")
         self.tab = QtWidgets.QWidget()
@@ -355,6 +356,7 @@ class Ui_MainWindow(object):
         font.setFamily("Raleway")
         self.groupBox.setFont(font)
         self.groupBox.setAutoFillBackground(False)
+        self.groupBox.setTitle("")
         self.groupBox.setObjectName("groupBox")
         self.gridLayout_4 = QtWidgets.QGridLayout(self.groupBox)
         self.gridLayout_4.setObjectName("gridLayout_4")
@@ -596,6 +598,7 @@ class Ui_MainWindow(object):
         font.setFamily("Raleway")
         self.tableWidget.setFont(font)
         self.tableWidget.setFocusPolicy(QtCore.Qt.TabFocus)
+        self.tableWidget.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.tableWidget.setShowGrid(True)
         self.tableWidget.setGridStyle(QtCore.Qt.SolidLine)
         self.tableWidget.setObjectName("tableWidget")
@@ -640,11 +643,32 @@ class Ui_MainWindow(object):
         self.stackedWidget.setCurrentIndex(1)
         self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        MainWindow.setTabOrder(self.txtd_nombre, self.txtd_apellidos)
+        MainWindow.setTabOrder(self.txtd_apellidos, self.txtd_dni)
+        MainWindow.setTabOrder(self.txtd_dni, self.txtd_telefono)
+        MainWindow.setTabOrder(self.txtd_telefono, self.cbd_CA)
+        MainWindow.setTabOrder(self.cbd_CA, self.cbd_provincia)
+        MainWindow.setTabOrder(self.cbd_provincia, self.cbd_municipio)
+        MainWindow.setTabOrder(self.cbd_municipio, self.txtd_cp)
+        MainWindow.setTabOrder(self.txtd_cp, self.txtd_direccion)
+        MainWindow.setTabOrder(self.txtd_direccion, self.txtd_contra)
+        MainWindow.setTabOrder(self.txtd_contra, self.txtd_confcontra)
+        MainWindow.setTabOrder(self.txtd_confcontra, self.txtd_preseg)
+        MainWindow.setTabOrder(self.txtd_preseg, self.txtd_resseg)
+        MainWindow.setTabOrder(self.txtd_resseg, self.botonuc_update)
+        MainWindow.setTabOrder(self.botonuc_update, self.scrollArea)
+        MainWindow.setTabOrder(self.scrollArea, self.lineEdit)
+        MainWindow.setTabOrder(self.lineEdit, self.botouc_validar)
+        MainWindow.setTabOrder(self.botouc_validar, self.botouc_finalizarPedido)
+        MainWindow.setTabOrder(self.botouc_finalizarPedido, self.botouc_usu)
+        MainWindow.setTabOrder(self.botouc_usu, self.botonuc_atras)
+        MainWindow.setTabOrder(self.botonuc_atras, self.tableWidget)
+        MainWindow.setTabOrder(self.tableWidget, self.pushButton_2)
+        MainWindow.setTabOrder(self.pushButton_2, self.botonuc_cerrar)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.labeluc_titulo.setText(_translate("MainWindow", "Resumen del pedido"))
         self.lineEdit.setPlaceholderText(_translate("MainWindow", "INTRODUCE TU CÓDIGO DE DESCUENTO"))
         self.botouc_validar.setText(_translate("MainWindow", "Validar"))
         self.label_subtotal.setText(_translate("MainWindow", "Subtotal"))
@@ -654,7 +678,6 @@ class Ui_MainWindow(object):
         self.label_subtotal_3.setText(_translate("MainWindow", "Total "))
         self.label_subtotal_7.setText(_translate("MainWindow", "0.00€"))
         self.botouc_finalizarPedido.setText(_translate("MainWindow", "FinalizarPedido"))
-        self.groupBox.setTitle(_translate("MainWindow", "DATOS PERSONALES"))
         self.label_4.setText(_translate("MainWindow", "Teléfono"))
         self.label_3.setText(_translate("MainWindow", "DNI"))
         self.label_7.setText(_translate("MainWindow", "Confirme contraseña"))

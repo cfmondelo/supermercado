@@ -159,42 +159,6 @@ color:rgb(0,0,0);
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="labeluc_titulo">
-          <property name="font">
-           <font>
-            <family>Raleway</family>
-            <pointsize>20</pointsize>
-            <weight>50</weight>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="cursor">
-           <cursorShape>ArrowCursor</cursorShape>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">#label_titulo {
-color: white;
-font-size: 2rem;
-
-
-}
-
-
-
-</string>
-          </property>
-          <property name="text">
-           <string>Resumen del pedido</string>
-          </property>
-          <property name="textFormat">
-           <enum>Qt::PlainText</enum>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
          <spacer name="horizontalSpacer_2">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -673,8 +637,31 @@ padding:3px;
 QLabel{
 padding:3px;
 }
-
+QTabBar::tab{
+width:130px;
+border-style:solid;
+border-width: 1px;
+border-color:  rgba(46,82,101,200);
+padding:10px;}
+QTabBar::tab:hover{
+background-color:   rgb(239, 232, 224);
+border-top-left-radius: 20px;
+border-bottom-left-radius:20px;
+color:rgb(0,0,0);
+}
+QTableWidget::item:selected 
+{ background-color: rgba(239,232,224); }
 *{background-color:rgb(255,255,255);}
+QLineEdit::focus{
+border-width:0px;
+outline:0px;
+}
+QHeaderView::section{
+border-style:solid;
+border-width: 1px;
+border-color:  rgba(46,82,101,200);
+padding:3px;
+color:back}
 </string>
               </property>
               <property name="currentIndex">
@@ -696,7 +683,7 @@ padding:3px;
                    <bool>false</bool>
                   </property>
                   <property name="title">
-                   <string>DATOS PERSONALES</string>
+                   <string/>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_4">
                    <item row="10" column="3">
@@ -1378,6 +1365,9 @@ padding:3px;
                   <property name="focusPolicy">
                    <enum>Qt::TabFocus</enum>
                   </property>
+                  <property name="horizontalScrollBarPolicy">
+                   <enum>Qt::ScrollBarAsNeeded</enum>
+                  </property>
                   <property name="showGrid">
                    <bool>true</bool>
                   </property>
@@ -1455,6 +1445,31 @@ padding:3px;
    </widget>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>txtd_nombre</tabstop>
+  <tabstop>txtd_apellidos</tabstop>
+  <tabstop>txtd_dni</tabstop>
+  <tabstop>txtd_telefono</tabstop>
+  <tabstop>cbd_CA</tabstop>
+  <tabstop>cbd_provincia</tabstop>
+  <tabstop>cbd_municipio</tabstop>
+  <tabstop>txtd_cp</tabstop>
+  <tabstop>txtd_direccion</tabstop>
+  <tabstop>txtd_contra</tabstop>
+  <tabstop>txtd_confcontra</tabstop>
+  <tabstop>txtd_preseg</tabstop>
+  <tabstop>txtd_resseg</tabstop>
+  <tabstop>botonuc_update</tabstop>
+  <tabstop>scrollArea</tabstop>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>botouc_validar</tabstop>
+  <tabstop>botouc_finalizarPedido</tabstop>
+  <tabstop>botouc_usu</tabstop>
+  <tabstop>botonuc_atras</tabstop>
+  <tabstop>tableWidget</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>botonuc_cerrar</tabstop>
+ </tabstops>
  <resources>
   <include location="res.qrc"/>
  </resources>
