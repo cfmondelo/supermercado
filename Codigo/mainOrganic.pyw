@@ -572,14 +572,6 @@ class VentanaUC(QtWidgets.QMainWindow):
                 horizontalLayout_cant_precio.setObjectName("horizontalLayout_cant_precio" + str(i))
 
 
-    #Creo spinbox y le añado distribucion 
-                numeric = QtWidgets.QSpinBox(frame_cont_prod)
-                numeric.setMinimum(1)
-                numeric.setObjectName("numeric" + str(i))
-                numeric.setValue(prod[3])
-                horizontalLayout_cant_precio.addWidget(numeric)
-
-
     # Añado etiqueta precio y le añado distribucion 
                 label_precioProducto = QtWidgets.QLabel(frame_cont_prod)
                 label_precioProducto.setObjectName("label_precioProducto" + str(i))
@@ -589,6 +581,16 @@ class VentanaUC(QtWidgets.QMainWindow):
                 label_tituloProducto.setText(_translate("MainWindow", prod[0]))
                 label_precioProducto.setText(_translate("MainWindow", str(prod[2]) + "€"))
                 # numeric.setValue(prod[5]) --> No lo quiero 
+    
+    #Creo spinbox y le añado distribucion 
+                numeric = QtWidgets.QSpinBox(frame_cont_prod)
+                numeric.setMinimum(1)
+                numeric.setObjectName("numeric" + str(i))
+                numeric.setValue(prod[3])
+                horizontalLayout_cant_precio.addWidget(numeric)
+                
+                numeric.valueChanged.connect(lambda cantidad, nombreProducto=label_tituloProducto.text(): self.actualizaCantidad(cantidad, nombreProducto))
+
 
 
 
@@ -614,8 +616,8 @@ class VentanaUC(QtWidgets.QMainWindow):
         #     label_noprod.setText("No hay productos en el carrito")
         #     label_noprod.setObjectName("label_noprod")
 
-            self.precioTot = 0
-            self.precioSub = 0
+            # self.precioTot = 0
+            # self.precioSub = 0
         self.precioTot-=(self.descuento*self.precioTot/100)
         if self.precioTot==0:
             self.descuento=0
@@ -623,7 +625,12 @@ class VentanaUC(QtWidgets.QMainWindow):
             self.ui.lineEdit.setText("")
         self.ui.label_subtotal_5.setText(str(f"{self.precioSub:0.2f}")+"€") #subtotal
         self.ui.label_subtotal_7.setText(str(f"{self.precioTot-(self.descuento*self.precioTot/100):0.2f}")+"€") #total
-              
+    def actualizaCantidad(self,cantidad,nombreProducto):
+        conn=conectar()
+        prodId=buscarProd(conn, nombreProducto)[0]
+        actualizarCarr(cantidad,prodId,login.getEmail())
+        self.refrescarCarrito()
+           
     def finalizarPedido(self):
 
         conn = conectar()
