@@ -179,7 +179,7 @@ border-color:  rgb(73,86,78);
 </string>
      </property>
      <property name="text">
-      <string>Entrar</string>
+      <string>Registrarse</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="txtr_confirmarPassword">

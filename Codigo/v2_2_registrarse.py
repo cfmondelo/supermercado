@@ -161,7 +161,7 @@ class Ui_MainWindow(object):
         self.labelr_registrarse.setText(_translate("MainWindow", "Registrarse"))
         self.txtr_usuario.setPlaceholderText(_translate("MainWindow", "Nombre de usuario"))
         self.txtr_password.setPlaceholderText(_translate("MainWindow", "Contraseña"))
-        self.botonr_entrar.setText(_translate("MainWindow", "Entrar"))
+        self.botonr_entrar.setText(_translate("MainWindow", "Registrarse"))
         self.txtr_confirmarPassword.setPlaceholderText(_translate("MainWindow", "Confirme su contraseña"))
         self.txtr_respuestaSeguridad.setPlaceholderText(_translate("MainWindow", "Respuesta de seguridad"))
         self.txtr_email.setPlaceholderText(_translate("MainWindow", "Email"))
