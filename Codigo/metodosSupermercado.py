@@ -96,7 +96,7 @@ def insertarCarr(conn, prod, email):
   except (Exception, psycopg2.DatabaseError) as error:
       print(error)
 
-def actualizarCarr(cant, id, email):
+def actualizarCarr(conn, cant, id, email):
   query = f"update carrito set cantidad = '{cant}' where prod_id = '{id}' and usuario = '{email}';"
   try:
     conn=conectar()

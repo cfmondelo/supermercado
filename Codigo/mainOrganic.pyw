@@ -236,7 +236,7 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
             # buscar en carrito si ya existe ese producto y aumentar la cantidad
             cant = buscarCarr(conn, prod[0], login.getEmail())
             if cant != None:
-                actualizarCarr(conn, cant[0], prod[0], login.getEmail())
+                actualizarCarr(conn, cant[0]+1, prod[0], login.getEmail())
             else:
                 insertarCarr(conn, prod, login.getEmail())
 
@@ -628,7 +628,7 @@ class VentanaUC(QtWidgets.QMainWindow):
     def actualizaCantidad(self,cantidad,nombreProducto):
         conn=conectar()
         prodId=buscarProd(conn, nombreProducto)[0]
-        actualizarCarr(cantidad,prodId,login.getEmail())
+        actualizarCarr(conn, cantidad,prodId,login.getEmail())
         self.refrescarCarrito()
            
     def finalizarPedido(self):
@@ -641,7 +641,6 @@ class VentanaUC(QtWidgets.QMainWindow):
         else:
             fecha = date.today()
             fecha_str = fecha.strftime("%Y/%m/%d")
-            showDialog(login.getEmail())
             insertarLineaPed(conn, login.getEmail(), self.cupon, self.precioTot, fecha_str)
         desconectar(conn)
 
@@ -735,11 +734,14 @@ class VentanaUC(QtWidgets.QMainWindow):
             self.cupon=self.ui.lineEdit.text()
             self.descuento=comprobarCupon(conexion,self.cupon)
             if self.descuento !=0:
-                self.precioTot-=(self.descuento*self.precioTot/100)
-                self.precioSub=self.precioTot/1.21
+                # self.precioTot-=(self.descuento*self.precioTot/100)
                 self.ui.label_subtotal_6.setText("-"+str(self.descuento)+"%") #descuento
-                self.ui.label_subtotal_5.setText(str(f"{self.precioSub:0.2f}")+"€") #subtotal
-                self.ui.label_subtotal_7.setText(str(f"{self.precioTot:0.2f}")+"€") #total
+            else:
+                self.ui.label_subtotal_6.setText("DESCUENTO NO APLICADO") #descuento
+            
+            self.precioSub=self.precioTot/1.21
+            self.ui.label_subtotal_5.setText(str(f"{self.precioSub:0.2f}")+"€") #subtotal
+            self.ui.label_subtotal_7.setText(str(f"{self.precioTot-(self.descuento*self.precioTot/100):0.2f}")+"€") #total
         except Exception as ex:
             print(ex)
         
