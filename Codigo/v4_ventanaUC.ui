@@ -35,12 +35,27 @@
       <height>0</height>
      </size>
     </property>
+    <property name="font">
+     <font>
+      <family>Raleway</family>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">
-#frame_principal {
+     <string notr="true">#frame_principal {
+  background-color:rgba(239,232,224,70);
   border-image: url(:/images/z_background_limonada.jpg);
-  background-color: transparent;
-
+}
+QPushButton {
+    background-color: rgba(233, 233, 232, 200);
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(46, 82, 101, 200);
+}
+QPushButton:hover {
+    background-color: rgb(239, 232, 224);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    color: rgb(0, 0, 0);
 }
 </string>
     </property>
@@ -83,7 +98,8 @@
        <property name="styleSheet">
         <string notr="true">
 #frame_cabecera{
-background-color:rgba(0,0,0,80);
+background-color:rgba(239,232,224,70);
+border:0px;
 }</string>
        </property>
        <property name="frameShape">
@@ -97,8 +113,8 @@ background-color:rgba(0,0,0,80);
          <widget class="QPushButton" name="botonuc_atras">
           <property name="minimumSize">
            <size>
-            <width>25</width>
-            <height>25</height>
+            <width>47</width>
+            <height>34</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -124,6 +140,9 @@ color:rgb(0,0,0);
            <iconset resource="res.qrc">
             <normaloff>:/iconos/home.png</normaloff>:/iconos/home.png</iconset>
           </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
          </widget>
         </item>
         <item>
@@ -143,7 +162,7 @@ color:rgb(0,0,0);
          <widget class="QLabel" name="labeluc_titulo">
           <property name="font">
            <font>
-            <family>MS Shell Dlg 2</family>
+            <family>Raleway</family>
             <pointsize>20</pointsize>
             <weight>50</weight>
             <bold>false</bold>
@@ -192,8 +211,8 @@ font-size: 2rem;
          <widget class="QPushButton" name="botouc_minimizar">
           <property name="minimumSize">
            <size>
-            <width>25</width>
-            <height>25</height>
+            <width>47</width>
+            <height>34</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -212,8 +231,8 @@ font-size: 2rem;
          <widget class="QPushButton" name="botouc_min">
           <property name="minimumSize">
            <size>
-            <width>25</width>
-            <height>25</height>
+            <width>47</width>
+            <height>34</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -232,8 +251,8 @@ font-size: 2rem;
          <widget class="QPushButton" name="botonuc_max">
           <property name="minimumSize">
            <size>
-            <width>25</width>
-            <height>25</height>
+            <width>47</width>
+            <height>34</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -252,8 +271,8 @@ font-size: 2rem;
          <widget class="QPushButton" name="botonuc_cerrar">
           <property name="minimumSize">
            <size>
-            <width>25</width>
-            <height>25</height>
+            <width>47</width>
+            <height>34</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -274,7 +293,23 @@ font-size: 2rem;
      <item>
       <widget class="QFrame" name="frame_cuerpo">
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">#frame_cuerpo{
+background-color:rgba(239,232,224,70);}
+QPushButton{
+background-color:   rgba(233,233,232,200);
+border-style:solid;
+border-width: 1px;
+border-color:  rgba(46,82,101,200);
+}
+
+
+QPushButton:hover{
+background-color:   rgb(122, 126, 116);
+border-top-left-radius: 20px;
+border-bottom-left-radius:20px;
+color:rgb(0,0,0);
+}
+</string>
        </property>
        <property name="frameShape">
         <enum>QFrame::StyledPanel</enum>
@@ -332,7 +367,7 @@ font-size: 2rem;
                     <x>0</x>
                     <y>0</y>
                     <width>515</width>
-                    <height>534</height>
+                    <height>28</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_7"/>
@@ -350,6 +385,9 @@ font-size: 2rem;
                 <height>560</height>
                </size>
               </property>
+              <property name="styleSheet">
+               <string notr="true">margin-right:10px;</string>
+              </property>
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
               </property>
@@ -359,14 +397,20 @@ font-size: 2rem;
               <widget class="QLineEdit" name="lineEdit">
                <property name="geometry">
                 <rect>
-                 <x>40</x>
+                 <x>20</x>
                  <y>50</y>
                  <width>301</width>
                  <height>31</height>
                 </rect>
                </property>
+               <property name="font">
+                <font>
+                 <family>Raleway</family>
+                </font>
+               </property>
                <property name="styleSheet">
-                <string notr="true">background-color: rgb(255, 255, 255);</string>
+                <string notr="true">background-color: rgb(255, 255, 255);
+padding:3px;</string>
                </property>
                <property name="placeholderText">
                 <string>INTRODUCE TU CÓDIGO DE DESCUENTO</string>
@@ -375,9 +419,9 @@ font-size: 2rem;
               <widget class="QPushButton" name="botouc_validar">
                <property name="geometry">
                 <rect>
-                 <x>370</x>
+                 <x>340</x>
                  <y>50</y>
-                 <width>121</width>
+                 <width>131</width>
                  <height>35</height>
                 </rect>
                </property>
@@ -387,8 +431,31 @@ font-size: 2rem;
                  <height>25</height>
                 </size>
                </property>
+               <property name="font">
+                <font>
+                 <family>Raleway</family>
+                </font>
+               </property>
                <property name="styleSheet">
-                <string notr="true">background-color: rgb(255, 255, 127);</string>
+                <string notr="true">QPushButton{
+background-color:   rgba(233,233,232,200);
+border-style:solid;
+border-width: 1px;
+border-color:  rgba(46,82,101,200);
+
+
+}
+
+
+QPushButton:hover{
+background-color:   rgb(239, 232, 224);
+border-top-left-radius: 20px;
+border-bottom-left-radius:20px;
+color:rgb(0,0,0);
+
+
+}
+</string>
                </property>
                <property name="text">
                 <string>Validar</string>
@@ -401,11 +468,16 @@ font-size: 2rem;
               <widget class="QFrame" name="frame">
                <property name="geometry">
                 <rect>
-                 <x>40</x>
+                 <x>20</x>
                  <y>110</y>
                  <width>301</width>
                  <height>115</height>
                 </rect>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Raleway</family>
+                </font>
                </property>
                <property name="styleSheet">
                 <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -419,6 +491,11 @@ font-size: 2rem;
                <layout class="QGridLayout" name="gridLayout">
                 <item row="0" column="0">
                  <widget class="QLabel" name="label_subtotal">
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                   </font>
+                  </property>
                   <property name="text">
                    <string>Subtotal</string>
                   </property>
@@ -439,6 +516,11 @@ font-size: 2rem;
                 </item>
                 <item row="0" column="2">
                  <widget class="QLabel" name="label_subtotal_5">
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                   </font>
+                  </property>
                   <property name="text">
                    <string>0.00€</string>
                   </property>
@@ -446,6 +528,11 @@ font-size: 2rem;
                 </item>
                 <item row="1" column="0">
                  <widget class="QLabel" name="label_subtotal_2">
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                   </font>
+                  </property>
                   <property name="text">
                    <string>Descuento</string>
                   </property>
@@ -466,6 +553,11 @@ font-size: 2rem;
                 </item>
                 <item row="1" column="2">
                  <widget class="QLabel" name="label_subtotal_6">
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                   </font>
+                  </property>
                   <property name="text">
                    <string>DESCUENTO NO APLICADO</string>
                   </property>
@@ -473,6 +565,11 @@ font-size: 2rem;
                 </item>
                 <item row="2" column="0">
                  <widget class="QLabel" name="label_subtotal_3">
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                   </font>
+                  </property>
                   <property name="text">
                    <string>Total </string>
                   </property>
@@ -493,6 +590,11 @@ font-size: 2rem;
                 </item>
                 <item row="2" column="2">
                  <widget class="QLabel" name="label_subtotal_7">
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                   </font>
+                  </property>
                   <property name="text">
                    <string>0.00€</string>
                   </property>
@@ -503,9 +605,9 @@ font-size: 2rem;
               <widget class="QPushButton" name="botouc_finalizarPedido">
                <property name="geometry">
                 <rect>
-                 <x>370</x>
+                 <x>340</x>
                  <y>140</y>
-                 <width>121</width>
+                 <width>131</width>
                  <height>35</height>
                 </rect>
                </property>
@@ -515,8 +617,27 @@ font-size: 2rem;
                  <height>25</height>
                 </size>
                </property>
+               <property name="font">
+                <font>
+                 <family>Raleway</family>
+                </font>
+               </property>
                <property name="styleSheet">
-                <string notr="true">background-color: rgb(255, 255, 127);</string>
+                <string notr="true">QPushButton{
+background-color:   rgba(233,233,232,200);
+border-style:solid;
+border-width: 1px;
+border-color:  rgba(46,82,101,200);
+}
+
+
+QPushButton:hover{
+background-color:   rgb(239, 232, 224);
+border-top-left-radius: 20px;
+border-bottom-left-radius:20px;
+color:rgb(0,0,0);
+}
+</string>
                </property>
                <property name="text">
                 <string>FinalizarPedido</string>
@@ -553,8 +674,48 @@ font-size: 2rem;
                 <height>0</height>
                </size>
               </property>
+              <property name="font">
+               <font>
+                <family>Raleway</family>
+               </font>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
               <property name="styleSheet">
-               <string notr="true">background-color: rgb(255, 255, 255);</string>
+               <string notr="true">QPushButton{
+background-color:   rgba(233,233,232,200);
+border-style:solid;
+border-width: 1px;
+border-color:  rgba(46,82,101,200);
+padding:10px;
+}
+
+QPushButton:hover{
+background-color:   rgb(239, 232, 224);
+border-top-left-radius: 20px;
+border-bottom-left-radius:20px;
+color:rgb(0,0,0);
+
+}
+QComboBox{
+border:none;
+border-width:0px;}
+QComboBox::item:selected { color: rgb(241,152,31); }
+QLineEdit{
+border:none;
+border-width:0px;
+padding:3px;
+}
+QLabel{
+padding:3px;
+}
+
+*{background-color:rgb(255,255,255);}
+</string>
               </property>
               <property name="currentIndex">
                <number>0</number>
@@ -566,15 +727,35 @@ font-size: 2rem;
                <layout class="QVBoxLayout" name="verticalLayout_8">
                 <item>
                  <widget class="QGroupBox" name="groupBox">
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                   </font>
+                  </property>
+                  <property name="autoFillBackground">
+                   <bool>false</bool>
+                  </property>
                   <property name="title">
                    <string>DATOS PERSONALES</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_4">
                    <item row="10" column="3">
-                    <widget class="QComboBox" name="cbd_municipio"/>
+                    <widget class="QComboBox" name="cbd_municipio">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                    </widget>
                    </item>
                    <item row="5" column="3">
-                    <widget class="QComboBox" name="cbd_provincia"/>
+                    <widget class="QComboBox" name="cbd_provincia">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                    </widget>
                    </item>
                    <item row="0" column="0">
                     <spacer name="horizontalSpacer_8">
@@ -630,13 +811,24 @@ font-size: 2rem;
                    </item>
                    <item row="3" column="1">
                     <widget class="QLabel" name="label_4">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
                      <property name="text">
                       <string>Teléfono</string>
                      </property>
                     </widget>
                    </item>
                    <item row="3" column="3">
-                    <widget class="QLineEdit" name="txtd_telefono"/>
+                    <widget class="QLineEdit" name="txtd_telefono">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                    </widget>
                    </item>
                    <item row="1" column="4">
                     <spacer name="horizontalSpacer_26">
@@ -679,6 +871,11 @@ font-size: 2rem;
                    </item>
                    <item row="2" column="1">
                     <widget class="QLabel" name="label_3">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
                      <property name="text">
                       <string>DNI</string>
                      </property>
@@ -698,13 +895,34 @@ font-size: 2rem;
                     </spacer>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QLineEdit" name="txtd_nombre"/>
+                    <widget class="QLineEdit" name="txtd_nombre">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">margin-top:10px;</string>
+                     </property>
+                    </widget>
                    </item>
                    <item row="1" column="3">
-                    <widget class="QLineEdit" name="txtd_apellidos"/>
+                    <widget class="QLineEdit" name="txtd_apellidos">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                    </widget>
                    </item>
                    <item row="21" column="3">
-                    <widget class="QLineEdit" name="txtd_preseg"/>
+                    <widget class="QLineEdit" name="txtd_preseg">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                    </widget>
                    </item>
                    <item row="22" column="4">
                     <spacer name="horizontalSpacer_25">
@@ -721,6 +939,11 @@ font-size: 2rem;
                    </item>
                    <item row="19" column="3">
                     <widget class="QLineEdit" name="txtd_contra">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
                      <property name="echoMode">
                       <enum>QLineEdit::Password</enum>
                      </property>
@@ -767,6 +990,11 @@ font-size: 2rem;
                    </item>
                    <item row="20" column="1">
                     <widget class="QLabel" name="label_7">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
                      <property name="text">
                       <string>Confirme contraseña</string>
                      </property>
@@ -774,6 +1002,11 @@ font-size: 2rem;
                    </item>
                    <item row="23" column="3">
                     <widget class="QPushButton" name="botonuc_update">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
                      <property name="text">
                       <string>Actualizar</string>
                      </property>
@@ -781,6 +1014,11 @@ font-size: 2rem;
                    </item>
                    <item row="4" column="1">
                     <widget class="QLabel" name="label_5">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
                      <property name="text">
                       <string>Comunidad Autónoma</string>
                      </property>
@@ -827,6 +1065,11 @@ font-size: 2rem;
                    </item>
                    <item row="2" column="3">
                     <widget class="QLineEdit" name="txtd_dni">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
                      <property name="readOnly">
                       <bool>false</bool>
                      </property>
@@ -834,6 +1077,11 @@ font-size: 2rem;
                    </item>
                    <item row="19" column="1">
                     <widget class="QLabel" name="label_6">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
                      <property name="text">
                       <string>Contraseña</string>
                      </property>
@@ -854,6 +1102,11 @@ font-size: 2rem;
                    </item>
                    <item row="1" column="1">
                     <widget class="QLabel" name="label_2">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
                      <property name="text">
                       <string>Apellidos</string>
                      </property>
@@ -861,6 +1114,11 @@ font-size: 2rem;
                    </item>
                    <item row="20" column="3">
                     <widget class="QLineEdit" name="txtd_confcontra">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
                      <property name="echoMode">
                       <enum>QLineEdit::Password</enum>
                      </property>
@@ -868,6 +1126,11 @@ font-size: 2rem;
                    </item>
                    <item row="21" column="1">
                     <widget class="QLabel" name="label_9">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
                      <property name="text">
                       <string>Pregunta de seguridad</string>
                      </property>
@@ -875,6 +1138,11 @@ font-size: 2rem;
                    </item>
                    <item row="22" column="3">
                     <widget class="QLineEdit" name="txtd_resseg">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
                      <property name="echoMode">
                       <enum>QLineEdit::Password</enum>
                      </property>
@@ -908,16 +1176,32 @@ font-size: 2rem;
                    </item>
                    <item row="22" column="1">
                     <widget class="QLabel" name="label_10">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
                      <property name="text">
                       <string>Respuesta de seguridad</string>
                      </property>
                     </widget>
                    </item>
                    <item row="18" column="3">
-                    <widget class="QLineEdit" name="txtd_direccion"/>
+                    <widget class="QLineEdit" name="txtd_direccion">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                    </widget>
                    </item>
                    <item row="18" column="1">
                     <widget class="QLabel" name="label_8">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
                      <property name="text">
                       <string>Dirección</string>
                      </property>
@@ -925,8 +1209,19 @@ font-size: 2rem;
                    </item>
                    <item row="0" column="1">
                     <widget class="QLabel" name="label">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">margin-top:10px;</string>
+                     </property>
                      <property name="text">
                       <string>Nombre</string>
+                     </property>
+                     <property name="margin">
+                      <number>0</number>
                      </property>
                     </widget>
                    </item>
@@ -970,7 +1265,16 @@ font-size: 2rem;
                     </spacer>
                    </item>
                    <item row="4" column="3">
-                    <widget class="QComboBox" name="cbd_CA"/>
+                    <widget class="QComboBox" name="cbd_CA">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true"/>
+                     </property>
+                    </widget>
                    </item>
                    <item row="10" column="0">
                     <spacer name="horizontalSpacer_50">
@@ -987,6 +1291,11 @@ font-size: 2rem;
                    </item>
                    <item row="10" column="1">
                     <widget class="QLabel" name="label_22">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
                      <property name="text">
                       <string>Municipio</string>
                      </property>
@@ -994,6 +1303,11 @@ font-size: 2rem;
                    </item>
                    <item row="5" column="1">
                     <widget class="QLabel" name="label_21">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
                      <property name="text">
                       <string>Provincia</string>
                      </property>
@@ -1040,6 +1354,11 @@ font-size: 2rem;
                    </item>
                    <item row="15" column="1">
                     <widget class="QLabel" name="label_23">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
                      <property name="text">
                       <string>Codigo Postal</string>
                      </property>
@@ -1059,7 +1378,13 @@ font-size: 2rem;
                     </spacer>
                    </item>
                    <item row="15" column="3">
-                    <widget class="QLineEdit" name="txtd_cp"/>
+                    <widget class="QLineEdit" name="txtd_cp">
+                     <property name="font">
+                      <font>
+                       <family>Raleway</family>
+                      </font>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </widget>
@@ -1073,6 +1398,14 @@ font-size: 2rem;
                <layout class="QGridLayout" name="gridLayout_5">
                 <item row="0" column="0" colspan="2">
                  <widget class="QTableWidget" name="tableWidget">
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                   </font>
+                  </property>
+                  <property name="focusPolicy">
+                   <enum>Qt::TabFocus</enum>
+                  </property>
                   <property name="showGrid">
                    <bool>true</bool>
                   </property>
@@ -1083,33 +1416,51 @@ font-size: 2rem;
                    <property name="text">
                     <string>ID Pedido</string>
                    </property>
+                   <property name="font">
+                    <font>
+                     <family>Raleway</family>
+                    </font>
+                   </property>
                   </column>
                   <column>
                    <property name="text">
                     <string>Fecha</string>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Raleway</family>
+                    </font>
                    </property>
                   </column>
                   <column>
                    <property name="text">
                     <string>Precio total </string>
                    </property>
+                   <property name="font">
+                    <font>
+                     <family>Raleway</family>
+                    </font>
+                   </property>
                   </column>
                   <column>
                    <property name="text">
                     <string>Estado </string>
                    </property>
+                   <property name="font">
+                    <font>
+                     <family>Raleway</family>
+                    </font>
+                   </property>
                   </column>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QPushButton" name="pushButton">
-                  <property name="text">
-                   <string>Ver pedido</string>
-                  </property>
                  </widget>
                 </item>
                 <item row="1" column="1">
                  <widget class="QPushButton" name="pushButton_2">
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                   </font>
+                  </property>
                   <property name="text">
                    <string>Generar factura</string>
                   </property>

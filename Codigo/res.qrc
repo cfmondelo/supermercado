@@ -1,6 +1,7 @@
 <RCC>
   <qresource prefix="images">
     <file>z_background_limonada.jpg</file>
+    <file>z_background_limonada_login.jpg</file>
     <file>z_logo.png</file>
     <file>z_logo_organic.png</file>
     <file>z_6.png</file>

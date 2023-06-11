@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>617</width>
-    <height>567</height>
+    <width>1097</width>
+    <height>687</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,11 +17,16 @@
    <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>30</y>
+      <x>290</x>
+      <y>90</y>
       <width>550</width>
       <height>500</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Raleway</family>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton#pushButton:pressed{
@@ -40,32 +45,14 @@ QPushButton#pushButton_2:pressed{
     <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>30</x>
        <y>30</y>
-       <width>280</width>
+       <width>240</width>
        <height>430</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/images/5.jpg);
-border-image: url(:/images/z_background-login.jpg);
-border-top-left-radius:50px;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_7">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>30</y>
-       <width>280</width>
-       <height>430</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:rgba(0,0,0,80);
+      <string notr="true">border-image: url(:/images/z_background_limonada_login.jpg);
 border-top-left-radius:50px;</string>
      </property>
      <property name="text">
@@ -101,6 +88,7 @@ border-bottom-right-radius: 50px;
      </property>
      <property name="font">
       <font>
+       <family>Raleway</family>
        <pointsize>20</pointsize>
        <weight>75</weight>
        <bold>true</bold>
@@ -124,13 +112,14 @@ border-bottom-right-radius: 50px;
      </property>
      <property name="font">
       <font>
+       <family>Raleway</family>
        <pointsize>8</pointsize>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color:rgba(0,0,0,0);
+      <string notr="true">	background-color:rgba(0,0,0,0);
 border:none;
-border-bottom:2px solid rgba(46,82,101,200);
+border-bottom:2px solid rgb(73,86,78);
 color:rgba(0,0,0,240);
 padding-bottom:7px;</string>
      </property>
@@ -149,13 +138,14 @@ padding-bottom:7px;</string>
      </property>
      <property name="font">
       <font>
+       <family>Raleway</family>
        <pointsize>8</pointsize>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color:rgba(0,0,0,0);
+      <string notr="true">	background-color:rgba(0,0,0,0);
 border:none;
-border-bottom:2px solid rgba(46,82,101,200);
+border-bottom:2px solid rgb(73,86,78);
 color:rgba(0,0,0,240);
 padding-bottom:7px;</string>
      </property>
@@ -177,6 +167,7 @@ padding-bottom:7px;</string>
      </property>
      <property name="font">
       <font>
+       <family>Raleway</family>
        <pointsize>8</pointsize>
        <weight>75</weight>
        <bold>true</bold>
@@ -186,7 +177,8 @@ padding-bottom:7px;</string>
       <string notr="true">background-color:   rgba(233,233,232,200);
 border-style:solid;
 border-width: 1px;
-border-color:  rgba(46,82,101,200);</string>
+border-color:  rgb(73,86,78);
+</string>
      </property>
      <property name="text">
       <string>Entrar</string>
@@ -203,13 +195,14 @@ border-color:  rgba(46,82,101,200);</string>
      </property>
      <property name="font">
       <font>
+       <family>Raleway</family>
        <pointsize>8</pointsize>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color:rgba(0,0,0,0);
+      <string notr="true">	background-color:rgba(0,0,0,0);
 border:none;
-border-bottom:2px solid rgba(46,82,101,200);
+border-bottom:2px solid rgb(73,86,78);
 color:rgba(0,0,0,240);
 padding-bottom:7px;</string>
      </property>
@@ -231,13 +224,14 @@ padding-bottom:7px;</string>
      </property>
      <property name="font">
       <font>
+       <family>Raleway</family>
        <pointsize>8</pointsize>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color:rgba(0,0,0,0);
+      <string notr="true">	background-color:rgba(0,0,0,0);
 border:none;
-border-bottom:2px solid rgba(46,82,101,200);
+border-bottom:2px solid rgb(73,86,78);
 color:rgba(0,0,0,240);
 padding-bottom:7px;</string>
      </property>
@@ -259,15 +253,19 @@ padding-bottom:7px;</string>
      </property>
      <property name="font">
       <font>
+       <family>Raleway</family>
        <pointsize>8</pointsize>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color:rgba(0,0,0,0);
+      <string notr="true">	background-color:rgba(0,0,0,0);
 border:none;
-border-bottom:2px solid rgba(46,82,101,200);
+border-bottom:2px solid rgb(73,86,78);
 color:rgba(0,0,0,240);
 padding-bottom:7px;</string>
+     </property>
+     <property name="cursorPosition">
+      <number>0</number>
      </property>
      <property name="placeholderText">
       <string>Email</string>
@@ -284,13 +282,14 @@ padding-bottom:7px;</string>
      </property>
      <property name="font">
       <font>
+       <family>Raleway</family>
        <pointsize>8</pointsize>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color:rgba(0,0,0,0);
+      <string notr="true">	background-color:rgba(0,0,0,0);
 border:none;
-border-bottom:2px solid rgba(46,82,101,200);
+border-bottom:2px solid rgb(73,86,78);
 color:rgba(0,0,0,240);
 padding-bottom:7px;</string>
      </property>
@@ -315,10 +314,37 @@ padding-bottom:7px;</string>
        <normaloff>:/iconos/z_cerrar.png</normaloff>:/iconos/z_cerrar.png</iconset>
      </property>
     </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>30</y>
+       <width>240</width>
+       <height>430</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgba(239,232,224,70);
+border-top-left-radius:50px;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>botonrCerrar</tabstop>
+  <tabstop>txtr_usuario</tabstop>
+  <tabstop>txtr_email</tabstop>
+  <tabstop>txtr_password</tabstop>
+  <tabstop>txtr_confirmarPassword</tabstop>
+  <tabstop>txtr_preguntaSeguridad</tabstop>
+  <tabstop>txtr_respuestaSeguridad</tabstop>
+  <tabstop>botonr_entrar</tabstop>
+ </tabstops>
  <resources>
   <include location="res.qrc"/>
  </resources>
