@@ -134,7 +134,15 @@ def borrarCarrito(conn, usu):
     conn.commit()
   except (Exception, psycopg2.DatabaseError) as error:
     print(error)
-
+def borrarProducto(prodId,usu):
+  query = f"delete from carrito where prod_id='{prodId}' and usuario = '{usu}';"
+  try:
+    conn=conectar()
+    cur = conn.cursor()
+    cur.execute(query)
+    conn.commit()
+  except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
 def insertarLineaPed(conn, usu, desc, prec, fecha):
   linea = []
   tick_id = insertarTicket(conn, usu, desc, prec, fecha)

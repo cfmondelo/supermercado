@@ -585,7 +585,7 @@ class VentanaUC(QtWidgets.QMainWindow):
     
     #Creo spinbox y le añado distribucion 
                 numeric = QtWidgets.QSpinBox(frame_cont_prod)
-                numeric.setMinimum(1)
+                numeric.setMinimum(0)
                 numeric.setObjectName("numeric" + str(i))
                 numeric.setValue(prod[3])
                 horizontalLayout_cant_precio.addWidget(numeric)
@@ -635,7 +635,10 @@ class VentanaUC(QtWidgets.QMainWindow):
     def actualizaCantidad(self,cantidad,nombreProducto):
         conn=conectar()
         prodId=buscarProd(conn, nombreProducto)[0]
-        actualizarCarr(conn, cantidad,prodId,login.getEmail())
+        if cantidad==0:
+            borrarProducto(prodId,login.getEmail())
+        else:
+            actualizarCarr(conn, cantidad,prodId,login.getEmail())
         self.refrescarCarrito()
            
     def finalizarPedido(self):
