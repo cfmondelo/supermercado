@@ -83,6 +83,7 @@ def addLineasProductos(listaProductos, listaCompra, listaUsuario):
         if listaCompra[2] == None:    
             descuento=0
         else:
+            totalSinDescuento=total/(1-listaCompra[2]/100)
             descuento=totalSinDescuento-total
         f.write('''
                 <tr>

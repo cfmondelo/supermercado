@@ -435,6 +435,7 @@ class VentanaUC(QtWidgets.QMainWindow):
         self.ui.botonuc_update.clicked.connect(self.actualizarDatos)
         self.ui.cbd_CA.currentIndexChanged.connect(self.comboCCAA_changed)
         self.ui.cbd_provincia.currentIndexChanged.connect(self.comboProv_changed)
+        self.ui.botouc_validar.clicked.connect(self.comprobarDescuento)
         # self.refrescarCarrito()
         #Para la tabla de usuarios
         # En el constructor de la clase VentanaUC, después de self.ui.setupUi(self)
@@ -445,7 +446,7 @@ class VentanaUC(QtWidgets.QMainWindow):
 
 #>>>>>>>>>>>>>>Carol
 
-        self.ui.botouc_validar.clicked.connect(self.comprobarDescuento)
+        
         
         #variables del objeto
         self.descuento=0
@@ -597,11 +598,19 @@ class VentanaUC(QtWidgets.QMainWindow):
     # CODIGO DE ANDREA - LO COMENTO PORQUE SINO NO ME FUNCIONA
             # try:
                 # self.precioTot-=self.descuento
-                self.precioSub = self.precioTot/1.21 #corrijo la operación para calcular precio sin IVA
             # except Exception as ex:
             #     print(ex)
+        
+        else:
+            #si el carrito tiene 0 productos, que desaparezca todo
+            self.precioTot = 0
+            self.precioSub = 0
+            self.descuento = 0
+            self.ui.label_subtotal_5.setText(str(f"{self.precioSub:0.2f}")+"€") #subtotal
+            self.ui.label_subtotal_7.setText(str(f"{self.precioTot:0.2f}")+"€") #total
+            self.ui.label_subtotal_6.setText("DESCUENTO NO APLICADO") #descuento
+            self.ui.lineEdit.setText("")
         #LO COMENTO PORQUE EL LABEL NO SE QUITA CUANDO SE AGREGAN PRODUCTOS
-        # else:
         #     frame_p = QtWidgets.QFrame(self.ui.scrollAreaWidgetContents_4)
         #     frame_p.setMaximumSize(QtCore.QSize(16777215, 130))
         #     frame_p.setMinimumHeight(150)
@@ -616,15 +625,13 @@ class VentanaUC(QtWidgets.QMainWindow):
         #     label_noprod.setText("No hay productos en el carrito")
         #     label_noprod.setObjectName("label_noprod")
 
-            # self.precioTot = 0
-            # self.precioSub = 0
-        # self.precioTot-=(self.descuento*self.precioTot/100)
-        if self.precioTot==0:
-            self.descuento=0
-            self.ui.label_subtotal_6.setText("DESCUENTO NO APLICADO") #descuento
-            self.ui.lineEdit.setText("")
-        self.ui.label_subtotal_5.setText(str(f"{(self.precioTot-(self.descuento*self.precioTot/100))/1.21:0.2f}")+"€") #subtotal
-        self.ui.label_subtotal_7.setText(str(f"{self.precioTot-(self.descuento*self.precioTot/100):0.2f}")+"€") #total
+            
+            
+        #actualizo las variables porque si no cuando se recurre a ellas no están bien
+        self.precioTot-=(self.descuento*self.precioTot/100)
+        self.precioSub = self.precioTot/1.21 #corrijo la operación para calcular precio sin IVA
+        self.ui.label_subtotal_5.setText(str(f"{self.precioSub:0.2f}")+"€") #subtotal
+        self.ui.label_subtotal_7.setText(str(f"{self.precioTot:0.2f}")+"€") #total
     def actualizaCantidad(self,cantidad,nombreProducto):
         conn=conectar()
         prodId=buscarProd(conn, nombreProducto)[0]
@@ -734,14 +741,27 @@ class VentanaUC(QtWidgets.QMainWindow):
             self.cupon=self.ui.lineEdit.text()
             self.descuento=comprobarCupon(conexion,self.cupon)
             if self.descuento !=0:
-                # self.precioTot-=(self.descuento*self.precioTot/100)
-                self.ui.label_subtotal_6.setText("-"+str(self.descuento)+"%") #descuento
+                if self.ui.botouc_validar.text()=='BORRAR':
+                    self.precioTot=self.precioTot/(1-self.descuento/100)
+                    self.precioSub=self.precioTot/1.21
+                    self.descuento=0
+                    self.ui.label_subtotal_6.setText("DESCUENTO NO APLICADO") #descuento
+                    self.ui.botouc_validar.setText("VALIDAR")
+                    self.ui.lineEdit.setText("")
+                else:
+                    #actualizo variables para que si se recurre a ellas, estén bien
+                    self.precioTot-=(self.descuento*self.precioTot/100)
+                    self.precioSub=self.precioTot/1.21
+                    self.ui.label_subtotal_6.setText("-"+str(self.descuento)+"%") #descuento
+                    self.ui.botouc_validar.setText("BORRAR")
+                
             else:
+                showDialog("El cupón no es válido")
                 self.ui.label_subtotal_6.setText("DESCUENTO NO APLICADO") #descuento
             
-            self.precioSub=self.precioTot/1.21
-            self.ui.label_subtotal_5.setText(str(f"{(self.precioTot-(self.descuento*self.precioTot/100))/1.21:0.2f}")+"€") #subtotal
-            self.ui.label_subtotal_7.setText(str(f"{self.precioTot-(self.descuento*self.precioTot/100):0.2f}")+"€") #total
+            
+            self.ui.label_subtotal_5.setText(str(f"{self.precioSub:0.2f}")+"€") #subtotal
+            self.ui.label_subtotal_7.setText(str(f"{self.precioTot:0.2f}")+"€") #total
         except Exception as ex:
             print(ex)
         
@@ -942,7 +962,6 @@ class VentanaUC(QtWidgets.QMainWindow):
             addLineasProductos(listaProductos,datosCompra,datosUsuario) 
             crea_pdf(compraID,datosCompra[0],rutaHtml())
             showDialog("Factura generada correctamente en la ruta: "+rutaPdf(compraID,datosCompra[0]))
-            print()
         else:
             showDialog("Debe seleccionar un pedido")
             
