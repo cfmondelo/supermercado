@@ -123,6 +123,9 @@ def addLineasProductos(listaProductos, listaCompra, listaUsuario):
         f.write("</html>")    
 def rutaPdf(idCompra,fecha):
     ruta_absoluta=os.getcwd()
+    ruta_carpeta=ruta_absoluta+"/facturas_exportadas"
+    if not os.path.exists(ruta_carpeta):
+        os.makedirs(ruta_carpeta)
     ruta_salida=ruta_absoluta+"/facturas_exportadas/factura_"+str(idCompra)+"_"+str(fecha)+".pdf"
     return ruta_salida
 
