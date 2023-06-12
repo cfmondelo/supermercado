@@ -748,12 +748,14 @@ class VentanaUC(QtWidgets.QMainWindow):
                     self.ui.label_subtotal_6.setText("DESCUENTO NO APLICADO") #descuento
                     self.ui.botouc_validar.setText("VALIDAR")
                     self.ui.lineEdit.setText("")
+                    self.ui.lineEdit.setReadOnly(False)
                 else:
                     #actualizo variables para que si se recurre a ellas, estén bien
                     self.precioTot-=(self.descuento*self.precioTot/100)
                     self.precioSub=self.precioTot/1.21
                     self.ui.label_subtotal_6.setText("-"+str(self.descuento)+"%") #descuento
                     self.ui.botouc_validar.setText("BORRAR")
+                    self.ui.lineEdit.setReadOnly(True)
                 
             else:
                 showDialog("El cupón no es válido")
